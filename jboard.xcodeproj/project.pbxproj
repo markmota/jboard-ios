@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30D2CBA91DB18FE7003322CD /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D2CBA81DB18FE7003322CD /* FBLoginViewController.m */; };
+		30D2CC2C1DB1EE5E003322CD /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */; };
 		30F9DB261D96B29000112CD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB251D96B29000112CD9 /* AppDelegate.swift */; };
 		30F9DB281D96B29000112CD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB271D96B29000112CD9 /* ViewController.swift */; };
 		30F9DB2B1D96B29000112CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB291D96B29000112CD9 /* Main.storyboard */; };
@@ -30,8 +30,7 @@
 
 /* Begin PBXFileReference section */
 		30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jboard-Bridging-Header.h"; sourceTree = "<group>"; };
-		30D2CBA71DB18FE7003322CD /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
-		30D2CBA81DB18FE7003322CD /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
+		30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
 		30F9DB221D96B29000112CD9 /* jboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F9DB251D96B29000112CD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30F9DB271D96B29000112CD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,12 +101,11 @@
 			children = (
 				30F9DB251D96B29000112CD9 /* AppDelegate.swift */,
 				30F9DB271D96B29000112CD9 /* ViewController.swift */,
+				30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */,
 				30F9DB291D96B29000112CD9 /* Main.storyboard */,
 				30F9DB2C1D96B29000112CD9 /* Assets.xcassets */,
 				30F9DB2E1D96B29000112CD9 /* LaunchScreen.storyboard */,
 				30F9DB311D96B29000112CD9 /* Info.plist */,
-				30D2CBA71DB18FE7003322CD /* FBLoginViewController.h */,
-				30D2CBA81DB18FE7003322CD /* FBLoginViewController.m */,
 				30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */,
 			);
 			path = jboard;
@@ -288,8 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30D2CBA91DB18FE7003322CD /* FBLoginViewController.m in Sources */,
 				30F9DB281D96B29000112CD9 /* ViewController.swift in Sources */,
+				30D2CC2C1DB1EE5E003322CD /* FBLoginViewController.swift in Sources */,
 				30F9DB261D96B29000112CD9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

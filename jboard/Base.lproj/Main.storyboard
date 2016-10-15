@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FBLoginViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FBLoginViewController" customModule="jboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,7 +40,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="GmY-Ft-ahH" id="bVf-4e-Etj"/>
+                        <outlet property="loginButton" destination="GmY-Ft-ahH" id="ovk-Qt-pUq"/>
                         <segue destination="Bf3-kD-IM9" kind="show" identifier="showApp" id="uFk-hF-qvX"/>
                     </connections>
                 </viewController>
