@@ -20,9 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmY-Ft-ahH" customClass="FBSDKLoginButton">
-                                <state key="normal" title="Facebook Login"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-white" translatesAutoresizingMaskIntoConstraints="NO" id="hPH-Pu-6dz">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hPH-Pu-6dz" secondAttribute="height" multiplier="1:1" id="rqS-EK-2IH"/>
@@ -32,15 +29,11 @@
                         <color key="backgroundColor" red="0.3921568627" green="0.31764705879999999" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hPH-Pu-6dz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="4Lf-PJ-DD3"/>
-                            <constraint firstItem="GmY-Ft-ahH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D9Z-3e-0T6"/>
-                            <constraint firstItem="GmY-Ft-ahH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JXt-Rj-xss"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GmY-Ft-ahH" secondAttribute="bottom" constant="60" id="e0O-xd-WhR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hPH-Pu-6dz" secondAttribute="trailing" constant="50" id="gBy-My-8pk"/>
                             <constraint firstItem="hPH-Pu-6dz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kXV-WC-8cZ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="GmY-Ft-ahH" id="ovk-Qt-pUq"/>
                         <segue destination="Bf3-kD-IM9" kind="show" identifier="showApp" id="uFk-hF-qvX"/>
                     </connections>
                 </viewController>

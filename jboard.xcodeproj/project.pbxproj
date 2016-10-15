@@ -14,7 +14,6 @@
 		30F9DB2D1D96B29000112CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB2C1D96B29000112CD9 /* Assets.xcassets */; };
 		30F9DB301D96B29000112CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB2E1D96B29000112CD9 /* LaunchScreen.storyboard */; };
 		30F9DB3B1D96B29000112CD9 /* jboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB3A1D96B29000112CD9 /* jboardTests.swift */; };
-		30F9DB461D96B3C700112CD9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB451D96B3C700112CD9 /* Podfile */; };
 		E8DC23904EED36D76A5DB842 /* Pods_jboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF7F27C12336E489A2E170 /* Pods_jboard.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +30,7 @@
 /* Begin PBXFileReference section */
 		30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		30D2CC2D1DB20459003322CD /* jboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jboard.entitlements; sourceTree = "<group>"; };
 		30F9DB221D96B29000112CD9 /* jboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F9DB251D96B29000112CD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30F9DB271D96B29000112CD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +41,6 @@
 		30F9DB361D96B29000112CD9 /* jboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F9DB3A1D96B29000112CD9 /* jboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jboardTests.swift; sourceTree = "<group>"; };
 		30F9DB3C1D96B29000112CD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30F9DB451D96B3C700112CD9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A503B90377ED16D78B6BA89D /* Pods-jboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jboard/Pods-jboard.debug.xcconfig"; sourceTree = "<group>"; };
 		B902D5C877815C2AD251C8ED /* Pods-jboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-jboard/Pods-jboard.release.xcconfig"; sourceTree = "<group>"; };
 		C9FF7F27C12336E489A2E170 /* Pods_jboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +77,6 @@
 		30F9DB191D96B28F00112CD9 = {
 			isa = PBXGroup;
 			children = (
-				30F9DB451D96B3C700112CD9 /* Podfile */,
 				30F9DB241D96B29000112CD9 /* jboard */,
 				30F9DB391D96B29000112CD9 /* jboardTests */,
 				30F9DB231D96B29000112CD9 /* Products */,
@@ -99,6 +97,7 @@
 		30F9DB241D96B29000112CD9 /* jboard */ = {
 			isa = PBXGroup;
 			children = (
+				30D2CC2D1DB20459003322CD /* jboard.entitlements */,
 				30F9DB251D96B29000112CD9 /* AppDelegate.swift */,
 				30F9DB271D96B29000112CD9 /* ViewController.swift */,
 				30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */,
@@ -184,6 +183,11 @@
 						DevelopmentTeam = D3XL2U7DQC;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					30F9DB351D96B29000112CD9 = {
 						CreatedOnToolsVersion = 8.0;
@@ -219,7 +223,6 @@
 			files = (
 				30F9DB301D96B29000112CD9 /* LaunchScreen.storyboard in Resources */,
 				30F9DB2D1D96B29000112CD9 /* Assets.xcassets in Resources */,
-				30F9DB461D96B3C700112CD9 /* Podfile in Resources */,
 				30F9DB2B1D96B29000112CD9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = jboard/jboard.entitlements;
 				DEVELOPMENT_TEAM = D3XL2U7DQC;
 				INFOPLIST_FILE = jboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -445,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = jboard/jboard.entitlements;
 				DEVELOPMENT_TEAM = D3XL2U7DQC;
 				INFOPLIST_FILE = jboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

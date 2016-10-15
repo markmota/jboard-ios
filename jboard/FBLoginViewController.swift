@@ -10,11 +10,18 @@ import UIKit
 import FBSDKLoginKit
 
 class FBLoginViewController: UIViewController {
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
+    
+    var loginButton: FBSDKLoginButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.readPermissions = ["public_profile", "email", "user_friends"];
+        self.loginButton = FBSDKLoginButton()
+        self.loginButton.readPermissions = ["public_profile", "email"]
+        self.loginButton.frame = CGRect(x: 20,
+                                        y: self.view.bounds.size.height - 80,
+                                        width: self.view.bounds.size.width - 40,
+                                        height: 30 )
+        self.view.addSubview(loginButton)
     }
 
     override func didReceiveMemoryWarning() {
