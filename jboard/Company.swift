@@ -9,8 +9,8 @@
 import Foundation
 
 class Company {
-    public var id:Int
-    public var name:String
+    public var id:Int = 0
+    public var name:String = ""
 }
 
 extension Company : JSONAble {}

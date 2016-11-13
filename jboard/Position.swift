@@ -9,14 +9,14 @@
 import Foundation
 
 class Position {
-    public var id:Int
-    public var title:String
-    public var description:String
-    public var skillList:Array<String>
-    public var company:Company
-    public var company_id:Int
-    public var company_name:String
-    public var contacts:Array<Contact>
+    public var id:Int = 0
+    public var title:String = ""
+    public var description:String = ""
+    public var skillList:Array<String> = []
+    public var company:Company?
+    public var company_id:Int = 0
+    public var company_name:String = ""
+    public var contacts:Array<Contact> = []
     
 }
 

@@ -9,12 +9,12 @@
 import Foundation
 
 class Contact {
-    public var mainContact:Boolean
-    public var id:Int
-    public var name:String
-    public var position:String
-    public var email:String
-    public var phone:String
+    public var mainContact:Bool = false
+    public var id:Int = 0
+    public var name:String = ""
+    public var position:String = ""
+    public var email:String = ""
+    public var phone:String = ""
 }
 
 extension Contact : JSONAble {}

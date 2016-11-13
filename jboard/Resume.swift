@@ -9,10 +9,10 @@
 import Foundation
 
 class Resume {
-    public var id:Int
-    public var bio:String
-    public var user:User
-    public var skillList:ListString
+    public var id:Int = 0
+    public var bio:String = ""
+    public var user:User?
+    public var skillList:Array<String> = []
 }
 
 extension Resume : JSONAble {}

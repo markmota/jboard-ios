@@ -9,11 +9,11 @@
 import Foundation
 
 class Bookmark {
-    public var id:Int
-    public var status:String
-    public var match:Double
-    public var resumeId:Int
-    public var position:Position
+    public var id:Int = 0
+    public var status:String = ""
+    public var match:Double = 0.0
+    public var resumeId:Int = 0
+    public var position:Position?
 }
 
 extension Bookmark : JSONAble {}

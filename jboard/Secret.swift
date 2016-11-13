@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SSKeychain
+import SAMKeychain
 
 enum Secret {
     static let account        = "org.rightmonkey.jboard"
@@ -18,7 +18,7 @@ enum Secret {
     var value : String? {
         switch self {
         case .apiToken:
-            return SSKeychain.password(forService: Secret.apiService, account: Secret.account)
+            return SAMKeychain.password(forService: Secret.apiService, account: Secret.account)
         }
     }
 }

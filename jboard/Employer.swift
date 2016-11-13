@@ -9,15 +9,15 @@
 import Foundation
 
 class Employer {
-    public var id:Int
-    public var company_id:Int
-    public var company_name:String
-    public var name:String
-    public var position:String
-    public var email:String
-    public var phone:String
-    public var userData:Boolean
-    public var user:User
+    public var id:Int = 0
+    public var company_id:Int = 0
+    public var company_name:String = ""
+    public var name:String = ""
+    public var position:String = ""
+    public var email:String = ""
+    public var phone:String = ""
+    public var userData:Bool = false
+    public var user:User?
 }
 
 extension Employer : JSONAble {}

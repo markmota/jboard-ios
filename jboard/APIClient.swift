@@ -73,7 +73,7 @@ struct APIClient {
             case .company(let id): return "api/v1/companies/\(id)"
             case .employers: return "api/v1/employers"
             case .employer(let id): return "api/v1/employers/\(id)"
-            case .createEmployer(let employer): return "api/v1/employers/"
+            case .createEmployer(_): return "api/v1/employers/"
             case .updateEmployer(let employer), .deleteEmployer(let employer): return "api/v1/employers/\(employer.id)"
             case .resume, .createResume(_), .updateResume(_), .deleteResume: return "api/v1/resume"
             case .bookmarks: return "api/v1/bookmarks"
@@ -85,13 +85,13 @@ struct APIClient {
         var params: [String: AnyObject] {
             switch self {
             case .register(let user):
-                return user.toDict(exclude: ["id", "gravatarUrl"])
+                return user.toDict(exclude: ["id", "gravatarUrl"]) as [String : AnyObject]
             case .createPosition(let position), .updatePosition(let position):
-                return position.toDict(exclude: ["id", "company", "contacts"])
+                return position.toDict(exclude: ["id", "company", "contacts"]) as [String : AnyObject]
             case .createResume(let resume), .updateResume(let resume):
-                return resume.toDict(exclude: ["id", "user"])
+                return resume.toDict(exclude: ["id", "user"]) as [String : AnyObject]
             case .createEmployer(let employer), .updateEmployer(let employer):
-                return employer.toDict(exclude: ["id", "company", "contacts"])
+                return employer.toDict(exclude: ["id", "company", "contacts"]) as [String : AnyObject]
             default: return [:]
             }
         }
