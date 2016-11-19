@@ -10,8 +10,8 @@ import Foundation
 
 class User {
     public var id:Int = 0
-    public var firstName:String = ""
-    public var lastName:String = ""
+    public var first_name:String = ""
+    public var last_name:String = ""
     public var email:String = ""
     public var phone:String = ""
     public var imageUrl:String = ""
