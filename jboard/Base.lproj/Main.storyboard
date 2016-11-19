@@ -39,7 +39,7 @@
                     </view>
                     <connections>
                         <segue destination="Bf3-kD-IM9" kind="show" identifier="showRegister" id="uFk-hF-qvX"/>
-                        <segue destination="pOk-yZ-1mF" kind="show" identifier="mainApp" id="OIi-uZ-OMK"/>
+                        <segue destination="pOk-yZ-1mF" kind="show" identifier="navigateToMain" id="OIi-uZ-OMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -61,7 +61,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twB-qj-NIo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H7r-RV-By9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-white" translatesAutoresizingMaskIntoConstraints="NO" id="H7r-RV-By9">
                                         <rect key="frame" x="87" y="41" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="H7r-RV-By9" secondAttribute="height" multiplier="1:1" id="fNc-Ri-sbY"/>
@@ -85,7 +85,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjE-w0-31s">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjE-w0-31s" customClass="RoundButton" customModule="jboard" customModuleProvider="target">
                                         <rect key="frame" x="45" y="469" width="285" height="30"/>
                                         <state key="normal" title="Registrar"/>
                                     </button>
@@ -120,7 +120,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.77647058820000003" green="0.74901960779999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3921568627" green="0.31764705879999999" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="X7R-hK-Za4" firstAttribute="top" secondItem="twB-qj-NIo" secondAttribute="bottom" id="7Xl-Vj-Kf7"/>
                             <constraint firstItem="twB-qj-NIo" firstAttribute="leading" secondItem="qGK-QP-tSD" secondAttribute="leading" id="NFs-r1-LW7"/>
@@ -139,7 +139,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="NUe-X3-SHX">
             <objects>
-                <tabBarController id="pOk-yZ-1mF" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootNavigation" id="pOk-yZ-1mF" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="pEY-E3-QCb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,7 +168,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYz-Qy-ooT" id="lKj-sk-oUT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -183,7 +183,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Me2-fW-c0U">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kDc-TY-d9y">
-                            <rect key="frame" x="82" y="7" width="212" height="30"/>
+                            <rect key="frame" x="81.5" y="7" width="212" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Todos"/>
@@ -541,7 +541,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ncA-R3-9gn" id="8zg-31-sxU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -618,7 +618,7 @@
         <image name="icon-white" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OIi-uZ-OMK"/>
+        <segue reference="t29-YB-hb1"/>
         <segue reference="uFk-hF-qvX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,7 @@ struct APIClient {
         #else
         static let baseURLString = "https://jboard-api.herokuapp.com/"
         #endif
+        case loginFacebook(token:String)
         case currentUser
         case register(user:User)
         case positions
@@ -44,6 +45,7 @@ struct APIClient {
         
         var method: HTTPMethod {
             switch self {
+            case .loginFacebook(_): return .post
             case .register(_): return .post
             case .createPosition(_): return .post
             case .updatePosition(_): return .put
@@ -62,6 +64,7 @@ struct APIClient {
         
         var path: String {
             switch self {
+            case .loginFacebook(_): return "api/v1/login/facebook"
             case .currentUser: return "api/v1/user"
             case .register(_): return "api/v1/register"
             case .positions: return "api/v1/positions"
@@ -84,6 +87,8 @@ struct APIClient {
         
         var params: [String: AnyObject] {
             switch self {
+            case .loginFacebook(let token):
+                return ["token":token as AnyObject]
             case .register(let user):
                 return user.toDict(exclude: ["id", "gravatarUrl"]) as [String : AnyObject]
             case .createPosition(let position), .updatePosition(let position):

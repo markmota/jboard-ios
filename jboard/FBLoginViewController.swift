@@ -8,10 +8,14 @@
 
 import UIKit
 import FBSDKLoginKit
+import SAMKeychain
+import Alamofire
 
 class FBLoginViewController: UIViewController {
     
+    var activitIndicator : UIActivityIndicatorView!
     var loginButton: FBSDKLoginButton!
+    var loginSuccess : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +24,14 @@ class FBLoginViewController: UIViewController {
         self.loginButton.frame = CGRect(x: 20,
                                         y: self.view.bounds.size.height - 80,
                                         width: self.view.bounds.size.width - 40,
-                                        height: 30 )
-        self.view.addSubview(loginButton)
+                                        height: 30)
+        self.loginButton.delegate = self
+        self.view.addSubview(self.loginButton)
+        
+        self.activitIndicator.center = self.view.center
+        self.activitIndicator.hidesWhenStopped = true
+        self.activitIndicator.stopAnimating()
+        self.view.addSubview(self.activitIndicator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,15 +39,25 @@ class FBLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if (FBSDKAccessToken.current() != nil) {
-            print("logged with facebook");
+    override func viewDidAppear(_ animated: Bool) {
+        if FBSDKAccessToken.current() != nil || loginSuccess {
+            selectSegue()
         } else {
-            print("Never logged......");
+            super.viewDidAppear(animated)
         }
-        super.viewWillAppear(animated)
     }
     
+    func selectSegue() {
+        self.activitIndicator.startAnimating()
+        loginAPI(FBSDKAccessToken.current().tokenString) {
+            self.activitIndicator.stopAnimating()
+            if let _ = Secret.apiToken.value {
+                self.performSegue(withIdentifier: "navigateToMain", sender: self)
+            } else {
+                self.performSegue(withIdentifier: "showRegister", sender: self)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -48,5 +68,39 @@ class FBLoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func loginAPI(_ token : String, completion: ((Void) -> Void)?) {
+        let request = try! APIClient.Router.loginFacebook(token: token).asURLRequest()
+        Alamofire.request(request).responseJSON { response in
+            debugPrint(response)
+            if response.result.isSuccess, let data = response.result.value as? [String: AnyObject] {
+                let authToken = data["auth_token"] as! String
+                SAMKeychain.setPassword(authToken, forService: Secret.apiService, account: Secret.account)
+                if let completionBlock = completion {
+                    DispatchQueue.main.async { completionBlock() }
+                }
+            }
+        }
+    }
 
+}
+
+
+extension FBLoginViewController : FBSDKLoginButtonDelegate {
+
+    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if (error != nil) {
+            debugPrint("Something went wrong \(error)")
+        } else if result.isCancelled {
+            // Handle cancellations
+        } else {
+            loginSuccess = true
+        }
+    }
+    
+    
+    public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!){
+        SAMKeychain.deletePassword(forService: Secret.apiService, account: Secret.account)
+    }
+    
 }

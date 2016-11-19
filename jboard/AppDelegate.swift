@@ -17,11 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        skipLogin()
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        skipLogin()
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -45,6 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func skipLogin() {
+        if FBSDKAccessToken.current() != nil, let _ = Secret.apiToken.value {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let root = storyboard.instantiateViewController(withIdentifier: "RootNavigation") as! UITabBarController
+            self.window?.rootViewController = root
+        }
     }
 
 
