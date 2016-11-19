@@ -13,7 +13,7 @@ import Alamofire
 
 class FBLoginViewController: UIViewController {
     
-    var activitIndicator : UIActivityIndicatorView!
+    var activitIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     var loginButton: FBSDKLoginButton!
     var loginSuccess : Bool = false
 
