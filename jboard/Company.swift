@@ -11,6 +11,15 @@ import Foundation
 class Company {
     public var id:Int = 0
     public var name:String = ""
+    
+    init(withJSON json: [String : AnyObject]) {
+        if let id = json["id"] as? Int {
+            self.id = id
+        }
+        if let name = json["name"] as? String {
+            self.name = name
+        }
+    }
 }
 
 extension Company : JSONAble {}
