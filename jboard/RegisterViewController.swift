@@ -29,7 +29,6 @@ class RegisterViewController: UIViewController {
             register(user: user,
                      completion: {
                         self.performSegue(withIdentifier: "completeRegister", sender: self)
-                        self.dismiss(animated: true, completion: nil)
             },
                      failure: {
                         print("Oups!!!")
