@@ -56,9 +56,11 @@ class FBLoginViewController: UIViewController {
                         self.performSegue(withIdentifier: "navigateToMain", sender: self)
                     } else {
                         self.performSegue(withIdentifier: "showRegister", sender: self)
+                        
                     }
                  }, failure: {
                     self.activitIndicator.stopAnimating()
+                    self.performSegue(withIdentifier: "showRegister", sender: self)
                  })
     }
 
