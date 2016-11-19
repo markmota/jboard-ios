@@ -18,9 +18,10 @@ class User {
     public var gravatarUrl:String = ""
     public var employer:Bool = false
     public var candidate:Bool = false
-    
     public var facebook_uuid:String = ""
     public var facebook_token:String = ""
+    
+    
 }
 
 extension User : JSONAble {}

@@ -28,6 +28,7 @@
 		30F9DB301D96B29000112CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB2E1D96B29000112CD9 /* LaunchScreen.storyboard */; };
 		30F9DB3B1D96B29000112CD9 /* jboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB3A1D96B29000112CD9 /* jboardTests.swift */; };
 		639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */; };
+		55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0DE8C1DE0DBF9007110D9 /* RegisterViewController.swift */; };
 		E8DC23904EED36D76A5DB842 /* Pods_jboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF7F27C12336E489A2E170 /* Pods_jboard.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		30F9DB3A1D96B29000112CD9 /* jboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jboardTests.swift; sourceTree = "<group>"; };
 		30F9DB3C1D96B29000112CD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionsTableViewController.swift; sourceTree = "<group>"; };
+		55F0DE8C1DE0DBF9007110D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A503B90377ED16D78B6BA89D /* Pods-jboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jboard/Pods-jboard.debug.xcconfig"; sourceTree = "<group>"; };
 		B902D5C877815C2AD251C8ED /* Pods-jboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-jboard/Pods-jboard.release.xcconfig"; sourceTree = "<group>"; };
 		C9FF7F27C12336E489A2E170 /* Pods_jboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 		30D2CC2F1DB2088B003322CD /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				55F0DE8C1DE0DBF9007110D9 /* RegisterViewController.swift */,
 				30F9DB271D96B29000112CD9 /* ViewController.swift */,
 				30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */,
 				639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */,
@@ -368,6 +371,7 @@
 				30A20D381DCE61B100A748EA /* User.swift in Sources */,
 				30A20D3A1DCE63CD00A748EA /* Jsonable.swift in Sources */,
 				639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */,
+				55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */,
 				30A20D401DCE6C8300A748EA /* Employer.swift in Sources */,
 				30A20D3C1DCE69B700A748EA /* Position.swift in Sources */,
 				30A20D421DCE6C9700A748EA /* Bookmark.swift in Sources */,

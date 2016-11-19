@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="1295" y="-716"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="3jH-I4-GwS">
             <objects>
-                <viewController id="Bf3-kD-IM9" sceneMemberID="viewController">
+                <viewController id="Bf3-kD-IM9" customClass="RegisterViewController" customModule="jboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qwb-CX-c5U"/>
                         <viewControllerLayoutGuide type="bottom" id="X7R-hK-Za4"/>
@@ -88,6 +88,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjE-w0-31s" customClass="RoundButton" customModule="jboard" customModuleProvider="target">
                                         <rect key="frame" x="45" y="469" width="285" height="30"/>
                                         <state key="normal" title="Registrar"/>
+                                        <connections>
+                                            <action selector="btnRegister:" destination="Bf3-kD-IM9" eventType="touchUpInside" id="KwY-6J-bjO"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UA3-AA-4nU">
                                         <rect key="frame" x="45" y="274" width="285" height="30"/>
@@ -129,6 +132,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="txtEmail" destination="vX6-eI-ZSh" id="LzS-Ig-llG"/>
+                        <outlet property="txtLastName" destination="Zib-90-FbK" id="HOV-lU-Ueq"/>
+                        <outlet property="txtName" destination="UA3-AA-4nU" id="psa-Pw-bbu"/>
+                        <outlet property="txtPhone" destination="BZp-WW-LCx" id="SDF-H2-0bR"/>
                         <segue destination="pOk-yZ-1mF" kind="show" identifier="completeRegister" id="t29-YB-hb1"/>
                     </connections>
                 </viewController>
