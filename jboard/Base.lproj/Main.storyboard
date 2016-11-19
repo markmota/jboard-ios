@@ -38,12 +38,13 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="Bf3-kD-IM9" kind="show" identifier="showApp" id="uFk-hF-qvX"/>
+                        <segue destination="Bf3-kD-IM9" kind="show" identifier="showRegister" id="uFk-hF-qvX"/>
+                        <segue destination="pOk-yZ-1mF" kind="show" identifier="mainApp" id="OIi-uZ-OMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.875" y="108.80281690140845"/>
+            <point key="canvasLocation" x="1295" y="-716"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3jH-I4-GwS">
@@ -617,6 +618,7 @@
         <image name="icon-white" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="OIi-uZ-OMK"/>
         <segue reference="uFk-hF-qvX"/>
     </inferredMetricsTieBreakers>
 </document>
