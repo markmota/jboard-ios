@@ -73,8 +73,7 @@ class FBLoginViewController: UIViewController {
         let request = try! APIClient.Router.loginFacebook(token: token).asURLRequest()
         Alamofire.request(request).responseJSON { response in
             debugPrint(response)
-            if response.result.isSuccess, let data = response.result.value as? [String: AnyObject] {
-                let authToken = data["auth_token"] as! String
+            if response.result.isSuccess, let data = response.result.value as? [String: AnyObject], let authToken = data["auth_token"] as? String{
                 SAMKeychain.setPassword(authToken, forService: Secret.apiService, account: Secret.account)
                 if let completionBlock = completion {
                     DispatchQueue.main.async { completionBlock() }
