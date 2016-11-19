@@ -9,6 +9,7 @@
 import UIKit
 
 class PositionsTableViewController: UITableViewController {
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var positions : [Position] = [] {
         didSet {
@@ -18,6 +19,8 @@ class PositionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hide add positions button for candidates
+        addButton.isEnabled = false
         Position.all() { result in
             self.positions = result
         }
