@@ -49,14 +49,17 @@ class FBLoginViewController: UIViewController {
     
     func selectSegue() {
         self.activitIndicator.startAnimating()
-        loginAPI(FBSDKAccessToken.current().tokenString) {
-            self.activitIndicator.stopAnimating()
-            if let _ = Secret.apiToken.value {
-                self.performSegue(withIdentifier: "navigateToMain", sender: self)
-            } else {
-                self.performSegue(withIdentifier: "showRegister", sender: self)
-            }
-        }
+        loginAPI(FBSDKAccessToken.current().tokenString,
+                 completion: {
+                    self.activitIndicator.stopAnimating()
+                    if let _ = Secret.apiToken.value {
+                        self.performSegue(withIdentifier: "navigateToMain", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "showRegister", sender: self)
+                    }
+                 }, failure: {
+                    self.activitIndicator.stopAnimating()
+                 })
     }
 
     /*
@@ -69,7 +72,7 @@ class FBLoginViewController: UIViewController {
     }
     */
     
-    func loginAPI(_ token : String, completion: ((Void) -> Void)?) {
+    func loginAPI(_ token : String, completion: ((Void) -> Void)?, failure: ((Void) -> Void)?) {
         let request = try! APIClient.Router.loginFacebook(token: token).asURLRequest()
         Alamofire.request(request).responseJSON { response in
             debugPrint(response)
@@ -77,6 +80,10 @@ class FBLoginViewController: UIViewController {
                 SAMKeychain.setPassword(authToken, forService: Secret.apiService, account: Secret.account)
                 if let completionBlock = completion {
                     DispatchQueue.main.async { completionBlock() }
+                }
+            } else {
+                if let failureBlock = failure {
+                    DispatchQueue.main.async { failureBlock() }
                 }
             }
         }
