@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Employer {
+class Employer : Model {
     public var id:Int = 0
     public var company_id:Int = 0
     public var company_name:String = ""
@@ -19,5 +19,3 @@ class Employer {
     public var userData:Bool = false
     public var user:User?
 }
-
-extension Employer : JSONAble {}

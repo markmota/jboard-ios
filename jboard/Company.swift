@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Company {
+class Company : Model {
     public var id:Int = 0
     public var name:String = ""
     
@@ -21,5 +21,3 @@ class Company {
         }
     }
 }
-
-extension Company : JSONAble {}

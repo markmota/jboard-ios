@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class Position {
+class Position : Model {
     public var id:Int = 0
     public var title:String = ""
     public var description:String = ""
@@ -61,5 +61,3 @@ class Position {
         }
     }
 }
-
-extension Position : JSONAble {}

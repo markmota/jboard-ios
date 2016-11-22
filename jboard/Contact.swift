@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Contact {
+class Contact : Model {
     public var mainContact:Bool = false
     public var id:Int = 0
     public var name:String = ""
@@ -16,5 +16,3 @@ class Contact {
     public var email:String = ""
     public var phone:String = ""
 }
-
-extension Contact : JSONAble {}

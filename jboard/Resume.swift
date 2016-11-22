@@ -8,11 +8,9 @@
 
 import Foundation
 
-class Resume {
+class Resume : Model {
     public var id:Int = 0
     public var bio:String = ""
     public var user:User?
     public var skillList:Array<String> = []
 }
-
-extension Resume : JSONAble {}

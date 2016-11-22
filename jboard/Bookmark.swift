@@ -8,12 +8,10 @@
 
 import Foundation
 
-class Bookmark {
+class Bookmark : Model {
     public var id:Int = 0
     public var status:String = ""
     public var match:Double = 0.0
     public var resumeId:Int = 0
     public var position:Position?
 }
-
-extension Bookmark : JSONAble {}
