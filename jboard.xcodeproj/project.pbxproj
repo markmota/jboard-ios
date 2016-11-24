@@ -33,6 +33,8 @@
 		30F9DB3B1D96B29000112CD9 /* jboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB3A1D96B29000112CD9 /* jboardTests.swift */; };
 		55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0DE8C1DE0DBF9007110D9 /* RegisterViewController.swift */; };
 		639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */; };
+		63E6A4C91DE14187007112FF /* PositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6A4C81DE14187007112FF /* PositionTableViewCell.swift */; };
+		63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6A4CA1DE1461F007112FF /* PositionDetailViewController.swift */; };
 		E8DC23904EED36D76A5DB842 /* Pods_jboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF7F27C12336E489A2E170 /* Pods_jboard.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		30F9DB3C1D96B29000112CD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55F0DE8C1DE0DBF9007110D9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionsTableViewController.swift; sourceTree = "<group>"; };
+		63E6A4C81DE14187007112FF /* PositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionTableViewCell.swift; sourceTree = "<group>"; };
+		63E6A4CA1DE1461F007112FF /* PositionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDetailViewController.swift; sourceTree = "<group>"; };
 		A503B90377ED16D78B6BA89D /* Pods-jboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-jboard/Pods-jboard.debug.xcconfig"; sourceTree = "<group>"; };
 		B902D5C877815C2AD251C8ED /* Pods-jboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-jboard/Pods-jboard.release.xcconfig"; sourceTree = "<group>"; };
 		C9FF7F27C12336E489A2E170 /* Pods_jboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,8 @@
 				30F9DB271D96B29000112CD9 /* ViewController.swift */,
 				30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */,
 				639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */,
+				63E6A4C81DE14187007112FF /* PositionTableViewCell.swift */,
+				63E6A4CA1DE1461F007112FF /* PositionDetailViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */,
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,
 				30A20D441DCE6DD100A748EA /* Contact.swift in Sources */,
 				30F9DB281D96B29000112CD9 /* ViewController.swift in Sources */,
@@ -387,6 +394,7 @@
 				639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */,
 				55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */,
 				30A20D401DCE6C8300A748EA /* Employer.swift in Sources */,
+				63E6A4C91DE14187007112FF /* PositionTableViewCell.swift in Sources */,
 				30A20D3C1DCE69B700A748EA /* Position.swift in Sources */,
 				305704861DE3750C00EEF57C /* Validation.swift in Sources */,
 				309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */,
