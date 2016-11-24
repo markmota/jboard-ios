@@ -15,21 +15,26 @@ class PositionDetailViewController: UIViewController {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txvDescription: UITextView!
     
-    weak var position: Position!
+    weak var position : Position!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblTitle.text = position.title
-        lblCompany.text = position.company_name
-        txvDescription.text = position.description
-        
+        renderPostion()
         Position.find(id: position.id) { (pos) in
-            debugPrint(pos)
+            self.position = pos
+            self.renderPostion()
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func renderPostion() {
+        lblTitle.text = position.title
+        lblCompany.text = position.company_name
+        txvDescription.text = position.description
+        lblCompatibility.text = "\(position.match) %"
     }
     
 

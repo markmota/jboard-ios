@@ -11,6 +11,7 @@ import Alamofire
 
 class Position : Model {
     public var id:Int = 0
+    public var match:Float = 0.0
     public var title:String = ""
     public var description:String = ""
     public var skillList:Array<String> = []
@@ -54,6 +55,9 @@ class Position : Model {
     init(withJSON json: [String : AnyObject]) {
         if let id = json["id"] as? Int {
             self.id = id
+        }
+        if let match = json["match"] as? Float {
+            self.match = match * 100.0
         }
         if let title = json["title"] as? String {
             self.title = title

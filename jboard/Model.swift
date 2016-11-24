@@ -10,6 +10,7 @@ import Foundation
 
 class Model {
     var rules : [String:[Validation.rule]] = [:]
+    init() {}
 }
 
 extension Model : JSONAble {}
