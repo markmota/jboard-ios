@@ -14,23 +14,22 @@ class PositionDetailViewController: UIViewController {
     @IBOutlet weak var lblCompany: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txvDescription: UITextView!
-    //var txtCompany = ""
-    //var txtTitle = ""
-    //var txtDescription = ""
-    var position: Position!
+    
+    weak var position: Position!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblCompany.text = position.company?.name
         lblTitle.text = position.title
+        lblCompany.text = position.company_name
         txvDescription.text = position.description
         
-        // Do any additional setup after loading the view.
+        Position.find(id: position.id) { (pos) in
+            debugPrint(pos)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 

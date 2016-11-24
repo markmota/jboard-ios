@@ -55,11 +55,10 @@ class PositionsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destino = segue.destination as! PositionDetailViewController
-        
-        let elIndexPath = self.tableView.indexPathForSelectedRow
-        let position = self.positions[elIndexPath!.row] as Position
-        destino.position = position
+        let destiny = segue.destination as! PositionDetailViewController
+        let indexPath = self.tableView.indexPathForSelectedRow
+        let position = self.positions[indexPath!.row] as Position
+        destiny.position = position
     }
     
     /*

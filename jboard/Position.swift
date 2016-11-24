@@ -37,8 +37,16 @@ class Position : Model {
                     out.append(Position(withJSON: json))
                 }
             }
-            if let completionBlock = completion {
-                completionBlock(out)
+            completion?(out)
+        }
+    }
+    
+    class func find(id: Int, completion: ((Position) -> Void)?) {
+        let request = try! APIClient.Router.position(id: id).asURLRequest()
+        Alamofire.request(request).responseJSON { response in
+            debugPrint(response)
+            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject], let json = data["position"] as? [String : AnyObject] {
+                completion?(Position(withJSON: json))
             }
         }
     }
