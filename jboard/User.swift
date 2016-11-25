@@ -15,8 +15,8 @@ class User : Model {
     public var last_name:String = ""
     public var email:String = ""
     public var phone:String = ""
-    public var imageUrl:String = ""
-    public var gravatarUrl:String = ""
+    public var image_url:String = ""
+    public var gravatar_url:String = ""
     public var employer:Bool = false
     public var candidate:Bool = false
     public var facebook_uuid:String = ""
