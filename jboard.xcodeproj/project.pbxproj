@@ -10,6 +10,7 @@
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
 		305704851DE3750C00EEF57C /* Validable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704831DE3750C00EEF57C /* Validable.swift */; };
 		305704861DE3750C00EEF57C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704841DE3750C00EEF57C /* Validation.swift */; };
+		3075BEC11DE94E880002E725 /* credits.md in Sources */ = {isa = PBXBuildFile; fileRef = 3075BEC01DE94E880002E725 /* credits.md */; };
 		309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C9BDC1DE3ED0E00FFF215 /* Model.swift */; };
 		309C9BDF1DE410D400FFF215 /* UIModelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C9BDE1DE410D400FFF215 /* UIModelAlert.swift */; };
 		30A20D301DCE3ED000A748EA /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A20D2F1DCE3ED000A748EA /* Secret.swift */; };
@@ -52,6 +53,7 @@
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		305704831DE3750C00EEF57C /* Validable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validable.swift; sourceTree = "<group>"; };
 		305704841DE3750C00EEF57C /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		3075BEC01DE94E880002E725 /* credits.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = credits.md; path = ../credits.md; sourceTree = "<group>"; };
 		309C9BDC1DE3ED0E00FFF215 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		309C9BDE1DE410D400FFF215 /* UIModelAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModelAlert.swift; sourceTree = "<group>"; };
 		30A20D2F1DCE3ED000A748EA /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */,
 				30F9DB311D96B29000112CD9 /* Info.plist */,
 				30D2CC2D1DB20459003322CD /* jboard.entitlements */,
+				3075BEC01DE94E880002E725 /* credits.md */,
 			);
 			path = jboard;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				TargetAttributes = {
 					30F9DB211D96B29000112CD9 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = D3XL2U7DQC;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -375,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3075BEC11DE94E880002E725 /* credits.md in Sources */,
 				63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */,
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,
 				30A20D441DCE6DD100A748EA /* Contact.swift in Sources */,
@@ -541,7 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = jboard/jboard.entitlements;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D3XL2U7DQC;
 				INFOPLIST_FILE = jboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rightmonkey.jboard;
@@ -561,7 +566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = jboard/jboard.entitlements;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D3XL2U7DQC;
 				INFOPLIST_FILE = jboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.rightmonkey.jboard;

@@ -231,7 +231,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Me2-fW-c0U">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kDc-TY-d9y">
-                            <rect key="frame" x="81.5" y="7" width="212" height="30"/>
+                            <rect key="frame" x="82" y="7" width="212" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Todos"/>
@@ -407,7 +407,7 @@
         <scene sceneID="Kc1-Kd-TPj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zTd-ET-tJv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Vacantes" id="IBt-Ee-fMw"/>
+                    <tabBarItem key="tabBarItem" title="Vacantes" image="briefcase" selectedImage="briefcase" id="IBt-Ee-fMw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gbM-eC-ewd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -636,7 +636,7 @@
         <scene sceneID="XBI-dY-PqF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="avz-RD-oBX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Perfil" id="yu9-uN-6ru"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="profile" selectedImage="profile" id="yu9-uN-6ru"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wCC-JJ-bzi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -655,7 +655,7 @@
         <scene sceneID="fro-ge-iww">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xmA-SD-7LA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Candidatos" id="kTO-hQ-M1k"/>
+                    <tabBarItem key="tabBarItem" title="Candidatos" image="profile-search" selectedImage="profile-search" id="kTO-hQ-M1k"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Klg-ul-I5l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -672,10 +672,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="briefcase" width="44" height="44"/>
         <image name="icon-white" width="512" height="512"/>
+        <image name="profile" width="44" height="44"/>
+        <image name="profile-search" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="t29-YB-hb1"/>
-        <segue reference="uFk-hF-qvX"/>
+        <segue reference="4wp-tU-M9C"/>
     </inferredMetricsTieBreakers>
 </document>
