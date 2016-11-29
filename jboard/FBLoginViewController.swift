@@ -77,7 +77,6 @@ class FBLoginViewController: UIViewController {
     func loginAPI(_ token : String, completion: ((Void) -> Void)?, failure: ((Void) -> Void)?) {
         let request = try! APIClient.Router.loginFacebook(token: token).asURLRequest()
         Alamofire.request(request).responseJSON { response in
-            debugPrint(response)
             if response.result.isSuccess, let data = response.result.value as? [String: AnyObject], let authToken = data["auth_token"] as? String{
                 SAMKeychain.setPassword(authToken, forService: Secret.apiService, account: Secret.account)
                 if let completionBlock = completion {
@@ -98,7 +97,7 @@ extension FBLoginViewController : FBSDKLoginButtonDelegate {
 
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if (error != nil) {
-            debugPrint("Something went wrong \(error)")
+            print("Facebook login ERROR: \(error)")
         } else if result.isCancelled {
             // Handle cancellations
         } else {
