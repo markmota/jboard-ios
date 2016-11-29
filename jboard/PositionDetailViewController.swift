@@ -14,11 +14,15 @@ class PositionDetailViewController: UIViewController {
     @IBOutlet weak var lblCompany: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txvDescription: UITextView!
+    @IBOutlet weak var skillListView: TagListView!
     
     weak var position : Position!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        skillListView.target = self
+        skillListView.tapAction = #selector(PositionDetailViewController.tapTag(_:))
+        skillListView.longPressAction = #selector(PositionDetailViewController.longPressTag(_:))
         renderPostion()
         Position.find(id: position.id) { (pos) in
             self.position = pos
@@ -32,9 +36,12 @@ class PositionDetailViewController: UIViewController {
     
     func renderPostion() {
         lblTitle.text = position.title
-        lblCompany.text = position.company_name
+        lblCompany.text = position.company?.name
         txvDescription.text = position.description
         lblCompatibility.text = "\(position.match) %"
+        for skill in position.skillList {
+            skillListView.addTag(skill)
+        }
     }
     
 
@@ -47,5 +54,16 @@ class PositionDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tapTag(_ sender : UIGestureRecognizer) {
+        let label = (sender.view as! UILabel)
+        print("tap from \(label.text!)")
+    }
+    
+    func longPressTag(_ sender : UIGestureRecognizer){
+        let label = (sender.view as! UILabel)
+        print("long press from \(label.text!)")
+    }
+    
 
 }
