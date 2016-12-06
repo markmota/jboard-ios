@@ -45,8 +45,13 @@ class Position : Model {
     class func find(id: Int, completion: ((Position) -> Void)?) {
         let request = try! APIClient.Router.position(id: id).asURLRequest()
         Alamofire.request(request).responseJSON { response in
-            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject], let json = data["position"] as? [String : AnyObject] {
-                completion?(Position(withJSON: json))
+            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject]{
+                guard let json = data["position"] as? [String : AnyObject] else { return }
+                let position = Position(withJSON: json)
+                if let match = data["match"] as? Float {
+                    position.match = match * 100.0
+                }
+                completion?(position)
             }
         }
     }
@@ -54,9 +59,6 @@ class Position : Model {
     init(withJSON json: [String : AnyObject]) {
         if let id = json["id"] as? Int {
             self.id = id
-        }
-        if let match = json["match"] as? Float {
-            self.match = match * 100.0
         }
         if let title = json["title"] as? String {
             self.title = title
