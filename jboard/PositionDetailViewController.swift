@@ -9,7 +9,6 @@
 import UIKit
 
 class PositionDetailViewController: UIViewController {
-
     @IBOutlet weak var lblCompatibility: UILabel!
     @IBOutlet weak var lblCompany: UILabel!
     @IBOutlet weak var lblTitle: UILabel!

@@ -42,16 +42,11 @@ class PositionsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentPosition = self.positions[indexPath.row]
-        let cell : PositionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "positionCell")! as! PositionTableViewCell
-        cell.lblTitle.text = currentPosition.title
-        cell.lblDescription.text = currentPosition.description
-        cell.lblCompany.text = currentPosition.company?.name
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "positionCell")!
+        let position = self.positions[indexPath.row]
+        cell.textLabel?.text = position.title
+        cell.detailTextLabel?.text = position.company?.name
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
