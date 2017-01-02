@@ -17,12 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        setupStyle()
         skipLogin()
         return true
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        setupStyle()
         skipLogin()
         return true
     }
@@ -56,6 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let root = storyboard.instantiateViewController(withIdentifier: "RootNavigation") as! UITabBarController
             self.window?.rootViewController = root
         }
+    }
+    
+    func setupStyle() {
+        window?.tintColor = UIColor.white
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.barStyle = .black
+        navBarAppearance.barTintColor = Theme.Colors.darkBackground.color
     }
 
 

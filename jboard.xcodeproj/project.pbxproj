@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
+		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
+		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
+		3046487D1E1B03E400CCEF1D /* ThemedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */; };
 		305704851DE3750C00EEF57C /* Validable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704831DE3750C00EEF57C /* Validable.swift */; };
 		305704861DE3750C00EEF57C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704841DE3750C00EEF57C /* Validation.swift */; };
 		3075BEC11DE94E880002E725 /* credits.md in Sources */ = {isa = PBXBuildFile; fileRef = 3075BEC01DE94E880002E725 /* credits.md */; };
@@ -52,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		304648781E1AF27900CCEF1D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
+		3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewCell.swift; sourceTree = "<group>"; };
 		305704831DE3750C00EEF57C /* Validable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validable.swift; sourceTree = "<group>"; };
 		305704841DE3750C00EEF57C /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		3075BEC01DE94E880002E725 /* credits.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = credits.md; path = ../credits.md; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 				309C9BDE1DE410D400FFF215 /* UIModelAlert.swift */,
 				30AD6F511DEB71C200DF0903 /* TagListView.swift */,
 				30AD6F551DEB78B400DF0903 /* TagLabel.swift */,
+				3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */,
+				3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 				30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */,
 				639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */,
 				63E6A4CA1DE1461F007112FF /* PositionDetailViewController.swift */,
+				304648781E1AF27900CCEF1D /* MainTabBarController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -402,11 +411,14 @@
 				639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */,
 				55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */,
 				30A20D401DCE6C8300A748EA /* Employer.swift in Sources */,
+				304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */,
 				30A20D3C1DCE69B700A748EA /* Position.swift in Sources */,
+				3046487D1E1B03E400CCEF1D /* ThemedTableViewCell.swift in Sources */,
 				305704861DE3750C00EEF57C /* Validation.swift in Sources */,
 				30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */,
 				30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */,
 				309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */,
+				3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */,
 				30A20D421DCE6C9700A748EA /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

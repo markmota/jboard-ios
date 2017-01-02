@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PositionsTableViewController: UITableViewController {
+class PositionsTableViewController: ThemedTableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var positions : [Position] = [] {
@@ -45,7 +45,9 @@ class PositionsTableViewController: UITableViewController {
         let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "positionCell")!
         let position = self.positions[indexPath.row]
         cell.textLabel?.text = position.title
+        cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.text = position.company?.name
+        cell.detailTextLabel?.textColor = Theme.Colors.foreground.color
         return cell
     }
     
