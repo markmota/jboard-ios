@@ -24,6 +24,7 @@ class PositionDetailViewController: UIViewController {
         skillListView.longPressAction = #selector(PositionDetailViewController.longPressTag(_:))
         renderPostion()
         Position.find(id: position.id) { (pos) in
+            self.title = pos.company?.name
             self.position = pos
             self.renderPostion()
         }

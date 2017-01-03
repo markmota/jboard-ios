@@ -171,11 +171,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="positionCell" textLabel="pFB-VD-ClN" detailTextLabel="AD5-lj-B6n" imageView="vIS-dW-zhk" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="bYz-Qy-ooT" customClass="ThemedTableViewCell" customModule="jboard" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="positionCell" textLabel="pFB-VD-ClN" detailTextLabel="AD5-lj-B6n" imageView="vIS-dW-zhk" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="bYz-Qy-ooT" customClass="ThemedTableViewCell" customModule="jboard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYz-Qy-ooT" id="lKj-sk-oUT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pFB-VD-ClN">
@@ -209,15 +209,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Me2-fW-c0U">
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kDc-TY-d9y">
-                            <rect key="frame" x="82" y="7" width="212" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Todos"/>
-                                <segment title="Favoritos"/>
-                                <segment title="Ocultos"/>
-                            </segments>
-                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fiZ-eh-z64">
                             <connections>
                                 <segue destination="Imy-Fy-rfd" kind="show" id="0wy-fT-gBs"/>

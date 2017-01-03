@@ -12,22 +12,22 @@ class PositionsTableViewController: ThemedTableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var positions : [Position] = [] {
-        didSet {
-            self.tableView.reloadData()
-        }
+        didSet { self.tableView.reloadData() }
     }
-
+    
+    let filterControl : UISegmentedControl = {
+        let control = UISegmentedControl(items: ["Todos", "Favoritos", "Ocultos"])
+        control.selectedSegmentIndex = 0
+        return control
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Hide add positions button for candidates
+        self.title = "Vacantes"
         addButton.isEnabled = false
         Position.all() { result in
             self.positions = result
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source
@@ -39,7 +39,6 @@ class PositionsTableViewController: ThemedTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.positions.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "positionCell")!
@@ -57,6 +56,27 @@ class PositionsTableViewController: ThemedTableViewController {
         let position = self.positions[indexPath!.row] as Position
         destiny.position = position
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section != 0) { return 0 }
+        return 55
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (section != 0){ return nil }
+        let viewHeader = UIView(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: self.view.frame.width,
+                                              height: self.view.frame.height))
+        viewHeader.backgroundColor =  UIColor(white: 0, alpha: 0.2)
+        viewHeader.addSubview(filterControl)
+        filterControl.frame = CGRect(x: 20,
+                                  y: 10,
+                                  width: viewHeader.frame.size.width-40,
+                                  height: 35)
+        return viewHeader
+    }
+    
     
     /*
     // Override to support conditional editing of the table view.
@@ -104,3 +124,4 @@ class PositionsTableViewController: ThemedTableViewController {
     */
 
 }
+
