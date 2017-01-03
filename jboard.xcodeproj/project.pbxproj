@@ -153,6 +153,7 @@
 				30AD6F551DEB78B400DF0903 /* TagLabel.swift */,
 				3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */,
 				3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */,
+				304648781E1AF27900CCEF1D /* MainTabBarController.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -165,7 +166,6 @@
 				30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */,
 				639257CA1DE0DCB400044EE7 /* PositionsTableViewController.swift */,
 				63E6A4CA1DE1461F007112FF /* PositionDetailViewController.swift */,
-				304648781E1AF27900CCEF1D /* MainTabBarController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
