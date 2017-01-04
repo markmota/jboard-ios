@@ -9,13 +9,10 @@
 import UIKit
 
 class ThemedTableViewController: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorColor = Theme.Colors.darkBackground.color
         tableView.backgroundColor = Theme.Colors.background.color
         tableView.tableFooterView = UIView()
     }
-
-
 }

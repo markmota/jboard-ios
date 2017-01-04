@@ -10,6 +10,7 @@ import UIKit
 
 class PositionsTableViewController: ThemedTableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
+    var currentUser : User? = nil
     
     var positions : [Position] = [] {
         didSet { self.tableView.reloadData() }
@@ -24,6 +25,9 @@ class PositionsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Vacantes"
+        if currentUser == nil {
+          User.current { (user) in self.currentUser = user }
+        }
         addButton.isEnabled = false
         Position.all() { result in
             self.positions = result
@@ -58,22 +62,47 @@ class PositionsTableViewController: ThemedTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section != 0) { return 0 }
+        if (section != 0 || self.currentUser == nil) { return 0 }
         return 55
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section != 0){ return nil }
+        if (section != 0 ){ return nil }
         let viewHeader = UIView(frame: CGRect(x: 0,
                                               y: 0,
                                               width: self.view.frame.width,
                                               height: self.view.frame.height))
-        viewHeader.backgroundColor =  UIColor(white: 0, alpha: 0.2)
-        viewHeader.addSubview(filterControl)
-        filterControl.frame = CGRect(x: 20,
+        viewHeader.backgroundColor = Theme.Colors.background.color
+        guard let user = self.currentUser else { return nil }
+        let maxWidth = viewHeader.frame.size.width-20
+
+        if user.hasCompletedProfile() {
+            viewHeader.addSubview(filterControl)
+            filterControl.frame = CGRect(x: 20,
+                                         y: 10,
+                                         width: maxWidth-20,
+                                         height: 35)
+        } else {
+            let label = UILabel()
+            label.text = "Completa tu perfil"
+            label.textColor = Theme.Colors.foreground.color
+            let button = RoundButton()
+            button.setTitle("Aquí", for: .normal)
+            button.addTarget(self, action: #selector(tapCompleteProfile), for: .touchUpInside)
+            
+            viewHeader.addSubview(label)
+            label.frame = CGRect(x: 20,
+                                 y: 10,
+                                 width: maxWidth,
+                                 height: 35)
+            
+            viewHeader.addSubview(button)
+            button.frame = CGRect(x: maxWidth * (2/3),
                                   y: 10,
-                                  width: viewHeader.frame.size.width-40,
+                                  width: maxWidth / 3,
                                   height: 35)
+        }
+        
         return viewHeader
     }
     
@@ -122,6 +151,12 @@ class PositionsTableViewController: ThemedTableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Button Actions
+    
+    func tapCompleteProfile(sender: UIButton!) {
+        print("Complete profile....")
+    }
 
 }
 

@@ -54,6 +54,7 @@ class User : Model {
     }
     
     func signUp(onSuccess success: ((String) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+        if Secret.apiToken.value != nil { return }
         if !isValid() {
             fail?(nil)
             return
@@ -68,5 +69,9 @@ class User : Model {
                 fail?(response.result.error)
             }
         }
+    }
+    
+    func hasCompletedProfile() -> Bool {
+        return (self.candidate || self.employer)
     }
 }

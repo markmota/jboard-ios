@@ -10,7 +10,6 @@ import UIKit
 
 class PositionDetailViewController: UIViewController {
     @IBOutlet weak var lblCompatibility: UILabel!
-    @IBOutlet weak var lblCompany: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txvDescription: UITextView!
     @IBOutlet weak var skillListView: TagListView!
@@ -36,7 +35,6 @@ class PositionDetailViewController: UIViewController {
     
     func renderPostion() {
         lblTitle.text = position.title
-        lblCompany.text = position.company?.name
         txvDescription.text = position.description
         lblCompatibility.text = "\(position.match) %"
         for skill in position.skillList {

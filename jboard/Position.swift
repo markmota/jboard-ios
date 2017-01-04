@@ -17,12 +17,8 @@ class Position : Model {
     public var skillList:Array<String> = []
     public var company:Company? {
         didSet {
-            if let cid = self.company?.id {
-                self.company_id = cid
-            }
-            if let cname = self.company?.name {
-                self.company_name = cname
-            }
+            self.company_id = self.company?.id ?? 0
+            self.company_name = self.company?.name ?? ""
         }
     }
     public var company_id:Int = 0
@@ -57,18 +53,10 @@ class Position : Model {
     }
     
     init(withJSON json: [String : AnyObject]) {
-        if let id = json["id"] as? Int {
-            self.id = id
-        }
-        if let title = json["title"] as? String {
-            self.title = title
-        }
-        if let description = json["description"] as? String {
-            self.description = description
-        }
-        if let skillList = json["skill_list"] as? [String] {
-            self.skillList = skillList
-        }
+        self.id = json["id"] as? Int ?? 0
+        self.title = json["title"] as? String ?? ""
+        self.description = json["description"] as? String ?? ""
+        self.skillList = json["skill_list"] as? [String] ?? []
         if let companyJSON = json["company"] as? [String:AnyObject] {
             self.company = Company(withJSON: companyJSON)
         }

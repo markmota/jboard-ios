@@ -94,7 +94,6 @@ class FBLoginViewController: UIViewController {
 
 
 extension FBLoginViewController : FBSDKLoginButtonDelegate {
-
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if (error != nil) {
             print("Facebook login ERROR: \(error)")
@@ -105,9 +104,7 @@ extension FBLoginViewController : FBSDKLoginButtonDelegate {
         }
     }
     
-    
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!){
         SAMKeychain.deletePassword(forService: Secret.apiService, account: Secret.account)
     }
-    
 }
