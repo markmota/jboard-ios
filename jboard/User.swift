@@ -32,6 +32,27 @@ class User : Model {
         ]
     }
     
+    init(withJSON json: [String : AnyObject]) {
+        self.id = json["id"] as? Int ?? 0
+        self.first_name = json["first_name"] as? String ?? ""
+        self.last_name  = json["last_name"] as? String ?? ""
+        self.email = json["email"] as? String ?? ""
+        self.image_url = json["image_url"] as? String ?? ""
+        self.gravatar_url = json["gravatar_url"] as? String ?? ""
+        self.employer = json["employer"] as? Bool ?? false
+        self.candidate = json["candidate"] as? Bool ?? false
+    }
+    
+    class func current(completion: @escaping ((User) -> Void)) {
+        let request = try! APIClient.Router.currentUser.asURLRequest()
+        Alamofire.request(request).responseJSON { response in
+            if response.result.isSuccess,let data = response.result.value as? [String : AnyObject] {
+                guard let json = data["user"] as? [String : AnyObject] else { return }
+                completion(User(withJSON: json))
+            }
+        }
+    }
+    
     func signUp(onSuccess success: ((String) -> Void)?, onFail fail: ((Error?) -> Void)?) {
         if !isValid() {
             fail?(nil)
