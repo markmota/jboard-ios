@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301303631E1DD91300CD382F /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303621E1DD91300CD382F /* UserCard.swift */; };
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
 		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
 		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		301303621E1DD91300CD382F /* UserCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		304648781E1AF27900CCEF1D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */,
 				3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */,
 				304648781E1AF27900CCEF1D /* MainTabBarController.swift */,
+				301303621E1DD91300CD382F /* UserCard.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				30A20D461DCE6F1800A748EA /* History.swift in Sources */,
 				309C9BDF1DE410D400FFF215 /* UIModelAlert.swift in Sources */,
 				30A20D351DCE400D00A748EA /* APIClient.swift in Sources */,
+				301303631E1DD91300CD382F /* UserCard.swift in Sources */,
 				305704851DE3750C00EEF57C /* Validable.swift in Sources */,
 				30A20D301DCE3ED000A748EA /* Secret.swift in Sources */,
 				30A20D3E1DCE6C3D00A748EA /* Company.swift in Sources */,

@@ -36,6 +36,7 @@ struct Theme {
     enum Fonts {
         case title
         case boldTitle
+        case text
         case lightText
         
         var font: UIFont {
@@ -44,6 +45,8 @@ struct Theme {
                 return UIFont.systemFont(ofSize: 16, weight: UIFontWeightRegular)
             case .boldTitle:
                 return UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+            case .text:
+                return UIFont.systemFont(ofSize: 14, weight: UIFontWeightRegular)
             case .lightText:
                 return UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
             }

@@ -71,6 +71,15 @@ class User : Model {
         }
     }
     
+    func image(completion: @escaping (UIImage?)->Void){
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: self.image_url.asURL())
+            DispatchQueue.main.async {
+                completion(UIImage(data: data!))
+            }
+        }
+    }
+    
     func hasCompletedProfile() -> Bool {
         return (self.candidate || self.employer)
     }
