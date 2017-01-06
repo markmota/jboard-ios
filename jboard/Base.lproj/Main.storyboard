@@ -403,6 +403,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dzv-ik-e7m"/>
                     <connections>
+                        <outlet property="resumeCard" destination="AhC-8I-c7B" id="yR7-ad-Tjd"/>
                         <outlet property="userCard" destination="ZL6-Rz-rtu" id="ZEA-ZH-3gq"/>
                     </connections>
                 </viewController>

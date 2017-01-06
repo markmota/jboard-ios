@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		301303631E1DD91300CD382F /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303621E1DD91300CD382F /* UserCard.swift */; };
 		301303651E1F127400CD382F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303641E1F127400CD382F /* ProfileViewController.swift */; };
+		301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */; };
+		301303691E1F28F300CD382F /* ResumeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303681E1F28F300CD382F /* ResumeCard.swift */; };
+		3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */; };
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
 		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
 		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
@@ -57,6 +60,9 @@
 /* Begin PBXFileReference section */
 		301303621E1DD91300CD382F /* UserCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		301303641E1F127400CD382F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollKerboardView.swift; sourceTree = "<group>"; };
+		301303681E1F28F300CD382F /* ResumeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeCard.swift; sourceTree = "<group>"; };
+		3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDistanceExtension.swift; sourceTree = "<group>"; };
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		304648781E1AF27900CCEF1D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 				30A20D471DCE702E00A748EA /* Resume.swift */,
 				30A20D371DCE61B100A748EA /* User.swift */,
 				305704831DE3750C00EEF57C /* Validable.swift */,
+				3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -157,6 +164,8 @@
 				3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */,
 				304648781E1AF27900CCEF1D /* MainTabBarController.swift */,
 				301303621E1DD91300CD382F /* UserCard.swift */,
+				301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */,
+				301303681E1F28F300CD382F /* ResumeCard.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				3075BEC11DE94E880002E725 /* credits.md in Sources */,
 				63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */,
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,
+				301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */,
 				30A20D441DCE6DD100A748EA /* Contact.swift in Sources */,
 				30A20D461DCE6F1800A748EA /* History.swift in Sources */,
 				309C9BDF1DE410D400FFF215 /* UIModelAlert.swift in Sources */,
@@ -415,11 +425,13 @@
 				639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */,
 				55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */,
 				30A20D401DCE6C8300A748EA /* Employer.swift in Sources */,
+				301303691E1F28F300CD382F /* ResumeCard.swift in Sources */,
 				304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */,
 				30A20D3C1DCE69B700A748EA /* Position.swift in Sources */,
 				3046487D1E1B03E400CCEF1D /* ThemedTableViewCell.swift in Sources */,
 				305704861DE3750C00EEF57C /* Validation.swift in Sources */,
 				30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */,
+				3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */,
 				30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */,
 				309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */,
 				3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */,

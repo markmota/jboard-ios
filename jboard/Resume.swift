@@ -7,10 +7,43 @@
 //
 
 import Foundation
+import Alamofire
 
 class Resume : Model {
     public var id:Int = 0
+    public var start_working_at : Date = Date()
     public var bio:String = ""
     public var user:User?
-    public var skillList:Array<String> = []
+    public var skill_list:Array<String> = []
+    
+    override init() {
+        super.init()
+        self.rules = [
+            "start_working_at" : [.presence],
+            "bio" : [.presence]
+        ]
+    }
+    
+    init(withJSON json: [String : AnyObject]) {
+        self.id = json["id"] as? Int ?? 0
+        self.start_working_at = json["start_working_at"] as? Date ?? Date()
+        self.bio = json["bio"] as? String ?? ""
+        self.skill_list = json["skill_list"] as? [String] ?? []
+        self.user = User(withJSON: json["user"] as? [String : AnyObject] ?? [:])
+    }
+    
+    class func current(completion: @escaping (Resume) -> Void) {
+        let request = APIClient.Router.resume
+        Alamofire.request(request).responseJSON { (response) in
+            if response.result.isSuccess,let data = response.result.value as? [String : AnyObject] {
+                guard let json = data["resume"] as? [String : AnyObject] else { return }
+                completion(Resume(withJSON: json))
+            }
+        }
+    }
+    
+    func years_of_experience() -> Int {
+        return Date().years(from: self.start_working_at)
+    }
+    
 }
