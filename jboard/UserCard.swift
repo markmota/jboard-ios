@@ -85,7 +85,7 @@ class UserCard: UIView {
             make.bottom.equalTo(self.snp.bottom).inset(insets)
         }
         self.layoutIfNeeded()
-        profileImage.layer.cornerRadius = self.layer.bounds.height / 20
+        profileImage.layer.cornerRadius = profileImage.layer.bounds.height / 25.0
         
         let labelStack = UIStackView(arrangedSubviews: [firstNameLabel, lastNameLabel, emailLabel, phoneLabel])
         labelStack.axis = .vertical
