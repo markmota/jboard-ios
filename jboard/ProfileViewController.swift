@@ -14,22 +14,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var resumeCard: ResumeCard!
     
     let completeProfileView : UIView = {
-        let label = UILabel()
-        label.text = "Completa tu perfil"
-        label.font = Theme.Fonts.title.font
-        
         let button = UIButton(type: .system)
-        button.setTitle("Aqui", for: .normal)
+        button.setTitle("Completa tu perfil aquí", for: .normal)
         button.tintColor = Theme.Colors.background.color
         
-        let stack = UIStackView(arrangedSubviews: [label, button])
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.alignment = .center
-        
         let view = UIView()
-        view.addSubview(stack)
-        stack.snp.makeConstraints{ make in
+        view.addSubview(button)
+        button.snp.makeConstraints{ make in
             make.centerY.equalTo(view.snp.centerY).offset(-40)
             make.centerX.equalTo(view.snp.centerX)
             make.width.equalTo(view.snp.width)
@@ -58,7 +49,6 @@ class ProfileViewController: UIViewController {
             make.right.equalTo(self.view.snp.right)
             make.bottom.equalTo(self.view.snp.bottom)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class PositionsTableViewController: ThemedTableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -72,35 +73,29 @@ class PositionsTableViewController: ThemedTableViewController {
                                               y: 0,
                                               width: self.view.frame.width,
                                               height: self.view.frame.height))
-        viewHeader.backgroundColor = Theme.Colors.background.color
         guard let user = self.currentUser else { return nil }
-        let maxWidth = viewHeader.frame.size.width-20
 
         if user.hasCompletedProfile() {
+            viewHeader.backgroundColor = Theme.Colors.background.color
             viewHeader.addSubview(filterControl)
-            filterControl.frame = CGRect(x: 20,
-                                         y: 10,
-                                         width: maxWidth-20,
-                                         height: 35)
+            filterControl.snp.makeConstraints{ make in
+                make.centerY.equalTo(viewHeader.snp.centerY)
+                make.centerX.equalTo(viewHeader.snp.centerX)
+                make.width.equalTo(viewHeader.snp.width).offset(-50)
+            }
         } else {
-            let label = UILabel()
-            label.text = "Completa tu perfil"
-            label.textColor = Theme.Colors.foreground.color
-            let button = RoundButton()
-            button.setTitle("Aquí", for: .normal)
+            viewHeader.backgroundColor = Theme.Colors.darkBackground.color
+            let button = RoundButton(type: .system)
+            button.tintColor = Theme.Colors.darkBackground.color
+            button.setTitle("Completa tu perfil aquí", for: .normal)
             button.addTarget(self, action: #selector(tapCompleteProfile), for: .touchUpInside)
             
-            viewHeader.addSubview(label)
-            label.frame = CGRect(x: 20,
-                                 y: 10,
-                                 width: maxWidth,
-                                 height: 35)
-            
             viewHeader.addSubview(button)
-            button.frame = CGRect(x: maxWidth * (2/3),
-                                  y: 10,
-                                  width: maxWidth / 3,
-                                  height: 35)
+            button.snp.makeConstraints{ make in
+                make.centerY.equalTo(viewHeader.snp.centerY)
+                make.centerX.equalTo(viewHeader.snp.centerX)
+                make.width.equalTo(viewHeader.snp.width).offset(-30)
+            }
         }
         
         return viewHeader
