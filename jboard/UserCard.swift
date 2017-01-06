@@ -20,14 +20,14 @@ class UserCard: UIView {
     
     let firstNameLabel : UILabel = {
         let label = UILabel()
-        label.text = "Firstname"
+        label.text = "Juan"
         label.font = Theme.Fonts.title.font
         return label
     }()
     
     let lastNameLabel : UILabel = {
         let label = UILabel()
-        label.text = "Lastname"
+        label.text = "Perez Perez"
         label.font = Theme.Fonts.title.font
         return label
     }()
@@ -61,8 +61,6 @@ class UserCard: UIView {
             phoneLabel.text = user.phone
             user.image { img in
                 self.profileImage.image = img
-                self.layoutIfNeeded()
-                self.profileImage.layer.cornerRadius = self.layer.bounds.height / 2
             }
         }
     }
@@ -80,7 +78,6 @@ class UserCard: UIView {
     func setupSubviews() {
         addSubview(profileImage)
         profileImage.snp.makeConstraints { make in
-            make.height.equalTo(50)
             make.width.equalTo(profileImage.snp.height)
             let insets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
             make.top.equalTo(self.snp.top).inset(insets)
@@ -97,13 +94,13 @@ class UserCard: UIView {
         
         addSubview(labelStack)
         labelStack.snp.makeConstraints { make in
-            make.leading.equalTo(profileImage.snp.trailing).offset(15)
+            make.leading.equalTo(profileImage.snp.trailing).offset(10)
             make.centerY.equalTo(self.snp.centerY)
         }
         
         addSubview(editButton)
         editButton.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.centerY)
+            make.centerY.equalTo(self.snp.topMargin).offset(15)
             make.right.equalTo(self.snp.rightMargin).offset(-5)
         }
     }

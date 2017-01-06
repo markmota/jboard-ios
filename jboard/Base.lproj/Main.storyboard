@@ -175,25 +175,25 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYz-Qy-ooT" id="lKj-sk-oUT">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pFB-VD-ClN">
-                                            <rect key="frame" x="89" y="12" width="34" height="21"/>
+                                            <rect key="frame" x="90" y="13" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AD5-lj-B6n">
-                                            <rect key="frame" x="89" y="33" width="44" height="15"/>
+                                            <rect key="frame" x="90" y="33.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="icon-white" id="vIS-dW-zhk">
-                                            <rect key="frame" x="15" y="0.0" width="59" height="59"/>
+                                            <rect key="frame" x="15" y="0.0" width="60" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -367,10 +367,10 @@
             </objects>
             <point key="canvasLocation" x="2614" y="-186"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="lvk-2M-XkO">
             <objects>
-                <viewController id="eGj-Si-rkN" sceneMemberID="viewController">
+                <viewController id="eGj-Si-rkN" customClass="ProfileViewController" customModule="jboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="haz-Oc-7dk"/>
                         <viewControllerLayoutGuide type="bottom" id="Cg3-OH-FpU"/>
@@ -457,6 +457,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dzv-ik-e7m"/>
+                    <connections>
+                        <outlet property="userCard" destination="ZL6-Rz-rtu" id="ZEA-ZH-3gq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlq-Sj-hAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
