@@ -12,6 +12,7 @@
 		301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */; };
 		301303691E1F28F300CD382F /* ResumeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303681E1F28F300CD382F /* ResumeCard.swift */; };
 		3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */; };
+		3013036D1E208EBD00CD382F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036C1E208EBD00CD382F /* Notification.swift */; };
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
 		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
 		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
@@ -63,6 +64,7 @@
 		301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollKerboardView.swift; sourceTree = "<group>"; };
 		301303681E1F28F300CD382F /* ResumeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeCard.swift; sourceTree = "<group>"; };
 		3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDistanceExtension.swift; sourceTree = "<group>"; };
+		3013036C1E208EBD00CD382F /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		304648781E1AF27900CCEF1D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				30A20D341DCE400D00A748EA /* APIClient.swift */,
 				30A20D321DCE3FCD00A748EA /* Theme.swift */,
 				30A20D2F1DCE3ED000A748EA /* Secret.swift */,
+				3013036C1E208EBD00CD382F /* Notification.swift */,
 				305704841DE3750C00EEF57C /* Validation.swift */,
 				30F9DB291D96B29000112CD9 /* Main.storyboard */,
 				30F9DB2C1D96B29000112CD9 /* Assets.xcassets */,
@@ -419,6 +422,7 @@
 				301303651E1F127400CD382F /* ProfileViewController.swift in Sources */,
 				30A20D331DCE3FCD00A748EA /* Theme.swift in Sources */,
 				30D2CC2C1DB1EE5E003322CD /* FBLoginViewController.swift in Sources */,
+				3013036D1E208EBD00CD382F /* Notification.swift in Sources */,
 				30F9DB261D96B29000112CD9 /* AppDelegate.swift in Sources */,
 				30A20D381DCE61B100A748EA /* User.swift in Sources */,
 				30A20D3A1DCE63CD00A748EA /* Jsonable.swift in Sources */,

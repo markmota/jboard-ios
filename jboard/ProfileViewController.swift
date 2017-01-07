@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     
     let completeProfileView : UIView = {
         let button = UIButton(type: .system)
-        button.setTitle("Completa tu perfil aquí", for: .normal)
+        button.setTitle("Agrega tu curriculum aquí", for: .normal)
         button.tintColor = Theme.Colors.background.color
         
         let view = UIView()
@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.currentUser = (UIApplication.shared.delegate as! AppDelegate).currentUser
         resumeCard.isHidden = true
         self.view.addSubview(completeProfileView)
         completeProfileView.snp.makeConstraints { make in

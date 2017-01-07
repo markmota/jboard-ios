@@ -11,9 +11,8 @@ import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
+    var window : UIWindow?
+    var currentUser : User?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -54,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func skipLogin() {
         if FBSDKAccessToken.current() != nil, let _ = Secret.apiToken.value {
+            loadCurrentUser()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let root = storyboard.instantiateViewController(withIdentifier: "RootNavigation") as! UITabBarController
             self.window?.rootViewController = root
@@ -65,6 +65,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barStyle = .black
         navBarAppearance.barTintColor = Theme.Colors.darkBackground.color
+    }
+    
+    func loadCurrentUser() {
+        if Secret.apiToken.value == nil { return }
+        User.current { (user) in
+            self.currentUser = user
+            NotificationCenter.default.post(name: Notification.Name.currentUserLoaded,
+                                            object: nil,
+                                            userInfo: ["user":user])
+        }
     }
 
 

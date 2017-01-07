@@ -26,13 +26,14 @@ class PositionsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Vacantes"
-        if currentUser == nil {
-          User.current { (user) in self.currentUser = user }
-        }
         addButton.isEnabled = false
         Position.all() { result in
             self.positions = result
         }
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentUserLoaded),
+                                               name: Notification.Name.currentUserLoaded,
+                                               object: nil)
     }
 
     // MARK: - Table view data source
@@ -87,7 +88,7 @@ class PositionsTableViewController: ThemedTableViewController {
             viewHeader.backgroundColor = Theme.Colors.darkBackground.color
             let button = RoundButton(type: .system)
             button.tintColor = Theme.Colors.darkBackground.color
-            button.setTitle("Completa tu perfil aquí", for: .normal)
+            button.setTitle("Agrega tu curriculum aquí", for: .normal)
             button.addTarget(self, action: #selector(tapCompleteProfile), for: .touchUpInside)
             
             viewHeader.addSubview(button)
@@ -152,6 +153,12 @@ class PositionsTableViewController: ThemedTableViewController {
     func tapCompleteProfile(sender: UIButton!) {
         print("Complete profile....")
     }
-
+    
+    // MARK: - Observers
+    
+    func currentUserLoaded(_ notification: Notification) {
+        self.currentUser = notification.userInfo?["user"] as? User ?? User()
+        self.tableView.reloadData()
+    }
 }
 
