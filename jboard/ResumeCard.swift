@@ -8,12 +8,12 @@
 
 import Foundation
 
-@IBDesignable
 class ResumeCard : ScrollKerboardView {
-    @IBInspectable
-    public var isEditable : Bool = false {
+    var editMode : Bool = false {
         didSet{
-            self.bioText.allowsEditingTextAttributes = isEditable
+            self.bioText.allowsEditingTextAttributes = editMode
+            self.skillsText.allowsEditingTextAttributes = editMode
+            self.bioText.backgroundColor = editMode ? .blue : .red
         }
     }
     var resume = Resume() {
@@ -22,9 +22,16 @@ class ResumeCard : ScrollKerboardView {
             bioText.text = resume.bio
             for skill in resume.skill_list {
                 skillsList.addTag(skill)
+                skillsText.text = "\(skillsText.text)\(skill), "
             }
         }
     }
+    
+    let startWorkingAtField : UITextField = {
+        let text = UITextField()
+        text.placeholder = "¿Cuando empezaste a trabajar?"
+        return text
+    }()
     
     let yearsLabel : UILabel = {
         let label = UILabel()
@@ -47,6 +54,14 @@ class ResumeCard : ScrollKerboardView {
         return textView
     }()
     
+    let skillsText : UITextView = {
+        let textView = UITextView()
+        textView.text = ""
+        textView.font = Theme.Fonts.lightText.font
+        textView.backgroundColor = .red
+        return textView
+    }()
+    
     let skillsLabel : UILabel = {
         let label = UILabel()
         label.text = "Habilidades"
@@ -59,27 +74,35 @@ class ResumeCard : ScrollKerboardView {
         return tagView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupSubviews()
+    init(isEditable editable: Bool) {
+        super.init(frame: CGRect.zero)
+        self.editMode = editable
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupSubviews()
     }
     
-    func setupSubviews() {
-        addSubview(yearsLabel)
-        yearsLabel.snp.makeConstraints { make in
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addSubview(startWorkingAtField)
+        startWorkingAtField.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top).offset(15)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
             make.width.equalTo(self.snp.width).offset(-30)
         }
+//            addSubview(yearsLabel)
+//            yearsLabel.snp.makeConstraints { make in
+//                make.top.equalTo(self.snp.top).offset(15)
+//                make.left.equalTo(self.snp.leftMargin).offset(10)
+//                make.right.equalTo(self.snp.rightMargin).offset(-10)
+//                make.width.equalTo(self.snp.width).offset(-30)
+//            }
+
         addSubview(bioLabel)
         bioLabel.snp.makeConstraints { make in
-            make.top.equalTo(yearsLabel.snp.bottom).offset(10)
+            make.top.equalTo(startWorkingAtField.snp.bottom).offset(10)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }
