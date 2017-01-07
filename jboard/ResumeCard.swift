@@ -8,7 +8,14 @@
 
 import Foundation
 
+@IBDesignable
 class ResumeCard : ScrollKerboardView {
+    @IBInspectable
+    public var isEditable : Bool = false {
+        didSet{
+            self.bioText.allowsEditingTextAttributes = isEditable
+        }
+    }
     var resume = Resume() {
         didSet{
             yearsLabel.text = "\(resume.years_of_experience()) años de experiencia"
@@ -35,7 +42,6 @@ class ResumeCard : ScrollKerboardView {
 
     let bioText : UITextView = {
         let textView = UITextView()
-        textView.allowsEditingTextAttributes = false
         textView.text = ""
         textView.font = Theme.Fonts.lightText.font
         return textView
@@ -66,14 +72,14 @@ class ResumeCard : ScrollKerboardView {
     func setupSubviews() {
         addSubview(yearsLabel)
         yearsLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top).offset(10)
+            make.top.equalTo(self.snp.top).offset(15)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
             make.width.equalTo(self.snp.width).offset(-30)
         }
         addSubview(bioLabel)
         bioLabel.snp.makeConstraints { make in
-            make.top.equalTo(yearsLabel.snp.bottom).offset(5)
+            make.top.equalTo(yearsLabel.snp.bottom).offset(10)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }

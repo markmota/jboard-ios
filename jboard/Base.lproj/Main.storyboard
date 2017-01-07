@@ -217,6 +217,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="fiZ-eh-z64" id="I3k-t9-BIr"/>
+                        <segue destination="YvI-cJ-Hpg" kind="presentation" identifier="createResume" id="QlL-Vw-fFH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXb-Hs-AUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,11 +406,67 @@
                     <connections>
                         <outlet property="resumeCard" destination="AhC-8I-c7B" id="yR7-ad-Tjd"/>
                         <outlet property="userCard" destination="ZL6-Rz-rtu" id="ZEA-ZH-3gq"/>
+                        <segue destination="YvI-cJ-Hpg" kind="presentation" identifier="showResumeForm" id="EHN-ue-6pV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlq-Sj-hAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3421.5999999999999" y="516.79160419790105"/>
+        </scene>
+        <!--Resume Form View Controller-->
+        <scene sceneID="7MS-5z-9Zy">
+            <objects>
+                <viewController id="YvI-cJ-Hpg" customClass="ResumeFormViewController" customModule="jboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2oD-xP-RVg"/>
+                        <viewControllerLayoutGuide type="bottom" id="dP6-Jl-Tq8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gr5-HV-KgX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOU-BD-1zr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                <items>
+                                    <navigationItem title="Curriculum" prompt=" " id="gHK-aS-g1w">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="8Cp-Vc-Y6c">
+                                            <connections>
+                                                <action selector="onTapCancel:" destination="YvI-cJ-Hpg" id="ffg-Zk-Fzq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="RaU-sE-dLq">
+                                            <connections>
+                                                <action selector="onTapSave:" destination="YvI-cJ-Hpg" id="XMs-Y0-VlA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56V-m5-bxe" customClass="ResumeCard" customModule="jboard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="56V-m5-bxe" firstAttribute="top" secondItem="JOU-BD-1zr" secondAttribute="bottom" id="4lX-Ja-0YM"/>
+                            <constraint firstItem="56V-m5-bxe" firstAttribute="leading" secondItem="gr5-HV-KgX" secondAttribute="leading" id="CyW-Xr-fsq"/>
+                            <constraint firstItem="dP6-Jl-Tq8" firstAttribute="top" secondItem="56V-m5-bxe" secondAttribute="bottom" id="M6o-RT-Qae"/>
+                            <constraint firstAttribute="trailing" secondItem="JOU-BD-1zr" secondAttribute="trailing" id="Y1K-iK-9At"/>
+                            <constraint firstItem="JOU-BD-1zr" firstAttribute="leading" secondItem="gr5-HV-KgX" secondAttribute="leading" id="YUs-Al-AaL"/>
+                            <constraint firstAttribute="trailing" secondItem="56V-m5-bxe" secondAttribute="trailing" id="enp-Ol-3Ba"/>
+                            <constraint firstItem="JOU-BD-1zr" firstAttribute="top" secondItem="gr5-HV-KgX" secondAttribute="top" id="wqj-MB-MHP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resumeForm" destination="56V-m5-bxe" id="KPz-N0-UQa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4rg-xc-xaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4308" y="516.79160419790105"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="RFy-Xh-A8E">
@@ -488,5 +545,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OIi-uZ-OMK"/>
+        <segue reference="EHN-ue-6pV"/>
     </inferredMetricsTieBreakers>
 </document>

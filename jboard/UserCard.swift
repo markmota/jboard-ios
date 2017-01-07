@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 
+@IBDesignable
 class UserCard: UIView {
     let profileImage : UIImageView = {
         let imageView = UIImageView()

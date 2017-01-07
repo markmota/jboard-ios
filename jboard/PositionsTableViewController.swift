@@ -57,6 +57,7 @@ class PositionsTableViewController: ThemedTableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createResume" { return }
         let destiny = segue.destination as! PositionDetailViewController
         let indexPath = self.tableView.indexPathForSelectedRow
         let position = self.positions[indexPath!.row] as Position
@@ -74,6 +75,7 @@ class PositionsTableViewController: ThemedTableViewController {
                                               y: 0,
                                               width: self.view.frame.width,
                                               height: self.view.frame.height))
+        viewHeader.isUserInteractionEnabled = true
         guard let user = self.currentUser else { return nil }
 
         if user.hasCompletedProfile() {
@@ -151,7 +153,7 @@ class PositionsTableViewController: ThemedTableViewController {
     // MARK: - Button Actions
     
     func tapCompleteProfile(sender: UIButton!) {
-        print("Complete profile....")
+        performSegue(withIdentifier: "createResume", sender: self)
     }
     
     // MARK: - Observers
