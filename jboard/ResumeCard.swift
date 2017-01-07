@@ -7,15 +7,10 @@
 //
 
 import Foundation
+import SnapKit
 
 class ResumeCard : ScrollKerboardView {
-    var editMode : Bool = false {
-        didSet{
-            self.bioText.allowsEditingTextAttributes = editMode
-            self.skillsText.allowsEditingTextAttributes = editMode
-            self.bioText.backgroundColor = editMode ? .blue : .red
-        }
-    }
+    var editMode : Bool = false
     var resume = Resume() {
         didSet{
             yearsLabel.text = "\(resume.years_of_experience()) años de experiencia"
@@ -31,6 +26,14 @@ class ResumeCard : ScrollKerboardView {
         let text = UITextField()
         text.placeholder = "¿Cuando empezaste a trabajar?"
         return text
+    }()
+    
+    let datePicker : UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.maximumDate = Date()
+        picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(didDatePickerChanged), for: .valueChanged)
+        return picker
     }()
     
     let yearsLabel : UILabel = {
@@ -58,7 +61,6 @@ class ResumeCard : ScrollKerboardView {
         let textView = UITextView()
         textView.text = ""
         textView.font = Theme.Fonts.lightText.font
-        textView.backgroundColor = .red
         return textView
     }()
     
@@ -77,32 +79,44 @@ class ResumeCard : ScrollKerboardView {
     init(isEditable editable: Bool) {
         super.init(frame: CGRect.zero)
         self.editMode = editable
+        setupSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupSubviews()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        addSubview(startWorkingAtField)
-        startWorkingAtField.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top).offset(15)
-            make.left.equalTo(self.snp.leftMargin).offset(10)
-            make.right.equalTo(self.snp.rightMargin).offset(-10)
-            make.width.equalTo(self.snp.width).offset(-30)
-        }
-//            addSubview(yearsLabel)
-//            yearsLabel.snp.makeConstraints { make in
-//                make.top.equalTo(self.snp.top).offset(15)
-//                make.left.equalTo(self.snp.leftMargin).offset(10)
-//                make.right.equalTo(self.snp.rightMargin).offset(-10)
-//                make.width.equalTo(self.snp.width).offset(-30)
-//            }
+    func setupSubviews() {
+        self.startWorkingAtField.delegate = self
+        self.bioText.delegate = self
+        self.skillsText.delegate = self
+        self.backgroundColor = Theme.Colors.foreground.color
+        var firstElementBottom = startWorkingAtField.snp.bottom
+        if editMode {
+            addSubview(startWorkingAtField)
+            startWorkingAtField.snp.makeConstraints { make in
+                make.top.equalTo(self.snp.top).offset(15)
+                make.left.equalTo(self.snp.leftMargin).offset(10)
+                make.right.equalTo(self.snp.rightMargin).offset(-10)
+                make.width.equalTo(self.snp.width).offset(-30)
+            }
 
+        } else {
+            bioText.backgroundColor = self.backgroundColor
+            skillsList.backgroundColor = self.backgroundColor
+            addSubview(yearsLabel)
+            yearsLabel.snp.makeConstraints { make in
+                make.top.equalTo(self.snp.top).offset(15)
+                make.left.equalTo(self.snp.leftMargin).offset(10)
+                make.right.equalTo(self.snp.rightMargin).offset(-10)
+                make.width.equalTo(self.snp.width).offset(-30)
+            }
+            firstElementBottom = yearsLabel.snp.bottom
+        }
         addSubview(bioLabel)
         bioLabel.snp.makeConstraints { make in
-            make.top.equalTo(startWorkingAtField.snp.bottom).offset(10)
+            make.top.equalTo(firstElementBottom).offset(10)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }
@@ -119,13 +133,70 @@ class ResumeCard : ScrollKerboardView {
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }
-        addSubview(skillsList)
-        skillsList.snp.makeConstraints { make in
-            make.top.equalTo(skillsLabel.snp.bottom).offset(5)
-            make.left.equalTo(self.snp.leftMargin).offset(5)
-            make.right.equalTo(self.snp.rightMargin).offset(-10)
-            make.height.equalTo(64)
+        if editMode {
+            addSubview(skillsText)
+            skillsText.snp.makeConstraints { make in
+                make.top.equalTo(skillsLabel.snp.bottom).offset(5)
+                make.left.equalTo(self.snp.leftMargin).offset(5)
+                make.right.equalTo(self.snp.rightMargin).offset(-10)
+                make.height.equalTo(64)
+            }
+        } else {
+            addSubview(skillsList)
+            skillsList.snp.makeConstraints { make in
+                make.top.equalTo(skillsLabel.snp.bottom).offset(5)
+                make.left.equalTo(self.snp.leftMargin).offset(5)
+                make.right.equalTo(self.snp.rightMargin).offset(-10)
+                make.height.equalTo(64)
+            }
         }
+        addSubview(datePicker)
+    }
+    
+    func hideDatePicker(out bounds : CGRect) {
+         datePicker.frame = CGRect(x: 0, y: bounds.height, width: bounds.width, height: 150)
+    }
+    
+    func animateDatePicker(toShow: Bool) {
+        var frame = self.datePicker.frame
+        UIView.animate(withDuration: 0.3) {
+            if toShow {
+                frame.origin.y = self.bounds.height - self.datePicker.frame.height
+            } else {
+                frame.origin.y = self.bounds.height
+            }
+            self.datePicker.frame = frame
+        }
+    }
+    
+    func didDatePickerChanged(_ sender: AnyObject) {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let dateString = format.string(from: self.datePicker.date)
+        self.startWorkingAtField.text = dateString
+    }
+}
+
+extension ResumeCard : UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField.isEqual(self.startWorkingAtField) {
+            bioText.resignFirstResponder()
+            skillsText.resignFirstResponder()
+            animateDatePicker(toShow: true)
+            return false
+        } else {
+            animateDatePicker(toShow: false)
+            return true
+        }
+    }
+}
+
+extension ResumeCard : UITextViewDelegate {
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        animateDatePicker(toShow: false)
+        return true
     }
     
 }

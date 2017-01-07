@@ -442,6 +442,9 @@
                             <constraint firstItem="JOU-BD-1zr" firstAttribute="top" secondItem="gr5-HV-KgX" secondAttribute="top" id="wqj-MB-MHP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="JOU-BD-1zr" id="7Uk-bN-En6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rg-xc-xaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
