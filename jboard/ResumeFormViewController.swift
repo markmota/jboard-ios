@@ -29,6 +29,15 @@ class ResumeFormViewController: UIViewController {
     }
     
     @IBAction func onTapSave(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        print(resumeCard.resume.isValid())
+        resumeCard.resume.create(onSuccess: { () in
+            self.dismiss(animated: true, completion: nil)
+        }, onFail: { error in
+            let alertController = self.errorAlert(model: self.resumeCard.resume, error: error)
+            self.present(alertController, animated: true, completion: nil)
+        })
+        
     }
 }
+
+extension ResumeFormViewController : UIModelAlert {}

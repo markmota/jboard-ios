@@ -170,10 +170,11 @@ class ResumeCard : ScrollKerboardView {
     }
     
     func didDatePickerChanged(_ sender: AnyObject) {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        let dateString = format.string(from: self.datePicker.date)
-        self.startWorkingAtField.text = dateString
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy-MM-dd"
+//        let dateString = format.string(from: self.datePicker.date)
+        self.resume.start_working_at = self.datePicker.date
+        self.startWorkingAtField.text = "tienes \(resume.years_of_experience()) años de experiencia"
     }
 }
 
@@ -198,5 +199,16 @@ extension ResumeCard : UITextViewDelegate {
         animateDatePicker(toShow: false)
         return true
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.isEqual(self.bioText) {
+            self.resume.bio = self.bioText.text
+        }
+        if textView.isEqual(self.skillsText) {
+            self.resume.setSkillListFrom(text: self.skillsText.text)
+        }
+    }
+    
+    
     
 }
