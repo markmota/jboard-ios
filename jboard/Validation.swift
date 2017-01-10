@@ -29,8 +29,11 @@ struct Validation {
         func isValid(_ value : Any?) -> Bool {
             switch self {
             case .presence:
-                guard let string = value as? String else { return false }
-                return !string.isEmpty
+                if let string = value as? String {
+                    return !string.isEmpty
+                } else {
+                    return value != nil
+                }
             case .length(let size):
                 guard let string = value as? String else { return false }
                 return string.characters.count >= size

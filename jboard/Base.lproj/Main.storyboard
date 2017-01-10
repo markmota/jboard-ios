@@ -387,24 +387,16 @@
                                     <constraint firstAttribute="width" secondItem="ZL6-Rz-rtu" secondAttribute="height" multiplier="375:157" constant="28.662420382165578" id="1de-ZP-Hu4"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhC-8I-c7B" customClass="ResumeCard" customModule="jboard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="209" width="375" height="409"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AhC-8I-c7B" firstAttribute="leading" secondItem="aOe-ad-3s9" secondAttribute="leading" id="Gfp-dJ-Wec"/>
-                            <constraint firstAttribute="trailing" secondItem="AhC-8I-c7B" secondAttribute="trailing" id="JEb-VT-K7r"/>
                             <constraint firstItem="ZL6-Rz-rtu" firstAttribute="top" secondItem="haz-Oc-7dk" secondAttribute="bottom" id="VAg-CM-AS9"/>
-                            <constraint firstItem="AhC-8I-c7B" firstAttribute="top" secondItem="ZL6-Rz-rtu" secondAttribute="bottom" id="Xvt-AA-zvW"/>
                             <constraint firstItem="ZL6-Rz-rtu" firstAttribute="leading" secondItem="aOe-ad-3s9" secondAttribute="leading" id="bpu-in-u22"/>
                             <constraint firstAttribute="trailing" secondItem="ZL6-Rz-rtu" secondAttribute="trailing" id="oum-He-CiO"/>
-                            <constraint firstItem="Cg3-OH-FpU" firstAttribute="top" secondItem="AhC-8I-c7B" secondAttribute="bottom" id="q4w-QE-ZUa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dzv-ik-e7m"/>
                     <connections>
-                        <outlet property="resumeCard" destination="AhC-8I-c7B" id="yR7-ad-Tjd"/>
                         <outlet property="userCard" destination="ZL6-Rz-rtu" id="ZEA-ZH-3gq"/>
                         <segue destination="YvI-cJ-Hpg" kind="presentation" identifier="showResumeForm" id="EHN-ue-6pV"/>
                     </connections>
@@ -442,26 +434,16 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56V-m5-bxe" customClass="ResumeCard" customModule="jboard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isEditable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="56V-m5-bxe" firstAttribute="top" secondItem="JOU-BD-1zr" secondAttribute="bottom" id="4lX-Ja-0YM"/>
-                            <constraint firstItem="56V-m5-bxe" firstAttribute="leading" secondItem="gr5-HV-KgX" secondAttribute="leading" id="CyW-Xr-fsq"/>
-                            <constraint firstItem="dP6-Jl-Tq8" firstAttribute="top" secondItem="56V-m5-bxe" secondAttribute="bottom" id="M6o-RT-Qae"/>
                             <constraint firstAttribute="trailing" secondItem="JOU-BD-1zr" secondAttribute="trailing" id="Y1K-iK-9At"/>
                             <constraint firstItem="JOU-BD-1zr" firstAttribute="leading" secondItem="gr5-HV-KgX" secondAttribute="leading" id="YUs-Al-AaL"/>
-                            <constraint firstAttribute="trailing" secondItem="56V-m5-bxe" secondAttribute="trailing" id="enp-Ol-3Ba"/>
                             <constraint firstItem="JOU-BD-1zr" firstAttribute="top" secondItem="gr5-HV-KgX" secondAttribute="top" id="wqj-MB-MHP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resumeForm" destination="56V-m5-bxe" id="KPz-N0-UQa"/>
+                        <outlet property="navigationBar" destination="JOU-BD-1zr" id="7Uk-bN-En6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rg-xc-xaC" userLabel="First Responder" sceneMemberID="firstResponder"/>

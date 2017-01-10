@@ -77,6 +77,7 @@ class UserCard: UIView {
     }
     
     func setupSubviews() {
+        self.backgroundColor = Theme.Colors.foreground.color
         addSubview(profileImage)
         profileImage.snp.makeConstraints { make in
             make.width.equalTo(profileImage.snp.height)

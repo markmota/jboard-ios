@@ -26,7 +26,7 @@ class Resume : Model {
     
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
-        self.start_working_at = json["start_working_at"] as? Date ?? Date()
+        self.start_working_at = Model.parseDate(json["start_working_at"])
         self.bio = json["bio"] as? String ?? ""
         self.skill_list = json["skill_list"] as? [String] ?? []
         self.user = User(withJSON: json["user"] as? [String : AnyObject] ?? [:])
@@ -42,8 +42,29 @@ class Resume : Model {
         }
     }
     
+    func create(onSuccess success: ((Void) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+        if Secret.apiToken.value == nil { return }
+        if !isValid() {
+            fail?(nil)
+            return
+        }
+        let request = try! APIClient.Router.createResume(resume: self).asURLRequest()
+        Alamofire.request(request).responseJSON { response in
+            debugPrint(response.result)
+            if response.result.isSuccess {
+                success?()
+            } else {
+                fail?(response.result.error)
+            }
+        }
+    }
+    
     func years_of_experience() -> Int {
         return Date().years(from: self.start_working_at)
+    }
+    
+    func setSkillListFrom(text: String){
+        self.skill_list = Array(Set(text.components(separatedBy: ","))).filter { $0 != "" }
     }
     
 }

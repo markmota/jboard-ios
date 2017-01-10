@@ -11,7 +11,7 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userCard: UserCard!
-    @IBOutlet weak var resumeCard: ResumeCard!
+    let resumeCard = ResumeCard(isEditable: false)
     
     let completeProfileView : UIView = {
         let button = UIButton(type: .system)
@@ -44,19 +44,33 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Perfil"
         self.currentUser = (UIApplication.shared.delegate as! AppDelegate).currentUser
-        resumeCard.isHidden = true
-        self.view.addSubview(completeProfileView)
-        completeProfileView.snp.makeConstraints { make in
-            make.top.equalTo(self.userCard.snp.bottom)
-            make.left.equalTo(self.view.snp.left)
-            make.right.equalTo(self.view.snp.right)
-            make.bottom.equalTo(self.view.snp.bottom)
+        if let user = self.currentUser, user.hasCompletedProfile() {
+            self.view.addSubview(resumeCard)
+            resumeCard.snp.makeConstraints { make in
+                make.top.equalTo(self.userCard.snp.bottom)
+                make.left.equalTo(self.view.snp.left)
+                make.right.equalTo(self.view.snp.right)
+                make.bottom.equalTo(self.view.snp.bottom)
+            }
+        } else {
+            self.view.addSubview(completeProfileView)
+            completeProfileView.snp.makeConstraints { make in
+                make.top.equalTo(self.userCard.snp.bottom)
+                make.left.equalTo(self.view.snp.left)
+                make.right.equalTo(self.view.snp.right)
+                make.bottom.equalTo(self.view.snp.bottom)
+            }
         }
+        resumeCard.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadResume()
+        if let user = self.currentUser, user.hasCompletedProfile() {
+            loadResume()
+        }
+        
     }
     
     func loadResume() {
