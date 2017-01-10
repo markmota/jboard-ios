@@ -53,7 +53,7 @@ class ResumeCard : ScrollKerboardView {
     let bioText : UITextView = {
         let textView = UITextView()
         textView.text = ""
-        textView.font = Theme.Fonts.lightText.font
+        textView.font = Theme.Fonts.text.font
         return textView
     }()
     
@@ -141,6 +141,7 @@ class ResumeCard : ScrollKerboardView {
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
                 make.height.equalTo(64)
             }
+            addSubview(datePicker)
         } else {
             addSubview(skillsList)
             skillsList.snp.makeConstraints { make in
@@ -150,7 +151,6 @@ class ResumeCard : ScrollKerboardView {
                 make.height.equalTo(64)
             }
         }
-        addSubview(datePicker)
     }
     
     func hideDatePicker(out bounds : CGRect) {
@@ -179,7 +179,6 @@ class ResumeCard : ScrollKerboardView {
 }
 
 extension ResumeCard : UITextFieldDelegate {
-    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.isEqual(self.startWorkingAtField) {
             bioText.resignFirstResponder()
@@ -208,7 +207,4 @@ extension ResumeCard : UITextViewDelegate {
             self.resume.setSkillListFrom(text: self.skillsText.text)
         }
     }
-    
-    
-    
 }
