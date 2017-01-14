@@ -1,3 +1,5 @@
+![logo](https://github.com/rightmonkey.png)
+
 # Acknowledgements
 
 RightMonkey team would like to acknowledge the many contributions, consultants, sponsors, 
@@ -16,3 +18,5 @@ The followed resources were created by
 * Search Profile - Created by Ferma from the Noun Project
 * Briefcase - Created by iconsphere from the Noun Project
 * Message - Created by iconsphere from the Noun Project
+* X mark - Created by HardcoreiOS from the Noun Project
+* Checkmark - Created by Miroku Sama from the Noun Project

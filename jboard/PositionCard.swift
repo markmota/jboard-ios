@@ -56,8 +56,22 @@ class PositionCard: UIView {
         let view = TagListView()
         return view
     }()
-
     
+    let likeButton : UIBarButtonItem = {
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "checkmark"), style: .done, target: self, action: nil)
+        return button
+    }()
+    
+    let shareButton : UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+        return button
+    }()
+    
+    let hideButton : UIBarButtonItem = {
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "xmark"), style: .done, target: self, action: nil)
+        return button
+    }()
+
     init() {
         super.init(frame: CGRect.zero)
         setupSubviews()
@@ -108,6 +122,25 @@ class PositionCard: UIView {
             make.left.equalTo(self.snp.left).offset(3)
             make.right.equalTo(self.snp.right).offset(-3)
             make.height.equalTo(self.snp.height).dividedBy(3)
+        }
+        let toolbar = UIToolbar()
+        toolbar.backgroundColor = Theme.Colors.tint.color
+        toolbar.tintColor = Theme.Colors.background.color
+        addSubview(toolbar)
+        var items = [UIBarButtonItem]()
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(likeButton)
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(shareButton)
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(hideButton)
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        
+        toolbar.items = items
+        toolbar.snp.makeConstraints { make in
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.bottom.equalTo(self.snp.bottom)
         }
     }
 }
