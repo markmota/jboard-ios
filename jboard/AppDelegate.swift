@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupStyle() {
-        window?.tintColor = UIColor.white
+        window?.tintColor = Theme.Colors.foreground.color
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barStyle = .black
         navBarAppearance.barTintColor = Theme.Colors.darkBackground.color

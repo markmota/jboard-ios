@@ -15,6 +15,7 @@ class ResumeCard : ScrollKerboardView {
         didSet{
             yearsLabel.text = "\(resume.years_of_experience()) años de experiencia"
             bioText.text = resume.bio
+            skillsList.reset()
             for skill in resume.skill_list {
                 skillsList.addTag(skill)
                 skillsText.text = "\(skillsText.text)\(skill), "

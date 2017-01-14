@@ -38,6 +38,7 @@
 		30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD6F511DEB71C200DF0903 /* TagListView.swift */; };
 		30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD6F551DEB78B400DF0903 /* TagLabel.swift */; };
 		30D2CC2C1DB1EE5E003322CD /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */; };
+		30EB76671E2A9CE30051C511 /* PositionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB76661E2A9CE30051C511 /* PositionCard.swift */; };
 		30F9DB261D96B29000112CD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB251D96B29000112CD9 /* AppDelegate.swift */; };
 		30F9DB2B1D96B29000112CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB291D96B29000112CD9 /* Main.storyboard */; };
 		30F9DB2D1D96B29000112CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F9DB2C1D96B29000112CD9 /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
 		30D2CC2D1DB20459003322CD /* jboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jboard.entitlements; sourceTree = "<group>"; };
+		30EB76661E2A9CE30051C511 /* PositionCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionCard.swift; sourceTree = "<group>"; };
 		30F9DB221D96B29000112CD9 /* jboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F9DB251D96B29000112CD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30F9DB2A1D96B29000112CD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				301303621E1DD91300CD382F /* UserCard.swift */,
 				301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */,
 				301303681E1F28F300CD382F /* ResumeCard.swift */,
+				30EB76661E2A9CE30051C511 /* PositionCard.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */,
 				3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */,
 				30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */,
+				30EB76671E2A9CE30051C511 /* PositionCard.swift in Sources */,
 				309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */,
 				3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */,
 				30A20D421DCE6C9700A748EA /* Bookmark.swift in Sources */,

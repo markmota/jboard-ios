@@ -14,7 +14,7 @@ class Position : Model {
     public var match:Float = 0.0
     public var title:String = ""
     public var description:String = ""
-    public var skillList:Array<String> = []
+    public var skill_list:Array<String> = []
     public var company:Company? {
         didSet {
             self.company_id = self.company?.id ?? 0
@@ -52,11 +52,19 @@ class Position : Model {
         }
     }
     
+    override init() {
+        super.init()
+        self.rules = [
+            "title" : [.presence],
+            "description" : [.presence]
+        ]
+    }
+    
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
         self.title = json["title"] as? String ?? ""
         self.description = json["description"] as? String ?? ""
-        self.skillList = json["skill_list"] as? [String] ?? []
+        self.skill_list = json["skill_list"] as? [String] ?? []
         if let companyJSON = json["company"] as? [String:AnyObject] {
             self.company = Company(withJSON: companyJSON)
         }

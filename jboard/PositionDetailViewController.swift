@@ -7,41 +7,34 @@
 //
 
 import UIKit
+import SnapKit
 
 class PositionDetailViewController: UIViewController {
-    @IBOutlet weak var lblCompatibility: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var txvDescription: UITextView!
     @IBOutlet weak var skillListView: TagListView!
     
+    let positionCard = PositionCard()
     weak var position : Position!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        skillListView.target = self
-        skillListView.tapAction = #selector(PositionDetailViewController.tapTag(_:))
-        skillListView.longPressAction = #selector(PositionDetailViewController.longPressTag(_:))
-        renderPostion()
+        self.view.backgroundColor = Theme.Colors.background.color
+        self.view.addSubview(positionCard)
+        positionCard.snp.makeConstraints { make in
+            make.top.equalTo(self.view.snp.top).offset(75)
+            make.left.equalTo(self.view.snp.left).offset(10)
+            make.right.equalTo(self.view.snp.right).offset(-10)
+            make.bottom.equalTo(self.view.snp.bottom).offset(-65)
+        }
+        positionCard.position = position
         Position.find(id: position.id) { (pos) in
             self.title = pos.company?.name
-            self.position = pos
-            self.renderPostion()
+            self.positionCard.position = pos
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func renderPostion() {
-        lblTitle.text = position.title
-        txvDescription.text = position.description
-        lblCompatibility.text = "\(position.match) %"
-        for skill in position.skillList {
-            skillListView.addTag(skill)
-        }
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -52,16 +45,6 @@ class PositionDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func tapTag(_ sender : UIGestureRecognizer) {
-        let label = (sender.view as! UILabel)
-        print("tap from \(label.text!)")
-    }
-    
-    func longPressTag(_ sender : UIGestureRecognizer){
-        let label = (sender.view as! UILabel)
-        print("long press from \(label.text!)")
-    }
-    
+
 
 }
