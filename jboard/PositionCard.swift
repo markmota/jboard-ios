@@ -58,17 +58,17 @@ class PositionCard: UIView {
     }()
     
     let likeButton : UIBarButtonItem = {
-        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "checkmark"), style: .done, target: self, action: nil)
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "checkmark"), style: .done, target: self, action: #selector(tapOnLikeButton))
         return button
     }()
     
     let shareButton : UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(tapOnShareButton))
         return button
     }()
     
     let hideButton : UIBarButtonItem = {
-        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "xmark"), style: .done, target: self, action: nil)
+        let button = UIBarButtonItem(image: #imageLiteral(resourceName: "xmark"), style: .done, target: self, action: #selector(tapOnHideButton))
         return button
     }()
 
@@ -143,4 +143,23 @@ class PositionCard: UIView {
             make.bottom.equalTo(self.snp.bottom)
         }
     }
+    
+    func tapOnLikeButton() {
+        print("like")
+    }
+    
+    func tapOnShareButton() {
+        let msg = ["Encontre una vacante de \(position.title) en esta app"]
+        let avc = UIActivityViewController(activityItems: msg, applicationActivities: nil)
+        avc.setValue("Trabajo en Jboard", forKey: "Subject")
+        if self.superview?.next is UIViewController, let vc = self.superview?.next as? UIViewController {
+            vc.present(avc, animated: true, completion: nil)
+        }
+        print("share")
+    }
+    
+    func tapOnHideButton(){
+        print("hide")
+    }
+    
 }
