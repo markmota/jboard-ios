@@ -20,6 +20,7 @@ class PositionsTableViewController: ThemedTableViewController {
     let filterControl : UISegmentedControl = {
         let control = UISegmentedControl(items: ["Todos", "Favoritos", "Ocultos"])
         control.selectedSegmentIndex = 0
+        control.addTarget(self, action: #selector(onChangeFilter), for: .valueChanged)
         return control
     }()
     
@@ -27,7 +28,7 @@ class PositionsTableViewController: ThemedTableViewController {
         super.viewDidLoad()
         self.title = "Vacantes"
         addButton.isEnabled = false
-        Position.all() { result in
+        Position.all(filter: nil) { result in
             self.positions = result
         }
         NotificationCenter.default.addObserver(self,
@@ -154,6 +155,23 @@ class PositionsTableViewController: ThemedTableViewController {
     
     func tapCompleteProfile(sender: UIButton!) {
         performSegue(withIdentifier: "createResume", sender: self)
+    }
+    
+    func onChangeFilter() {
+        switch filterControl.selectedSegmentIndex {
+        case 1:
+            Position.all(filter: "liked") { result in
+                self.positions = result
+            }
+        case 2:
+            Position.all(filter: "hidden") { result in
+                self.positions = result
+            }
+        default:
+            Position.all(filter: nil) { result in
+                self.positions = result
+            }
+        }
     }
     
     // MARK: - Observers

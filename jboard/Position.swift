@@ -25,8 +25,8 @@ class Position : Model {
     public var company_name:String = ""
     public var contacts:Array<Contact> = []
     
-    class func all(completion: (([Position]) -> Void)?) {
-        let request = try! APIClient.Router.positions.asURLRequest()
+    class func all(filter: String?,  completion: (([Position]) -> Void)?) {
+        let request = try! APIClient.Router.positions(filter: filter).asURLRequest()
         Alamofire.request(request).responseJSON { response in
             var out : [Position] = []
             if response.result.isSuccess, let data = response.result.value as? [String : AnyObject], let array = data["positions"] as? [[String : AnyObject]] {

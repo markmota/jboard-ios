@@ -20,7 +20,7 @@ struct APIClient {
         case loginFacebook(token:String)
         case currentUser
         case register(user:User)
-        case positions
+        case positions(filter: String?)
         case position(id:Int)
         case companyPositions(id:Int)
         case createPosition(position:Position)
@@ -91,6 +91,9 @@ struct APIClient {
                 return ["token":token as AnyObject]
             case .register(let user):
                 return user.toDict(exclude: ["id", "gravatarUrl"]) as [String : AnyObject]
+            case .positions(let filter):
+                guard let str = filter else { return [:] }
+                return ["filter": str as AnyObject]       
             case .createPosition(let position), .updatePosition(let position):
                 return position.toDict(exclude: ["id", "company", "contacts"]) as [String : AnyObject]
             case .createResume(let resume), .updateResume(let resume):
