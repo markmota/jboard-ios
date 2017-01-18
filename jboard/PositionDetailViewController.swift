@@ -58,7 +58,7 @@ class PositionDetailViewController: UIViewController {
     */
     func tapOnLikeButton() {
         self.positionCard.likeButton.isEnabled = false
-        position.bookmarkAsLike(onSuccess: { (bookmark) in
+        position.bookmarkAsLiked(onSuccess: { (bookmark) in
             SCLAlertView().showSuccess("Bookmark", subTitle: "Guardado en favoritos exitosamente")
         }, onFail: { (error) in
             self.errorAlert(model: self.position, error: error)
@@ -74,7 +74,13 @@ class PositionDetailViewController: UIViewController {
     }
     
     func tapOnHideButton(){
-        print("hide")
+        self.positionCard.hideButton.isEnabled = false
+        position.bookmarkAsHidden(onSuccess: { (bookmark) in
+            SCLAlertView().showInfo("Bookmark", subTitle: "Ocultado exitosamente")
+        }, onFail: { (error) in
+            self.errorAlert(model: self.position, error: error)
+            self.positionCard.hideButton.isEnabled = true
+        })
     }
 
 }

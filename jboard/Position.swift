@@ -70,9 +70,14 @@ class Position : Model {
         }
     }
     
-    func bookmarkAsLike(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+    func bookmarkAsLiked(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)?) {
         self.createBookmark(withStatus: "liked", onSuccess: success, onFail: fail)
     }
+    
+    func bookmarkAsHidden(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+        self.createBookmark(withStatus: "hidden", onSuccess: success, onFail: fail)
+    }
+
     
     func createBookmark(withStatus status: String, onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)? ) {
         let request = APIClient.Router.createPositionBookmark(position: self, status: status)
