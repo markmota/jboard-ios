@@ -69,4 +69,22 @@ class Position : Model {
             self.company = Company(withJSON: companyJSON)
         }
     }
+    
+    func bookmarkAsLike(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+        self.createBookmark(withStatus: "liked", onSuccess: success, onFail: fail)
+    }
+    
+    func createBookmark(withStatus status: String, onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)? ) {
+        let request = APIClient.Router.createPositionBookmark(position: self, status: status)
+        Alamofire.request(request).responseJSON { response in
+            if response.result.isSuccess,
+                let data = response.result.value as? [String:AnyObject],
+                let json = data["bookmark"] as? [String : AnyObject] {
+                success?(Bookmark(withJSON: json))
+            } else {
+                let error = response.result.error ?? CustomErrors.api(json: response.result.value as? [String:AnyObject])
+                fail?(error)
+            }
+        }
+    }
 }

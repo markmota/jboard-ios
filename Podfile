@@ -9,5 +9,6 @@ target 'jboard' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'SnapKit', '~> 3.1.2'
+  pod 'SCLAlertView'
 end
 

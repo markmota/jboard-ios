@@ -7,15 +7,13 @@
 //
 
 import Foundation
+import SCLAlertView
 
 protocol UIModelAlert {}
 
 extension UIModelAlert {
-    func errorAlert(model: Model, error: Error?) -> UIAlertController {
+    func errorAlert(model: Model, error: Error?) {
         let message = error?.localizedDescription ?? (!model.isValid() ? model.errors.first : "Error desconocido")
-        let alertController = UIAlertController(title: "Mensaje", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
-        alertController.addAction(action)
-        return alertController
+        SCLAlertView().showError("Error", subTitle: message!)
     }
 }

@@ -28,8 +28,7 @@ class RegisterViewController: UIViewController {
             SAMKeychain.setPassword(token, forService: Secret.apiService, account: Secret.account)
             self.performSegue(withIdentifier: "completeRegister", sender: self)
         }, onFail: { error in
-            let alertController = self.errorAlert(model: user, error: error)
-            self.present(alertController, animated: true, completion: nil)
+            self.errorAlert(model: user, error: error)
         })
     }
     

@@ -32,8 +32,7 @@ class ResumeFormViewController: UIViewController {
         resumeCard.resume.create(onSuccess: { () in
             self.dismiss(animated: true, completion: nil)
         }, onFail: { error in
-            let alertController = self.errorAlert(model: self.resumeCard.resume, error: error)
-            self.present(alertController, animated: true, completion: nil)
+            self.errorAlert(model: self.resumeCard.resume, error: error)
         })
         
     }

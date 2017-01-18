@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SCLAlertView
 
 class PositionDetailViewController: UIViewController {
     @IBOutlet weak var skillListView: TagListView!
@@ -25,10 +26,20 @@ class PositionDetailViewController: UIViewController {
             make.right.equalTo(self.view.snp.right).offset(-10)
             make.bottom.equalTo(self.view.snp.bottom).offset(-65)
         }
+        positionCard.likeButton.target = self
+        positionCard.likeButton.action = #selector(tapOnLikeButton)
+        
+        positionCard.shareButton.target = self
+        positionCard.shareButton.action = #selector(tapOnShareButton)
+        
+        positionCard.hideButton.target = self
+        positionCard.hideButton.action = #selector(tapOnHideButton)
+        
         positionCard.position = position
         Position.find(id: position.id) { (pos) in
             self.title = pos.company?.name
             self.positionCard.position = pos
+            self.position = pos
         }
     }
 
@@ -45,6 +56,30 @@ class PositionDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func tapOnLikeButton() {
+        self.positionCard.likeButton.isEnabled = false
+        position.bookmarkAsLike(onSuccess: { (bookmark) in
+            SCLAlertView().showSuccess("Bookmark", subTitle: "Guardado en favoritos exitosamente")
+        }, onFail: { (error) in
+            self.errorAlert(model: self.position, error: error)
+            self.positionCard.likeButton.isEnabled = true
+        })
+    }
+    
+    func tapOnShareButton() {
+        let msg = ["Encontre una vacante de \(position.title) en esta app"]
+        let avc = UIActivityViewController(activityItems: msg, applicationActivities: nil)
+        avc.setValue("Trabajo en Jboard", forKey: "Subject")
+        self.present(avc, animated: true, completion: nil)
+    }
+    
+    func tapOnHideButton(){
+        print("hide")
+    }
 
 }
+
+
+
+extension PositionDetailViewController : UIModelAlert {}
+

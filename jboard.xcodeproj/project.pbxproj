@@ -14,6 +14,7 @@
 		3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */; };
 		3013036D1E208EBD00CD382F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036C1E208EBD00CD382F /* Notification.swift */; };
 		301303711E20A5AE00CD382F /* ResumeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303701E20A5AE00CD382F /* ResumeFormViewController.swift */; };
+		301666251E2EEBA500C0D2FA /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301666241E2EEBA500C0D2FA /* Errors.swift */; };
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
 		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
 		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
@@ -68,6 +69,7 @@
 		3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDistanceExtension.swift; sourceTree = "<group>"; };
 		3013036C1E208EBD00CD382F /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		301303701E20A5AE00CD382F /* ResumeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeFormViewController.swift; sourceTree = "<group>"; };
+		301666241E2EEBA500C0D2FA /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		304648781E1AF27900CCEF1D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				30A20D371DCE61B100A748EA /* User.swift */,
 				305704831DE3750C00EEF57C /* Validable.swift */,
 				3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */,
+				301666241E2EEBA500C0D2FA /* Errors.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				30A20D351DCE400D00A748EA /* APIClient.swift in Sources */,
 				301303631E1DD91300CD382F /* UserCard.swift in Sources */,
 				305704851DE3750C00EEF57C /* Validable.swift in Sources */,
+				301666251E2EEBA500C0D2FA /* Errors.swift in Sources */,
 				30A20D301DCE3ED000A748EA /* Secret.swift in Sources */,
 				30A20D3E1DCE6C3D00A748EA /* Company.swift in Sources */,
 				30A20D481DCE702E00A748EA /* Resume.swift in Sources */,
