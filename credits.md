@@ -1,5 +1,3 @@
-![logo](https://github.com/rightmonkey.png)
-
 # Acknowledgements
 
 RightMonkey team would like to acknowledge the many contributions, consultants, sponsors, 

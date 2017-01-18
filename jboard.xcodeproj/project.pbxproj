@@ -19,6 +19,7 @@
 		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
 		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
 		3046487D1E1B03E400CCEF1D /* ThemedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */; };
+		30481B2F1E2F11AE00D6C022 /* credits.md in Resources */ = {isa = PBXBuildFile; fileRef = 3075BEC01DE94E880002E725 /* credits.md */; };
 		305704851DE3750C00EEF57C /* Validable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704831DE3750C00EEF57C /* Validable.swift */; };
 		305704861DE3750C00EEF57C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704841DE3750C00EEF57C /* Validation.swift */; };
 		3075BEC11DE94E880002E725 /* credits.md in Sources */ = {isa = PBXBuildFile; fileRef = 3075BEC01DE94E880002E725 /* credits.md */; };
@@ -38,6 +39,7 @@
 		30A20D481DCE702E00A748EA /* Resume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A20D471DCE702E00A748EA /* Resume.swift */; };
 		30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD6F511DEB71C200DF0903 /* TagListView.swift */; };
 		30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD6F551DEB78B400DF0903 /* TagLabel.swift */; };
+		30B44F031E2F0799006DC21D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B44F021E2F0799006DC21D /* CreditsViewController.swift */; };
 		30D2CC2C1DB1EE5E003322CD /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */; };
 		30EB76671E2A9CE30051C511 /* PositionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB76661E2A9CE30051C511 /* PositionCard.swift */; };
 		30F9DB261D96B29000112CD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F9DB251D96B29000112CD9 /* AppDelegate.swift */; };
@@ -93,6 +95,7 @@
 		30A20D471DCE702E00A748EA /* Resume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resume.swift; sourceTree = "<group>"; };
 		30AD6F511DEB71C200DF0903 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		30AD6F551DEB78B400DF0903 /* TagLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
+		30B44F021E2F0799006DC21D /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
 		30D2CC2D1DB20459003322CD /* jboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jboard.entitlements; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 				63E6A4CA1DE1461F007112FF /* PositionDetailViewController.swift */,
 				301303641E1F127400CD382F /* ProfileViewController.swift */,
 				301303701E20A5AE00CD382F /* ResumeFormViewController.swift */,
+				30B44F021E2F0799006DC21D /* CreditsViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -347,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30481B2F1E2F11AE00D6C022 /* credits.md in Resources */,
 				30F9DB301D96B29000112CD9 /* LaunchScreen.storyboard in Resources */,
 				30F9DB2D1D96B29000112CD9 /* Assets.xcassets in Resources */,
 				30F9DB2B1D96B29000112CD9 /* Main.storyboard in Resources */,
@@ -450,6 +455,7 @@
 				30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */,
 				30EB76671E2A9CE30051C511 /* PositionCard.swift in Sources */,
 				309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */,
+				30B44F031E2F0799006DC21D /* CreditsViewController.swift in Sources */,
 				3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */,
 				30A20D421DCE6C9700A748EA /* Bookmark.swift in Sources */,
 			);
