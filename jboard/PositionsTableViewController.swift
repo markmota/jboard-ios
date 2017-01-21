@@ -27,6 +27,7 @@ class PositionsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Vacantes"
+        self.tableView.tableFooterView = UIView()
         addButton.isEnabled = false
         Position.all(filter: nil) { result in
             self.positions = result
@@ -77,10 +78,9 @@ class PositionsTableViewController: ThemedTableViewController {
                                               width: self.view.frame.width,
                                               height: self.view.frame.height))
         viewHeader.isUserInteractionEnabled = true
+        viewHeader.backgroundColor = Theme.Colors.darkBackground.color
         guard let user = self.currentUser else { return nil }
-
         if user.hasCompletedProfile() {
-            viewHeader.backgroundColor = Theme.Colors.background.color
             viewHeader.addSubview(filterControl)
             filterControl.snp.makeConstraints{ make in
                 make.centerY.equalTo(viewHeader.snp.centerY)
@@ -88,9 +88,8 @@ class PositionsTableViewController: ThemedTableViewController {
                 make.width.equalTo(viewHeader.snp.width).offset(-50)
             }
         } else {
-            viewHeader.backgroundColor = Theme.Colors.darkBackground.color
             let button = RoundButton(type: .system)
-            button.tintColor = Theme.Colors.darkBackground.color
+            button.tintColor = Theme.Colors.background.color
             button.setTitle("Agrega tu curriculum aquí", for: .normal)
             button.addTarget(self, action: #selector(tapCompleteProfile), for: .touchUpInside)
             

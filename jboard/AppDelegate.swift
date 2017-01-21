@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barStyle = .black
         navBarAppearance.barTintColor = Theme.Colors.darkBackground.color
+        navBarAppearance.isTranslucent = false
     }
     
     func loadCurrentUser() {
