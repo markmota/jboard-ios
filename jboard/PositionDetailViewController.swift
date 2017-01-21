@@ -17,7 +17,8 @@ class PositionDetailViewController: UIViewController {
     var position = Position()
     var bookmark : Bookmark? {
         didSet {
-            switch bookmark!.status {
+            guard let status = bookmark?.status else { return }
+            switch status {
             case "liked":
                 self.positionCard.likeButton.isEnabled = false
             case "hidden":
@@ -76,7 +77,8 @@ class PositionDetailViewController: UIViewController {
     func tapOnLikeButton() {
         self.positionCard.likeButton.isEnabled = false
         position.bookmarkAsLiked(onSuccess: { (bookmark) in
-            SCLAlertView().showSuccess("Bookmark", subTitle: "Guardado en favoritos exitosamente")
+            SCLAlertView().showSuccess("Bookmark", subTitle: "Agregado a favoritos")
+            _ = self.navigationController?.popViewController(animated: true)
         }, onFail: { (error) in
             self.errorAlert(model: self.position, error: error)
             self.positionCard.likeButton.isEnabled = true
@@ -93,7 +95,8 @@ class PositionDetailViewController: UIViewController {
     func tapOnHideButton(){
         self.positionCard.hideButton.isEnabled = false
         position.bookmarkAsHidden(onSuccess: { (bookmark) in
-            SCLAlertView().showInfo("Bookmark", subTitle: "Ocultado exitosamente")
+            SCLAlertView().showInfo("Bookmark", subTitle: "Agregado a ocultos")
+            _ = self.navigationController?.popViewController(animated: true)
         }, onFail: { (error) in
             self.errorAlert(model: self.position, error: error)
             self.positionCard.hideButton.isEnabled = true
@@ -101,8 +104,6 @@ class PositionDetailViewController: UIViewController {
     }
 
 }
-
-
 
 extension PositionDetailViewController : UIModelAlert {}
 
