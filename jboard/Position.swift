@@ -38,16 +38,22 @@ class Position : Model {
         }
     }
     
-    class func find(id: Int, completion: ((Position) -> Void)?) {
+    class func find(id: Int, completion: ((Position, Bookmark?) -> Void)?) {
         let request = try! APIClient.Router.position(id: id).asURLRequest()
         Alamofire.request(request).responseJSON { response in
             if response.result.isSuccess, let data = response.result.value as? [String : AnyObject]{
+                debugPrint(data)
                 guard let json = data["position"] as? [String : AnyObject] else { return }
                 let position = Position(withJSON: json)
                 if let match = data["match"] as? Float {
                     position.match = match * 100.0
                 }
-                completion?(position)
+                if let jsonBookmark = data["bookmark"] as? [String : AnyObject]  {
+                    let bookmark = Bookmark(withJSON: jsonBookmark)
+                    completion?(position, bookmark)
+                } else {
+                    completion?(position, nil)
+                }
             }
         }
     }

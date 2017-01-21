@@ -15,6 +15,10 @@ class Bookmark : Model {
     public var resume_id:Int = 0
     public var position:Position?
     
+    override init() {
+        super.init()
+    }
+    
     init(withJSON json: [String:AnyObject]) {
         self.id = json["id"] as? Int ?? 0
         self.status = json["status"] as? String ?? ""

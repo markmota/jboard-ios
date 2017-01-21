@@ -14,7 +14,23 @@ class PositionDetailViewController: UIViewController {
     @IBOutlet weak var skillListView: TagListView!
     
     let positionCard = PositionCard()
-    weak var position : Position!
+    var position = Position()
+    var bookmark : Bookmark? {
+        didSet {
+            switch bookmark!.status {
+            case "liked":
+                self.positionCard.likeButton.isEnabled = false
+            case "hidden":
+                self.positionCard.hideButton.isEnabled = false
+            case "match":
+                self.positionCard.likeButton.isEnabled = false
+                self.positionCard.hideButton.isEnabled = false
+            default:
+                self.positionCard.likeButton.isEnabled = true
+                self.positionCard.hideButton.isEnabled = true
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +52,11 @@ class PositionDetailViewController: UIViewController {
         positionCard.hideButton.action = #selector(tapOnHideButton)
         
         positionCard.position = position
-        Position.find(id: position.id) { (pos) in
+        Position.find(id: position.id) { (pos, bmrk) in
             self.title = pos.company?.name
             self.positionCard.position = pos
             self.position = pos
+            self.bookmark = bmrk
         }
     }
 
