@@ -17,6 +17,7 @@ struct APIClient {
         #else
         static let baseURLString = "https://jboard-api.herokuapp.com/"
         #endif
+        case home
         case loginFacebook(token:String)
         case currentUser
         case register(user:User)
@@ -64,6 +65,7 @@ struct APIClient {
         
         var path: String {
             switch self {
+            case .home: return "/"
             case .loginFacebook(_): return "api/v1/login/facebook"
             case .currentUser: return "api/v1/user"
             case .register(_): return "api/v1/register"

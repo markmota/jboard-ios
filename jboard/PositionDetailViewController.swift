@@ -38,10 +38,10 @@ class PositionDetailViewController: UIViewController {
         self.view.backgroundColor = Theme.Colors.background.color
         self.view.addSubview(positionCard)
         positionCard.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.top).offset(75)
+            make.top.equalTo(self.view.snp.top).offset(20)
             make.left.equalTo(self.view.snp.left).offset(10)
             make.right.equalTo(self.view.snp.right).offset(-10)
-            make.bottom.equalTo(self.view.snp.bottom).offset(-65)
+            make.bottom.equalTo(self.view.snp.bottom).offset(-20)
         }
         positionCard.likeButton.target = self
         positionCard.likeButton.action = #selector(tapOnLikeButton)

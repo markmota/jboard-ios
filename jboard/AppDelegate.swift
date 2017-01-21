@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import FBSDKCoreKit
 
 @UIApplicationMain
@@ -52,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func skipLogin() {
+        wakeUp()
         if FBSDKAccessToken.current() != nil, let _ = Secret.apiToken.value {
             loadCurrentUser()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -75,6 +77,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NotificationCenter.default.post(name: Notification.Name.currentUserLoaded,
                                             object: nil,
                                             userInfo: ["user":user])
+        }
+    }
+    
+    func wakeUp() {
+        let request = try! APIClient.Router.home.asURLRequest()
+        Alamofire.request(request).responseJSON { response in
+            if response.result.isSuccess,
+                let data = response.result.value as? [String:AnyObject],
+                let json = data["jboard"] as? [String : AnyObject] {
+                debugPrint(json)
+            }
         }
     }
 
