@@ -468,11 +468,11 @@
             </objects>
             <point key="canvasLocation" x="3552.8000000000002" y="1277.8110944527737"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Creditos-->
         <scene sceneID="3Rg-Kp-pWq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VH8-MD-pHE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="muH-4e-uYR"/>
+                    <tabBarItem key="tabBarItem" title="Creditos" image="help" id="muH-4e-uYR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gjm-bc-Z1d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -490,6 +490,7 @@
     </scenes>
     <resources>
         <image name="briefcase" width="44" height="44"/>
+        <image name="help" width="44" height="44"/>
         <image name="icon-white" width="512" height="512"/>
         <image name="profile" width="44" height="44"/>
         <image name="profile-image-white" width="256" height="256"/>

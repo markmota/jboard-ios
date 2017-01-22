@@ -14,7 +14,7 @@ class CreditsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Rightmonkey"
+        self.title = "Creditos"
         loadMarkdown()
     }
 
