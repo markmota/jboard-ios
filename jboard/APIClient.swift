@@ -37,6 +37,7 @@ struct APIClient {
         case resume
         case createResume(resume:Resume)
         case updateResume(resume:Resume)
+        case resumes
         case deleteResume
         case bookmarks
         case bookmark(id:Int)
@@ -81,6 +82,7 @@ struct APIClient {
             case .createEmployer(_): return "api/v1/employers/"
             case .updateEmployer(let employer), .deleteEmployer(let employer): return "api/v1/employers/\(employer.id)"
             case .resume, .createResume(_), .updateResume(_), .deleteResume: return "api/v1/resume"
+            case .resumes: return "/api/v1/resumes"
             case .bookmarks: return "api/v1/bookmarks"
             case .bookmark(let id): return "api/v1/bookmarks/\(id)"
             case .createPositionBookmark(let position, let status), .updatePositionBookmark(let position, let status): return "api/v1/positions/\(position.id)/mark/\(status)";

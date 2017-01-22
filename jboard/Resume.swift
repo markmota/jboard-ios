@@ -16,6 +16,19 @@ class Resume : Model {
     public var user:User?
     public var skill_list:Array<String> = []
     
+    class func all(completion: (([Resume]) -> Void)?) {
+        let request = APIClient.Router.resumes
+        Alamofire.request(request).responseJSON { response in
+            var out : [Resume] = []
+            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject], let array = data["resumes"] as? [[String : AnyObject]] {
+                for json in array {
+                    out.append(Resume(withJSON: json))
+                }
+            }
+            completion?(out)
+        }
+    }
+
     override init() {
         super.init()
         self.rules = [

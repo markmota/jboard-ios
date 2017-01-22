@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ResumesTableViewController: UITableViewController {
+class ResumesTableViewController: ThemedTableViewController {
+    var resumes : [Resume] = [] {
+        didSet { self.tableView.reloadData() }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Candidatos"
-        self.tableView.tableFooterView = UIView()
+        Resume.all { res in
+            self.resumes = res
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,13 +32,19 @@ class ResumesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.resumes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resumeCell", for: indexPath)
-//         Configure the cell...
-
+        let resume = self.resumes[indexPath.row]
+        cell.textLabel?.text = resume.user?.full_name
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.text = resume.bio
+        cell.detailTextLabel?.textColor = Theme.Colors.foreground.color
+        resume.user?.image { img in
+            cell.imageView?.image = img
+        }
         return cell
     }
 

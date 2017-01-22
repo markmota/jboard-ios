@@ -27,7 +27,6 @@ class PositionsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Vacantes"
-        self.tableView.tableFooterView = UIView()
         addButton.isEnabled = false
         Position.all(filter: nil) { result in
             self.positions = result

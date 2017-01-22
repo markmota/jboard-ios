@@ -21,6 +21,9 @@ class User : Model {
     public var candidate:Bool = false
     public var facebook_uuid:String = ""
     public var facebook_token:String = ""
+    public lazy var full_name : String = {
+        return "\(self.first_name) \(self.last_name)"
+    }()
     
     override init() {
         super.init()

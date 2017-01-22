@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func wakeUp() {
-        let request = try! APIClient.Router.home.asURLRequest()
+        let request = APIClient.Router.home
         Alamofire.request(request).responseJSON { response in
             if response.result.isSuccess,
                 let data = response.result.value as? [String:AnyObject],
