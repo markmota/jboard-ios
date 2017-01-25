@@ -14,11 +14,13 @@ class ResumeCard : ScrollKerboardView {
     var resume = Resume() {
         didSet{
             yearsLabel.text = "\(resume.years_of_experience()) años de experiencia"
+            startWorkingAtField.text = "tienes \(resume.years_of_experience()) años de experiencia"
+            datePicker.date = resume.start_working_at
             bioText.text = resume.bio
             skillsList.reset()
             for skill in resume.skill_list {
                 skillsList.addTag(skill)
-                skillsText.text = "\(skillsText.text)\(skill), "
+                skillsText.text = "\(skillsText.text!)\(skill), "
             }
         }
     }
@@ -39,7 +41,7 @@ class ResumeCard : ScrollKerboardView {
     
     let yearsLabel : UILabel = {
         let label = UILabel()
-        label.text = "8 años de experiencia"
+        label.text = ""
         label.font = Theme.Fonts.boldTitle.font
         return label
     }()
@@ -149,7 +151,7 @@ class ResumeCard : ScrollKerboardView {
                 make.top.equalTo(skillsLabel.snp.bottom).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(5)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
-                make.height.equalTo(64)
+                make.height.equalTo(128)
             }
         }
     }

@@ -11,6 +11,13 @@ import UIKit
 class ResumeFormViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     let resumeCard = ResumeCard(isEditable: true)
+    var updateMode = false
+    var resume : Resume? {
+        didSet {
+            self.resumeCard.resume = resume!
+            self.updateMode = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +36,11 @@ class ResumeFormViewController: UIViewController {
     }
     
     @IBAction func onTapSave(_ sender: Any) {
-        resumeCard.resume.create(onSuccess: { () in
+        resumeCard.resume.create(update: self.updateMode, onSuccess: { () in
             self.dismiss(animated: true, completion: nil)
         }, onFail: { error in
             self.errorAlert(model: self.resumeCard.resume, error: error)
         })
-        
     }
 }
 

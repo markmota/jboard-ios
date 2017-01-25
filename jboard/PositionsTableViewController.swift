@@ -167,22 +167,20 @@ class PositionsTableViewController: ThemedTableViewController {
     }
     
     func onChangeFilter() {
+        Position.all(filter: self.selectedFilter()) { result in self.positions = result }
+    }
+
+    func selectedFilter() -> String? {
         switch filterControl.selectedSegmentIndex {
         case 1:
-            Position.all(filter: "liked") { result in
-                self.positions = result
-            }
+            return "liked"
         case 2:
-            Position.all(filter: "hidden") { result in
-                self.positions = result
-            }
+            return "hidden"
         default:
-            Position.all(filter: nil) { result in
-                self.positions = result
-            }
+            return nil
         }
     }
-    
+
     // MARK: - Observers
     
     func currentUserLoaded(_ notification: Notification) {

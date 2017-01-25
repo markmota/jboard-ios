@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Agrega tu curriculum aquí", for: .normal)
         button.tintColor = Theme.Colors.background.color
-        button.addTarget(self, action: #selector(tapCreateProfile), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapEditResume), for: .touchUpInside)
         
         let view = UIView()
         view.addSubview(button)
@@ -105,22 +105,17 @@ class ProfileViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier != "showResumeForm" { return }
+        let destiny = segue.destination as! ResumeFormViewController
+        guard let res = self.resume else { return }
+        destiny.resume = res
     }
-    */
     
-    func tapCreateProfile(){
+    func tapEditResume(){
         performSegue(withIdentifier: "showResumeForm", sender: self)
     }
-    
-    func tapEditResume() {
-        print("Editing Resume..")
-    }
-
 }

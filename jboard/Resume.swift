@@ -55,13 +55,18 @@ class Resume : Model {
         }
     }
     
-    func create(onSuccess success: ((Void) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+    func create(update: Bool, onSuccess success: ((Void) -> Void)?, onFail fail: ((Error?) -> Void)?) {
         if Secret.apiToken.value == nil { return }
         if !isValid() {
             fail?(nil)
             return
         }
-        let request = try! APIClient.Router.createResume(resume: self).asURLRequest()
+        let request : URLRequestConvertible
+        if update {
+            request = APIClient.Router.updateResume(resume: self)
+        } else {
+            request = APIClient.Router.createResume(resume: self)
+        }
         Alamofire.request(request).responseJSON { response in
             debugPrint(response.result)
             if response.result.isSuccess {
