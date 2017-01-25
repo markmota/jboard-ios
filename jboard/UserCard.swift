@@ -47,13 +47,6 @@ class UserCard: UIView {
         return label
     }()
     
-    let editButton : UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("editar", for: .normal)
-        button.tintColor = Theme.Colors.background.color
-        return button
-    }()
-    
     var user = User() {
         didSet {
             firstNameLabel.text = user.first_name
@@ -98,12 +91,6 @@ class UserCard: UIView {
         labelStack.snp.makeConstraints { make in
             make.leading.equalTo(profileImage.snp.trailing).offset(10)
             make.centerY.equalTo(self.snp.centerY)
-        }
-        
-        addSubview(editButton)
-        editButton.snp.makeConstraints { make in
-            make.centerY.equalTo(self.snp.topMargin).offset(15)
-            make.right.equalTo(self.snp.rightMargin).offset(-5)
         }
     }
 
