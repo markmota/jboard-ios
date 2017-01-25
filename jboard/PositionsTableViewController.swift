@@ -10,8 +10,11 @@ import UIKit
 import SnapKit
 
 class PositionsTableViewController: ThemedTableViewController {
-    @IBOutlet weak var addButton: UIBarButtonItem!
-    var currentUser : User? = nil
+    var currentUser : User? = nil {
+        didSet {
+            setupNavBar()
+        }
+    }
     
     var positions : [Position] = [] {
         didSet { self.tableView.reloadData() }
@@ -27,7 +30,6 @@ class PositionsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Vacantes"
-        addButton.isEnabled = false
         Position.all(filter: nil) { result in
             self.positions = result
         }
@@ -148,6 +150,15 @@ class PositionsTableViewController: ThemedTableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setupNavBar() {
+        if let user = currentUser, user.employer {
+            let createEmployerButton = UIButton(type: .system)
+            createEmployerButton.setImage(#imageLiteral(resourceName: "briefcase"), for: .normal)
+            createEmployerButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
+        }
+    }
     
     // MARK: - Button Actions
     

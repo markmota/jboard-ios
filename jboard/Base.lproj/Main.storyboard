@@ -209,16 +209,10 @@
                             <outlet property="delegate" destination="rJa-2e-CpL" id="fR5-Uv-Xc9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Me2-fW-c0U">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fiZ-eh-z64">
-                            <connections>
-                                <segue destination="Imy-Fy-rfd" kind="show" id="0wy-fT-gBs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Me2-fW-c0U"/>
                     <connections>
-                        <outlet property="addButton" destination="fiZ-eh-z64" id="I3k-t9-BIr"/>
                         <segue destination="YvI-cJ-Hpg" kind="presentation" identifier="createResume" id="QlL-Vw-fFH"/>
+                        <segue destination="Imy-Fy-rfd" kind="show" identifier="addPosition" id="ida-i5-5DG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXb-Hs-AUF" userLabel="First Responder" sceneMemberID="firstResponder"/>

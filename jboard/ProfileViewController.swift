@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
             }
         }
         resumeCard.isHidden = true
-        
+        setupNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +83,27 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+    func setupNavBar() {
+        let editProfileButton = UIButton(type: .system)
+        editProfileButton.setImage(#imageLiteral(resourceName: "edit-profile-white"), for: .normal)
+        editProfileButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
+        let editResumeButton = UIButton(type: .system)
+        editResumeButton.setImage(#imageLiteral(resourceName: "edit-resume-white"), for: .normal)
+        editResumeButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        editResumeButton.addTarget(self, action: #selector(tapEditResume), for: .touchUpInside)
+        
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(customView: editResumeButton),
+            UIBarButtonItem(customView: editProfileButton)
+        ]
+        
+        let createEmployerButton = UIButton(type: .system)
+        createEmployerButton.setImage(#imageLiteral(resourceName: "profile-search-white"), for: .normal)
+        createEmployerButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
+    }
 
     /*
     // MARK: - Navigation
@@ -96,6 +117,10 @@ class ProfileViewController: UIViewController {
     
     func tapCreateProfile(){
         performSegue(withIdentifier: "showResumeForm", sender: self)
+    }
+    
+    func tapEditResume() {
+        print("Editing Resume..")
     }
 
 }
