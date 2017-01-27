@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SCLAlertView
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userCard: UserCard!
@@ -102,6 +103,7 @@ class ProfileViewController: UIViewController {
         let createEmployerButton = UIButton(type: .system)
         createEmployerButton.setImage(#imageLiteral(resourceName: "profile-search-white"), for: .normal)
         createEmployerButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        createEmployerButton.addTarget(self, action: #selector(tapEditEmployeer), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
     }
 
@@ -115,7 +117,16 @@ class ProfileViewController: UIViewController {
         destiny.resume = res
     }
     
-    func tapEditResume(){
+    func tapEditResume() {
         performSegue(withIdentifier: "showResumeForm", sender: self)
     }
+    
+    func tapEditEmployeer() {
+        let alertView = SCLAlertView()
+        alertView.addButton("Si") {
+            self.performSegue(withIdentifier: "showEditEmployer", sender: self)
+        }
+        alertView.showInfo("Habiltar perfil", subTitle: "Deseas habilitar perfil de empleador?", closeButtonTitle: "No")
+    }
+    
 }

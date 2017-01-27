@@ -282,7 +282,7 @@
                         <viewControllerLayoutGuide type="top" id="haz-Oc-7dk"/>
                         <viewControllerLayoutGuide type="bottom" id="Cg3-OH-FpU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aOe-ad-3s9">
+                    <view key="view" contentMode="scaleToFill" id="aOe-ad-3s9" customClass="view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -305,11 +305,57 @@
                     <connections>
                         <outlet property="userCard" destination="ZL6-Rz-rtu" id="ZEA-ZH-3gq"/>
                         <segue destination="YvI-cJ-Hpg" kind="presentation" identifier="showResumeForm" id="EHN-ue-6pV"/>
+                        <segue destination="1yZ-PN-862" kind="presentation" identifier="showEditEmployer" id="5WY-kd-Cgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlq-Sj-hAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3421.5999999999999" y="516.79160419790105"/>
+        </scene>
+        <!--Edit Employer View Controller-->
+        <scene sceneID="gus-nD-JNT">
+            <objects>
+                <viewController id="1yZ-PN-862" customClass="EditEmployerViewController" customModule="jboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dpU-Pi-7Np"/>
+                        <viewControllerLayoutGuide type="bottom" id="caJ-Qi-xRk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qrr-82-4SR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-vf-b4f">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                <items>
+                                    <navigationItem title="Empleador" prompt=" " id="JEo-dn-YgJ">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Uh3-OX-H7I">
+                                            <connections>
+                                                <action selector="onTapCancel:" destination="1yZ-PN-862" id="ApC-h3-upt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="XV4-AH-GU6">
+                                            <connections>
+                                                <action selector="onTapSave:" destination="1yZ-PN-862" id="D6V-tZ-hYd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DIa-vf-b4f" firstAttribute="leading" secondItem="qrr-82-4SR" secondAttribute="leading" id="4he-TT-WbV"/>
+                            <constraint firstAttribute="trailing" secondItem="DIa-vf-b4f" secondAttribute="trailing" id="oxw-K2-pCy"/>
+                            <constraint firstItem="DIa-vf-b4f" firstAttribute="top" secondItem="qrr-82-4SR" secondAttribute="top" id="qXb-mW-wcV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="DIa-vf-b4f" id="art-Nl-Jgj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guZ-yu-iWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5191" y="517"/>
         </scene>
         <!--Resume Form View Controller-->
         <scene sceneID="7MS-5z-9Zy">
@@ -492,6 +538,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OIi-uZ-OMK"/>
-        <segue reference="QlL-Vw-fFH"/>
+        <segue reference="EHN-ue-6pV"/>
     </inferredMetricsTieBreakers>
 </document>

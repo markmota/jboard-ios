@@ -96,6 +96,7 @@ class ResumeCard : ScrollKerboardView {
         self.skillsText.delegate = self
         self.backgroundColor = Theme.Colors.foreground.color
         var firstElementBottom = startWorkingAtField.snp.bottom
+        
         if editMode {
             addSubview(startWorkingAtField)
             startWorkingAtField.snp.makeConstraints { make in
@@ -117,20 +118,21 @@ class ResumeCard : ScrollKerboardView {
             }
             firstElementBottom = yearsLabel.snp.bottom
         }
+        
         addSubview(bioLabel)
+        addSubview(bioText)
+        addSubview(skillsLabel)
         bioLabel.snp.makeConstraints { make in
             make.top.equalTo(firstElementBottom).offset(10)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }
-        addSubview(bioText)
         bioText.snp.makeConstraints { make in
             make.top.equalTo(bioLabel.snp.bottom).offset(5)
             make.left.equalTo(self.snp.leftMargin).offset(5)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
             make.height.equalTo(64)
         }
-        addSubview(skillsLabel)
         skillsLabel.snp.makeConstraints { make in
             make.top.equalTo(bioText.snp.bottom).offset(15)
             make.left.equalTo(self.snp.leftMargin).offset(10)

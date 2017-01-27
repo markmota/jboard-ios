@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30089FDF1E3AF07100156378 /* EditEmployerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30089FDE1E3AF07100156378 /* EditEmployerViewController.swift */; };
+		30089FE11E3AF09400156378 /* EmployerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30089FE01E3AF09400156378 /* EmployerCard.swift */; };
 		301303631E1DD91300CD382F /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303621E1DD91300CD382F /* UserCard.swift */; };
 		301303651E1F127400CD382F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303641E1F127400CD382F /* ProfileViewController.swift */; };
 		301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30089FDE1E3AF07100156378 /* EditEmployerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEmployerViewController.swift; sourceTree = "<group>"; };
+		30089FE01E3AF09400156378 /* EmployerCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerCard.swift; sourceTree = "<group>"; };
 		301303621E1DD91300CD382F /* UserCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		301303641E1F127400CD382F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollKerboardView.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */,
 				301303681E1F28F300CD382F /* ResumeCard.swift */,
 				30EB76661E2A9CE30051C511 /* PositionCard.swift */,
+				30089FE01E3AF09400156378 /* EmployerCard.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				301303701E20A5AE00CD382F /* ResumeFormViewController.swift */,
 				30B44F021E2F0799006DC21D /* CreditsViewController.swift */,
 				30E4F01E1E332F060018A5AE /* ResumesTableViewController.swift */,
+				30089FDE1E3AF07100156378 /* EditEmployerViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3075BEC11DE94E880002E725 /* credits.md in Sources */,
+				30089FDF1E3AF07100156378 /* EditEmployerViewController.swift in Sources */,
 				63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */,
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,
 				301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */,
@@ -443,6 +450,7 @@
 				3013036D1E208EBD00CD382F /* Notification.swift in Sources */,
 				30F9DB261D96B29000112CD9 /* AppDelegate.swift in Sources */,
 				30A20D381DCE61B100A748EA /* User.swift in Sources */,
+				30089FE11E3AF09400156378 /* EmployerCard.swift in Sources */,
 				30A20D3A1DCE63CD00A748EA /* Jsonable.swift in Sources */,
 				639257CB1DE0DCB400044EE7 /* PositionsTableViewController.swift in Sources */,
 				55F0DE8D1DE0DBF9007110D9 /* RegisterViewController.swift in Sources */,

@@ -68,7 +68,6 @@ class Resume : Model {
             request = APIClient.Router.createResume(resume: self)
         }
         Alamofire.request(request).responseJSON { response in
-            debugPrint(response.result)
             if response.result.isSuccess {
                 success?()
             } else {

@@ -72,13 +72,13 @@ class PositionCard: UIView {
         return button
     }()
 
-    init() {
-        super.init(frame: CGRect.zero)
-        setupSubviews()
+    convenience init() {
+        self.init(frame: CGRect.zero)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,34 +89,34 @@ class PositionCard: UIView {
     func setupSubviews() {
         backgroundColor = Theme.Colors.foreground.color
         addSubview(matchLabel)
+        addSubview(titleLabel)
+        addSubview(descriptionText)
+        addSubview(skillsLabel)
+        addSubview(skillsView)
         matchLabel.snp.makeConstraints { make in
             make.top.equalTo(self.snp.top).offset(5)
             make.left.equalTo(self.snp.left).offset(10)
             make.right.equalTo(self.snp.right).offset(-10)
-            make.height.equalTo(15)
+            make.height.equalTo(20)
         }
-        addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.matchLabel.snp.bottom).offset(5)
             make.left.equalTo(self.snp.left).offset(10)
             make.right.equalTo(self.snp.right).offset(-10)
             make.height.equalTo(20)
         }
-        addSubview(descriptionText)
         descriptionText.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(5)
             make.left.equalTo(self.snp.left).offset(10)
             make.right.equalTo(self.snp.right).offset(-10)
             make.height.equalTo(self.snp.height).dividedBy(4)
         }
-        addSubview(skillsLabel)
         skillsLabel.snp.makeConstraints { make in
             make.top.equalTo(self.descriptionText.snp.bottom).offset(5)
             make.left.equalTo(self.snp.left).offset(10)
             make.right.equalTo(self.snp.right).offset(-10)
             make.height.equalTo(20)
         }
-        addSubview(skillsView)
         skillsView.snp.makeConstraints { make in
             make.top.equalTo(self.skillsLabel.snp.bottom).offset(5)
             make.left.equalTo(self.snp.left).offset(3)
