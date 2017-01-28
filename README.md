@@ -1,6 +1,25 @@
 # jboard_ios
 Jboard for iOS
 
+## Dependencies
+
+* Ruby for cocopaods
+* Xcode 8.2.1
+
+## Setup
+
+Install cocoapods
+
+   $ gem install cocoapods
+   
+Install pods
+
+   $ pod install
+   
+Use the xcocde workspace
+
+   $ open jboard.xcworkspace/
+
 ## Contribue to the project
 
 To contribuer Just follow the next stepts:
