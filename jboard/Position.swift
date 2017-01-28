@@ -14,15 +14,15 @@ class Position: Model {
     public var match: Float = 0.0
     public var title: String = ""
     public var description: String = ""
-    public var skill_list: Array<String> = []
+    public var skillList: Array<String> = []
     public var company: Company? {
         didSet {
-            self.company_id = self.company?.id ?? 0
-            self.company_name = self.company?.name ?? ""
+            self.companyId = self.company?.id ?? 0
+            self.companyName = self.company?.name ?? ""
         }
     }
-    public var company_id: Int = 0
-    public var company_name: String = ""
+    public var companyId: Int = 0
+    public var companyName: String = ""
     public var contacts: Array<Contact> = []
 
     class func all(filter: String?, completion: (([Position]) -> Void)?) {
@@ -69,7 +69,7 @@ class Position: Model {
         self.id = json["id"] as? Int ?? 0
         self.title = json["title"] as? String ?? ""
         self.description = json["description"] as? String ?? ""
-        self.skill_list = json["skill_list"] as? [String] ?? []
+        self.skillList = json["skill_list"] as? [String] ?? []
         if let companyJSON = json["company"] as? [String:AnyObject] {
             self.company = Company(withJSON: companyJSON)
         }

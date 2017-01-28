@@ -15,7 +15,7 @@ class PositionCard: UIView {
             titleLabel.text = position.title
             descriptionText.text = position.description
             skillsView.reset()
-            for skill in position.skill_list {
+            for skill in position.skillList {
                 skillsView.addTag(skill)
             }
         }
