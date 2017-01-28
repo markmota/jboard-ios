@@ -12,13 +12,13 @@ class ResumeFormViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     let resumeCard = ResumeCard(isEditable: true)
     var updateMode = false
-    var resume : Resume? {
+    var resume: Resume? {
         didSet {
             self.resumeCard.resume = resume!
             self.updateMode = true
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(resumeCard)
@@ -30,11 +30,11 @@ class ResumeFormViewController: UIViewController {
         }
         resumeCard.hideDatePicker(out: view.bounds)
     }
-    
+
     @IBAction func onTapCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     @IBAction func onTapSave(_ sender: Any) {
         resumeCard.resume.create(update: self.updateMode, onSuccess: { () in
             self.dismiss(animated: true, completion: nil)

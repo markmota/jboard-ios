@@ -16,7 +16,7 @@ struct Theme {
         case darkBackground
         case sectionHeader
         case foreground
-        
+
         var color: UIColor {
             switch self {
             case .tint:
@@ -32,13 +32,13 @@ struct Theme {
             }
         }
     }
-    
+
     enum Fonts {
         case title
         case boldTitle
         case text
         case lightText
-        
+
         var font: UIFont {
             switch self {
             case .title:

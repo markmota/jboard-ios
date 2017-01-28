@@ -20,23 +20,23 @@ class PositionCard: UIView {
             }
         }
     }
-    
-    let matchLabel : UILabel = {
+
+    let matchLabel: UILabel = {
         let label = UILabel()
         label.text = "0.0%"
         label.textAlignment = .right
         label.font = Theme.Fonts.lightText.font
         return label
     }()
-    
-    let titleLabel : UILabel = {
+
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Position"
         label.font = Theme.Fonts.boldTitle.font
         return label
     }()
-    
-    let descriptionText : UITextView = {
+
+    let descriptionText: UITextView = {
         let textView = UITextView()
         textView.isEditable = false
         textView.text = "lorem ipsum dolor quet sit amet"
@@ -44,30 +44,30 @@ class PositionCard: UIView {
         textView.backgroundColor = Theme.Colors.foreground.color
         return textView
     }()
-    
-    let skillsLabel : UILabel = {
+
+    let skillsLabel: UILabel = {
         let label = UILabel()
         label.text = "Habilidades"
         label.font = Theme.Fonts.boldTitle.font
         return label
     }()
-    
-    let skillsView : TagListView = {
+
+    let skillsView: TagListView = {
         let view = TagListView()
         return view
     }()
-    
-    let likeButton : UIBarButtonItem = {
+
+    let likeButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: #imageLiteral(resourceName: "checkmark"), style: .done, target: nil, action: nil)
         return button
     }()
-    
-    let shareButton : UIBarButtonItem = {
+
+    let shareButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
         return button
     }()
-    
-    let hideButton : UIBarButtonItem = {
+
+    let hideButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: #imageLiteral(resourceName: "xmark"), style: .done, target: nil, action: nil)
         return button
     }()
@@ -75,17 +75,17 @@ class PositionCard: UIView {
     convenience init() {
         self.init(frame: CGRect.zero)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupSubviews()
     }
-    
+
     func setupSubviews() {
         backgroundColor = Theme.Colors.foreground.color
         addSubview(matchLabel)
@@ -135,12 +135,12 @@ class PositionCard: UIView {
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         items.append(hideButton)
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
-        
+
         toolbar.items = items
         toolbar.snp.makeConstraints { make in
             make.left.equalTo(self.snp.left)
             make.right.equalTo(self.snp.right)
             make.bottom.equalTo(self.snp.bottom)
         }
-    }    
+    }
 }

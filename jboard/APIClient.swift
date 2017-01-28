@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 struct APIClient {
-    
+
     enum Router: URLRequestConvertible {
         #if DEBUG
         static let baseURLString = "https://jboard-api-staging.herokuapp.com/"
@@ -43,8 +43,7 @@ struct APIClient {
         case bookmark(id:Int)
         case createPositionBookmark(position:Position, status:String)
         case updatePositionBookmark(position:Position, status:String)
-        
-        
+
         var method: HTTPMethod {
             switch self {
             case .loginFacebook(_): return .post
@@ -52,18 +51,18 @@ struct APIClient {
             case .createPosition(_): return .post
             case .updatePosition(_): return .put
             case .deletePosition(_): return .delete
-            case .createResume(_): return .post;
-            case .updateResume(_): return .put;
-            case .deleteResume: return .delete;
-            case .createEmployer(_): return .post;
-            case .updateEmployer(_): return .put;
-            case .deleteEmployer(_): return .delete;
-            case .createPositionBookmark(_, _): return .post;
-            case .updatePositionBookmark(_, _): return .put;
+            case .createResume(_): return .post
+            case .updateResume(_): return .put
+            case .deleteResume: return .delete
+            case .createEmployer(_): return .post
+            case .updateEmployer(_): return .put
+            case .deleteEmployer(_): return .delete
+            case .createPositionBookmark(_, _): return .post
+            case .updatePositionBookmark(_, _): return .put
             default: return .get
             }
         }
-        
+
         var path: String {
             switch self {
             case .home: return "/"
@@ -85,19 +84,19 @@ struct APIClient {
             case .resumes: return "/api/v1/resumes"
             case .bookmarks: return "api/v1/bookmarks"
             case .bookmark(let id): return "api/v1/bookmarks/\(id)"
-            case .createPositionBookmark(let position, let status), .updatePositionBookmark(let position, let status): return "api/v1/positions/\(position.id)/mark/\(status)";
+            case .createPositionBookmark(let position, let status), .updatePositionBookmark(let position, let status): return "api/v1/positions/\(position.id)/mark/\(status)"
             }
         }
-        
+
         var params: [String: AnyObject] {
             switch self {
             case .loginFacebook(let token):
-                return ["token":token as AnyObject]
+                return ["token": token as AnyObject]
             case .register(let user):
                 return user.toDict(exclude: ["id", "gravatarUrl"]) as [String : AnyObject]
             case .positions(let filter):
                 guard let str = filter else { return [:] }
-                return ["filter": str as AnyObject]       
+                return ["filter": str as AnyObject]
             case .createPosition(let position), .updatePosition(let position):
                 return position.toDict(exclude: ["id", "company", "contacts"]) as [String : AnyObject]
             case .createResume(let resume), .updateResume(let resume):
@@ -107,7 +106,7 @@ struct APIClient {
             default: return [:]
             }
         }
-        
+
         func asURLRequest() throws -> URLRequest {
             let baseURL = try Router.baseURLString.asURL()
             var urlRequest = URLRequest(url: baseURL.appendingPathComponent(path))
@@ -118,5 +117,5 @@ struct APIClient {
             return try URLEncoding.default.encode(urlRequest, with: params)
         }
     }
-    
+
 }

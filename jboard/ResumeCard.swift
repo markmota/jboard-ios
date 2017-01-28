@@ -9,10 +9,10 @@
 import Foundation
 import SnapKit
 
-class ResumeCard : ScrollKerboardView {
-    var editMode : Bool = false
+class ResumeCard: ScrollKerboardView {
+    var editMode: Bool = false
     var resume = Resume() {
-        didSet{
+        didSet {
             yearsLabel.text = "\(resume.years_of_experience()) años de experiencia"
             startWorkingAtField.text = "tienes \(resume.years_of_experience()) años de experiencia"
             datePicker.date = resume.start_working_at
@@ -24,79 +24,79 @@ class ResumeCard : ScrollKerboardView {
             }
         }
     }
-    
-    let startWorkingAtField : UITextField = {
+
+    let startWorkingAtField: UITextField = {
         let text = UITextField()
         text.placeholder = "¿Cuando empezaste a trabajar?"
         return text
     }()
-    
-    let datePicker : UIDatePicker = {
+
+    let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.maximumDate = Date()
         picker.datePickerMode = .date
         picker.addTarget(self, action: #selector(didDatePickerChanged), for: .valueChanged)
         return picker
     }()
-    
-    let yearsLabel : UILabel = {
+
+    let yearsLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.font = Theme.Fonts.boldTitle.font
         return label
     }()
 
-    let bioLabel : UILabel = {
+    let bioLabel: UILabel = {
         let label = UILabel()
         label.text = "Bio"
         label.font = Theme.Fonts.boldTitle.font
         return label
     }()
 
-    let bioText : UITextView = {
+    let bioText: UITextView = {
         let textView = UITextView()
         textView.text = ""
         textView.font = Theme.Fonts.text.font
         return textView
     }()
-    
-    let skillsText : UITextView = {
+
+    let skillsText: UITextView = {
         let textView = UITextView()
         textView.text = ""
         textView.font = Theme.Fonts.lightText.font
         return textView
     }()
-    
-    let skillsLabel : UILabel = {
+
+    let skillsLabel: UILabel = {
         let label = UILabel()
         label.text = "Habilidades"
         label.font = Theme.Fonts.boldTitle.font
         return label
     }()
-    
-    let skillsList : TagListView = {
+
+    let skillsList: TagListView = {
         let tagView = TagListView()
         return tagView
     }()
-    
+
     init(isEditable editable: Bool) {
         super.init(frame: CGRect.zero)
         self.editMode = editable
         setupSubviews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupSubviews()
     }
-    
+
     func setupSubviews() {
         self.startWorkingAtField.delegate = self
         self.bioText.delegate = self
         self.skillsText.delegate = self
         self.backgroundColor = Theme.Colors.foreground.color
         var firstElementBottom = startWorkingAtField.snp.bottom
-        
+
         if editMode {
             addSubview(startWorkingAtField)
             startWorkingAtField.snp.makeConstraints { make in
@@ -118,7 +118,7 @@ class ResumeCard : ScrollKerboardView {
             }
             firstElementBottom = yearsLabel.snp.bottom
         }
-        
+
         addSubview(bioLabel)
         addSubview(bioText)
         addSubview(skillsLabel)
@@ -144,7 +144,7 @@ class ResumeCard : ScrollKerboardView {
                 make.top.equalTo(skillsLabel.snp.bottom).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(5)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
-                make.height.equalTo(self.snp.height).dividedBy(3)
+                make.height.equalTo(self.snp.height).dividedBy(2)
             }
             addSubview(datePicker)
         } else {
@@ -157,11 +157,11 @@ class ResumeCard : ScrollKerboardView {
             }
         }
     }
-    
-    func hideDatePicker(out bounds : CGRect) {
+
+    func hideDatePicker(out bounds: CGRect) {
          datePicker.frame = CGRect(x: 0, y: bounds.height, width: bounds.width, height: 150)
     }
-    
+
     func animateDatePicker(toShow: Bool) {
         var frame = self.datePicker.frame
         UIView.animate(withDuration: 0.3) {
@@ -173,7 +173,7 @@ class ResumeCard : ScrollKerboardView {
             self.datePicker.frame = frame
         }
     }
-    
+
     func didDatePickerChanged(_ sender: AnyObject) {
 //        let format = DateFormatter()
 //        format.dateFormat = "yyyy-MM-dd"
@@ -198,12 +198,12 @@ extension ResumeCard : UITextFieldDelegate {
 }
 
 extension ResumeCard : UITextViewDelegate {
-    
+
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         animateDatePicker(toShow: false)
         return true
     }
-    
+
     func textViewDidChange(_ textView: UITextView) {
         if textView.isEqual(self.bioText) {
             self.resume.bio = self.bioText.text

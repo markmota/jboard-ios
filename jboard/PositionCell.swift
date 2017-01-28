@@ -8,17 +8,17 @@
 
 import UIKit
 
-class PositionCell : UIView {
-    public var title : String? {
+class PositionCell: UIView {
+    public var title: String? {
         didSet { self.titleLabel.text = title }
     }
-    public var company : String? {
+    public var company: String? {
         didSet { self.companyLabel.text = company }
     }
-    public var descriptionText : String? {
+    public var descriptionText: String? {
         didSet { self.descriptionLabel.text = descriptionText }
     }
-    
+
     let titleLabel = UILabel()
     let companyLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -27,13 +27,12 @@ class PositionCell : UIView {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
-    
+
     func setup() {
         titleLabel.text = "title"
         self.addSubview(titleLabel)
@@ -49,7 +48,7 @@ class PositionCell : UIView {
                                     y: frame.origin.y + 20,
                                     width: frame.width,
                                     height: 20)
-        
+
         descriptionLabel.text = "description text"
         descriptionLabel.font = Theme.Fonts.lightText.font
         self.addSubview(descriptionLabel)

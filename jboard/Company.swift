@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Company : Model {
-    public var id:Int = 0
-    public var name:String = ""
-    
+class Company: Model {
+    public var id: Int = 0
+    public var name: String = ""
+
     init(withJSON json: [String : AnyObject]) {
         if let id = json["id"] as? Int {
             self.id = id

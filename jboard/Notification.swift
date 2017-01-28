@@ -11,4 +11,3 @@ import Foundation
 extension Notification.Name {
     static let currentUserLoaded = NSNotification.Name("Current user loaded")
 }
-

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CustomErrors : Error {
+enum CustomErrors: Error {
     case api(json: [String:AnyObject]?)
 }
 

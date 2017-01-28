@@ -9,23 +9,23 @@
 import Foundation
 
 struct Validation {
-    enum regex : String {
+    enum regex: String {
         case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
     }
-    
+
     enum rule {
         case presence
         case length(size : Int)
         case formatEmail
-        
-        var error : String {
+
+        var error: String {
             switch self {
             case .presence: return "deve estar presente"
             case .length(let size): return "debe tener al menos \(size) caracteres"
             case .formatEmail: return "correo electronico invalido"
             }
         }
-        
+
         func isValid(_ value : Any?) -> Bool {
             switch self {
             case .presence:

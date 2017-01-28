@@ -12,10 +12,10 @@ import SAMKeychain
 import Alamofire
 
 class FBLoginViewController: UIViewController {
-    
-    var activitIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+
+    var activitIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var loginButton: FBSDKLoginButton!
-    var loginSuccess : Bool = false
+    var loginSuccess: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class FBLoginViewController: UIViewController {
                                         height: 30)
         self.loginButton.delegate = self
         self.view.addSubview(self.loginButton)
-        
+
         self.activitIndicator.center = self.view.center
         self.activitIndicator.hidesWhenStopped = true
         self.activitIndicator.stopAnimating()
@@ -38,7 +38,7 @@ class FBLoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         if FBSDKAccessToken.current() != nil || loginSuccess {
             selectSegue()
@@ -46,7 +46,7 @@ class FBLoginViewController: UIViewController {
             super.viewDidAppear(animated)
         }
     }
-    
+
     func selectSegue() {
         self.activitIndicator.startAnimating()
         loginAPI(FBSDKAccessToken.current().tokenString,
@@ -56,7 +56,7 @@ class FBLoginViewController: UIViewController {
                         self.performSegue(withIdentifier: "navigateToMain", sender: self)
                     } else {
                         self.performSegue(withIdentifier: "showRegister", sender: self)
-                        
+
                     }
                  }, failure: {
                     self.activitIndicator.stopAnimating()
@@ -73,11 +73,11 @@ class FBLoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func loginAPI(_ token : String, completion: ((Void) -> Void)?, failure: ((Void) -> Void)?) {
-        let request = try! APIClient.Router.loginFacebook(token: token).asURLRequest()
+
+    func loginAPI(_ token: String, completion: ((Void) -> Void)?, failure: ((Void) -> Void)?) {
+        let request = APIClient.Router.loginFacebook(token: token)
         Alamofire.request(request).responseJSON { response in
-            if response.result.isSuccess, let data = response.result.value as? [String: AnyObject], let authToken = data["auth_token"] as? String{
+            if response.result.isSuccess, let data = response.result.value as? [String: AnyObject], let authToken = data["auth_token"] as? String {
                 SAMKeychain.setPassword(authToken, forService: Secret.apiService, account: Secret.account)
                 if let completionBlock = completion {
                     DispatchQueue.main.async { completionBlock() }
@@ -92,7 +92,6 @@ class FBLoginViewController: UIViewController {
 
 }
 
-
 extension FBLoginViewController : FBSDKLoginButtonDelegate {
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if (error != nil) {
@@ -103,8 +102,8 @@ extension FBLoginViewController : FBSDKLoginButtonDelegate {
             loginSuccess = true
         }
     }
-    
-    public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!){
+
+    public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         SAMKeychain.deletePassword(forService: Secret.apiService, account: Secret.account)
     }
 }

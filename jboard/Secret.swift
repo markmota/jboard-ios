@@ -12,10 +12,10 @@ import SAMKeychain
 enum Secret {
     static let account        = "org.rightmonkey.jboard"
     static let apiService     = "jboardService"
-    
+
     case apiToken
-    
-    var value : String? {
+
+    var value: String? {
         switch self {
         case .apiToken:
             return SAMKeychain.password(forService: Secret.apiService, account: Secret.account)

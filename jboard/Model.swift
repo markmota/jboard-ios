@@ -9,7 +9,7 @@
 import Foundation
 
 class Model {
-    var rules : [String:[Validation.rule]] = [:]
+    var rules: [String:[Validation.rule]] = [:]
     init() {}
     class func parseDate(_ string: Any?) -> Date {
         guard let str = string as? String else { return Date() }

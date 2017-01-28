@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Contact : Model {
-    public var mainContact:Bool = false
-    public var id:Int = 0
-    public var name:String = ""
-    public var position:String = ""
-    public var email:String = ""
-    public var phone:String = ""
+class Contact: Model {
+    public var mainContact: Bool = false
+    public var id: Int = 0
+    public var name: String = ""
+    public var position: String = ""
+    public var email: String = ""
+    public var phone: String = ""
 }

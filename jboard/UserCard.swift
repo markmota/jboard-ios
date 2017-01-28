@@ -11,42 +11,42 @@ import SnapKit
 
 @IBDesignable
 class UserCard: UIView {
-    let profileImage : UIImageView = {
+    let profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "profile-image-white")
         imageView.backgroundColor = Theme.Colors.background.color
         imageView.clipsToBounds = true
         return imageView
     }()
-    
-    let firstNameLabel : UILabel = {
+
+    let firstNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Juan"
         label.font = Theme.Fonts.title.font
         return label
     }()
-    
-    let lastNameLabel : UILabel = {
+
+    let lastNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Perez Perez"
         label.font = Theme.Fonts.title.font
         return label
     }()
-    
-    let emailLabel : UILabel = {
+
+    let emailLabel: UILabel = {
         let label = UILabel()
         label.text = "email@example.com"
         label.font = Theme.Fonts.text.font
         return label
     }()
-    
-    let phoneLabel : UILabel = {
+
+    let phoneLabel: UILabel = {
         let label = UILabel()
         label.text = "555-555-555"
         label.font = Theme.Fonts.lightText.font
         return label
     }()
-    
+
     var user = User() {
         didSet {
             firstNameLabel.text = user.first_name
@@ -58,17 +58,17 @@ class UserCard: UIView {
             }
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupSubviews()
     }
-    
+
     func setupSubviews() {
         self.backgroundColor = Theme.Colors.foreground.color
         addSubview(profileImage)
@@ -81,12 +81,12 @@ class UserCard: UIView {
         }
         self.layoutIfNeeded()
         profileImage.layer.cornerRadius = profileImage.layer.bounds.height / 25.0
-        
+
         let labelStack = UIStackView(arrangedSubviews: [firstNameLabel, lastNameLabel, emailLabel, phoneLabel])
         labelStack.axis = .vertical
         labelStack.distribution = .fillProportionally
         labelStack.alignment = .leading
-        
+
         addSubview(labelStack)
         labelStack.snp.makeConstraints { make in
             make.leading.equalTo(profileImage.snp.trailing).offset(10)

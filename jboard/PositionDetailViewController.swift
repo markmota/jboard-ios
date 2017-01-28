@@ -12,10 +12,10 @@ import SCLAlertView
 
 class PositionDetailViewController: UIViewController {
     @IBOutlet weak var skillListView: TagListView!
-    
+
     let positionCard = PositionCard()
     var position = Position()
-    var bookmark : Bookmark? {
+    var bookmark: Bookmark? {
         didSet {
             guard let status = bookmark?.status else { return }
             switch status {
@@ -32,7 +32,7 @@ class PositionDetailViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Theme.Colors.background.color
@@ -45,13 +45,13 @@ class PositionDetailViewController: UIViewController {
         }
         positionCard.likeButton.target = self
         positionCard.likeButton.action = #selector(tapOnLikeButton)
-        
+
         positionCard.shareButton.target = self
         positionCard.shareButton.action = #selector(tapOnShareButton)
-        
+
         positionCard.hideButton.target = self
         positionCard.hideButton.action = #selector(tapOnHideButton)
-        
+
         positionCard.position = position
         Position.find(id: position.id) { (pos, bmrk) in
             self.title = pos.company?.name
@@ -76,7 +76,7 @@ class PositionDetailViewController: UIViewController {
     */
     func tapOnLikeButton() {
         self.positionCard.likeButton.isEnabled = false
-        position.bookmarkAsLiked(onSuccess: { (bookmark) in
+        position.bookmarkAsLiked(onSuccess: { (_) in
             SCLAlertView().showSuccess("Bookmark", subTitle: "Agregado a favoritos")
             _ = self.navigationController?.popViewController(animated: true)
         }, onFail: { (error) in
@@ -84,17 +84,17 @@ class PositionDetailViewController: UIViewController {
             self.positionCard.likeButton.isEnabled = true
         })
     }
-    
+
     func tapOnShareButton() {
         let msg = ["Encontre una vacante de \(position.title) en esta app"]
         let avc = UIActivityViewController(activityItems: msg, applicationActivities: nil)
         avc.setValue("Trabajo en Jboard", forKey: "Subject")
         self.present(avc, animated: true, completion: nil)
     }
-    
-    func tapOnHideButton(){
+
+    func tapOnHideButton() {
         self.positionCard.hideButton.isEnabled = false
-        position.bookmarkAsHidden(onSuccess: { (bookmark) in
+        position.bookmarkAsHidden(onSuccess: { (_) in
             SCLAlertView().showInfo("Bookmark", subTitle: "Agregado a ocultos")
             _ = self.navigationController?.popViewController(animated: true)
         }, onFail: { (error) in
@@ -106,4 +106,3 @@ class PositionDetailViewController: UIViewController {
 }
 
 extension PositionDetailViewController : UIModelAlert {}
-

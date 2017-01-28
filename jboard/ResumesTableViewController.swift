@@ -9,7 +9,7 @@
 import UIKit
 
 class ResumesTableViewController: ThemedTableViewController {
-    var resumes : [Resume] = [] {
+    var resumes: [Resume] = [] {
         didSet { self.tableView.reloadData() }
     }
 

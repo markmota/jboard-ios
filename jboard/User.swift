@@ -9,32 +9,32 @@
 import Foundation
 import Alamofire
 
-class User : Model {
-    public var id:Int = 0
-    public var first_name:String = ""
-    public var last_name:String = ""
-    public var email:String = ""
-    public var phone:String = ""
-    public var image_url:String = ""
-    public var gravatar_url:String = ""
-    public var employer:Bool = false
-    public var candidate:Bool = false
-    public var facebook_uuid:String = ""
-    public var facebook_token:String = ""
-    public lazy var full_name : String = {
+class User: Model {
+    public var id: Int = 0
+    public var first_name: String = ""
+    public var last_name: String = ""
+    public var email: String = ""
+    public var phone: String = ""
+    public var image_url: String = ""
+    public var gravatar_url: String = ""
+    public var employer: Bool = false
+    public var candidate: Bool = false
+    public var facebook_uuid: String = ""
+    public var facebook_token: String = ""
+    public lazy var full_name: String = {
         return "\(self.first_name) \(self.last_name)"
     }()
-    
+
     override init() {
         super.init()
         self.rules = [
-            "first_name" : [.presence],
-            "last_name"  : [.presence],
-            "email"      : [.presence, .formatEmail],
-            "phone"      : [.presence]
+            "first_name": [.presence],
+            "last_name": [.presence],
+            "email": [.presence, .formatEmail],
+            "phone": [.presence]
         ]
     }
-    
+
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
         self.first_name = json["first_name"] as? String ?? ""
@@ -45,24 +45,24 @@ class User : Model {
         self.employer = json["employer"] as? Bool ?? false
         self.candidate = json["candidate"] as? Bool ?? false
     }
-    
+
     class func current(completion: @escaping ((User) -> Void)) {
-        let request = try! APIClient.Router.currentUser.asURLRequest()
+        let request = APIClient.Router.currentUser
         Alamofire.request(request).responseJSON { response in
-            if response.result.isSuccess,let data = response.result.value as? [String : AnyObject] {
+            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject] {
                 guard let json = data["user"] as? [String : AnyObject] else { return }
                 completion(User(withJSON: json))
             }
         }
     }
-    
+
     func signUp(onSuccess success: ((String) -> Void)?, onFail fail: ((Error?) -> Void)?) {
         if Secret.apiToken.value != nil { return }
         if !isValid() {
             fail?(nil)
             return
         }
-        let request = try! APIClient.Router.register(user: self).asURLRequest()
+        let request = APIClient.Router.register(user: self)
         Alamofire.request(request).responseJSON { response in
             if response.result.isSuccess,
                 let data = response.result.value as? [String:AnyObject],
@@ -73,8 +73,8 @@ class User : Model {
             }
         }
     }
-    
-    func image(completion: @escaping (UIImage?)->Void){
+
+    func image(completion: @escaping (UIImage?) -> Void) {
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: self.image_url.asURL())
             DispatchQueue.main.async {
@@ -82,7 +82,7 @@ class User : Model {
             }
         }
     }
-    
+
     func hasCompletedProfile() -> Bool {
         return (self.candidate || self.employer)
     }

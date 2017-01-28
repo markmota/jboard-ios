@@ -8,12 +8,12 @@
 
 import Foundation
 protocol Validable {
-    var rules : [String:[Validation.rule]] { get set }
+    var rules: [String:[Validation.rule]] { get set }
     func isValid() -> Bool
 }
 
 extension Validable {
-    var errors : [String] {
+    var errors: [String] {
         get {
             var errors = [String]()
             if rules.isEmpty { return [] }

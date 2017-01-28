@@ -8,8 +8,8 @@
 
 import Foundation
 class TagLabel: UILabel {
-    
-    func setup(text : String, color : UIColor) {
+
+    func setup(text: String, color: UIColor) {
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
         self.textColor = UIColor.white
@@ -21,8 +21,8 @@ class TagLabel: UILabel {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
     }
-    
-    func setupGestureActions(forTarget: AnyObject?, tapAction : Selector?, longPressAction : Selector?) {
+
+    func setupGestureActions(forTarget: AnyObject?, tapAction: Selector?, longPressAction: Selector?) {
         guard let target = forTarget else { return }
         if tapAction != nil {
             let tap = UITapGestureRecognizer(target: target, action: tapAction)

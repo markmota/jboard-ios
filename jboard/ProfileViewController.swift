@@ -13,30 +13,30 @@ import SCLAlertView
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userCard: UserCard!
     let resumeCard = ResumeCard(isEditable: false)
-    
-    let completeProfileView : UIView = {
+
+    let completeProfileView: UIView = {
         let button = UIButton(type: .system)
         button.setTitle("Agrega tu curriculum aquí", for: .normal)
         button.tintColor = Theme.Colors.background.color
         button.addTarget(self, action: #selector(tapEditResume), for: .touchUpInside)
-        
+
         let view = UIView()
         view.addSubview(button)
-        button.snp.makeConstraints{ make in
+        button.snp.makeConstraints { make in
             make.centerY.equalTo(view.snp.centerY).offset(-40)
             make.centerX.equalTo(view.snp.centerX)
             make.width.equalTo(view.snp.width)
         }
         return view
     }()
-    
-    var currentUser : User? {
-        didSet{
+
+    var currentUser: User? {
+        didSet {
             self.userCard.user = currentUser!
         }
     }
-    var resume : Resume? {
-        didSet{
+    var resume: Resume? {
+        didSet {
             self.resumeCard.resume = resume!
         }
     }
@@ -65,15 +65,15 @@ class ProfileViewController: UIViewController {
         resumeCard.isHidden = true
         setupNavBar()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let user = self.currentUser, user.hasCompletedProfile() {
             loadResume()
         }
-        
+
     }
-    
+
     func loadResume() {
         Resume.current { resume in
             self.resume = resume
@@ -84,22 +84,22 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
+
     func setupNavBar() {
         let editProfileButton = UIButton(type: .system)
         editProfileButton.setImage(#imageLiteral(resourceName: "edit-profile-white"), for: .normal)
         editProfileButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        
+
         let editResumeButton = UIButton(type: .system)
         editResumeButton.setImage(#imageLiteral(resourceName: "edit-resume-white"), for: .normal)
         editResumeButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         editResumeButton.addTarget(self, action: #selector(tapEditResume), for: .touchUpInside)
-        
+
         self.navigationItem.rightBarButtonItems = [
             UIBarButtonItem(customView: editResumeButton),
             UIBarButtonItem(customView: editProfileButton)
         ]
-        
+
         let createEmployerButton = UIButton(type: .system)
         createEmployerButton.setImage(#imageLiteral(resourceName: "profile-search-white"), for: .normal)
         createEmployerButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
@@ -116,11 +116,11 @@ class ProfileViewController: UIViewController {
         guard let res = self.resume else { return }
         destiny.resume = res
     }
-    
+
     func tapEditResume() {
         performSegue(withIdentifier: "showResumeForm", sender: self)
     }
-    
+
     func tapEditEmployeer() {
         let alertView = SCLAlertView()
         alertView.addButton("Si") {
@@ -128,5 +128,5 @@ class ProfileViewController: UIViewController {
         }
         alertView.showInfo("Habiltar perfil", subTitle: "Deseas habilitar perfil de empleador?", closeButtonTitle: "No")
     }
-    
+
 }

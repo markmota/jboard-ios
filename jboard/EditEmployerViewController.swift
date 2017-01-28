@@ -16,18 +16,18 @@ class EditEmployerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(employerCard)
-        employerCard.snp.makeConstraints{ make in
+        employerCard.snp.makeConstraints { make in
             make.top.equalTo(self.navigationBar.snp.bottom)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
             make.bottom.equalTo(self.view.snp.bottom)
         }
     }
-    
+
     @IBAction func onTapCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     @IBAction func onTapSave(_ sender: Any) {
         employerCard.employer.user_data = true
         employerCard.employer.create(onSuccess: { () in
@@ -37,6 +37,5 @@ class EditEmployerViewController: UIViewController {
         })
     }
 }
-
 
 extension EditEmployerViewController : UIModelAlert {}

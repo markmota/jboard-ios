@@ -9,26 +9,26 @@
 import Foundation
 import Alamofire
 
-class Position : Model {
-    public var id:Int = 0
-    public var match:Float = 0.0
-    public var title:String = ""
-    public var description:String = ""
-    public var skill_list:Array<String> = []
-    public var company:Company? {
+class Position: Model {
+    public var id: Int = 0
+    public var match: Float = 0.0
+    public var title: String = ""
+    public var description: String = ""
+    public var skill_list: Array<String> = []
+    public var company: Company? {
         didSet {
             self.company_id = self.company?.id ?? 0
             self.company_name = self.company?.name ?? ""
         }
     }
-    public var company_id:Int = 0
-    public var company_name:String = ""
-    public var contacts:Array<Contact> = []
-    
-    class func all(filter: String?,  completion: (([Position]) -> Void)?) {
-        let request = try! APIClient.Router.positions(filter: filter).asURLRequest()
+    public var company_id: Int = 0
+    public var company_name: String = ""
+    public var contacts: Array<Contact> = []
+
+    class func all(filter: String?, completion: (([Position]) -> Void)?) {
+        let request = APIClient.Router.positions(filter: filter)
         Alamofire.request(request).responseJSON { response in
-            var out : [Position] = []
+            var out: [Position] = []
             if response.result.isSuccess, let data = response.result.value as? [String : AnyObject], let array = data["positions"] as? [[String : AnyObject]] {
                 for json in array {
                     out.append(Position(withJSON: json))
@@ -37,9 +37,9 @@ class Position : Model {
             completion?(out)
         }
     }
-    
+
     class func find(id: Int, completion: ((Position, Bookmark?) -> Void)?) {
-        let request = try! APIClient.Router.position(id: id).asURLRequest()
+        let request = APIClient.Router.position(id: id)
         Alamofire.request(request).responseJSON { response in
             if response.result.isSuccess, let data = response.result.value as? [String : AnyObject] {
                 guard let json = data["position"] as? [String : AnyObject] else { return }
@@ -47,7 +47,7 @@ class Position : Model {
                 if let match = data["match"] as? Float {
                     position.match = match * 100.0
                 }
-                if let jsonBookmark = data["bookmark"] as? [String : AnyObject]  {
+                if let jsonBookmark = data["bookmark"] as? [String : AnyObject] {
                     let bookmark = Bookmark(withJSON: jsonBookmark)
                     completion?(position, bookmark)
                 } else {
@@ -56,15 +56,15 @@ class Position : Model {
             }
         }
     }
-    
+
     override init() {
         super.init()
         self.rules = [
-            "title" : [.presence],
-            "description" : [.presence]
+            "title": [.presence],
+            "description": [.presence]
         ]
     }
-    
+
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
         self.title = json["title"] as? String ?? ""
@@ -74,16 +74,15 @@ class Position : Model {
             self.company = Company(withJSON: companyJSON)
         }
     }
-    
+
     func bookmarkAsLiked(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)?) {
         self.createBookmark(withStatus: "liked", onSuccess: success, onFail: fail)
     }
-    
+
     func bookmarkAsHidden(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)?) {
         self.createBookmark(withStatus: "hidden", onSuccess: success, onFail: fail)
     }
 
-    
     func createBookmark(withStatus status: String, onSuccess success: ((Bookmark) -> Void)?, onFail fail: ((Error?) -> Void)? ) {
         let request = APIClient.Router.createPositionBookmark(position: self, status: status)
         Alamofire.request(request).responseJSON { response in

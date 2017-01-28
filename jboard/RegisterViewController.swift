@@ -15,7 +15,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
-    
+
     @IBAction func btnRegister(_ sender: AnyObject) {
         let user = User()
         user.first_name = txtName?.text ?? ""
@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
             self.errorAlert(model: user, error: error)
         })
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     /*
     // MARK: - Navigation
 

@@ -10,23 +10,23 @@ import UIKit
 import SnapKit
 
 class PositionsTableViewController: ThemedTableViewController {
-    var currentUser : User? = nil {
+    var currentUser: User? = nil {
         didSet {
             setupNavBar()
         }
     }
-    
-    var positions : [Position] = [] {
+
+    var positions: [Position] = [] {
         didSet { self.tableView.reloadData() }
     }
-    
-    let filterControl : UISegmentedControl = {
+
+    let filterControl: UISegmentedControl = {
         let control = UISegmentedControl(items: ["Todos", "Favoritos", "Ocultos"])
         control.selectedSegmentIndex = 0
         control.addTarget(self, action: #selector(onChangeFilter), for: .valueChanged)
         return control
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Vacantes"
@@ -48,9 +48,9 @@ class PositionsTableViewController: ThemedTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.positions.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "positionCell")!
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "positionCell")!
         let position = self.positions[indexPath.row]
         cell.textLabel?.text = position.title
         cell.textLabel?.textColor = UIColor.white
@@ -58,7 +58,7 @@ class PositionsTableViewController: ThemedTableViewController {
         cell.detailTextLabel?.textColor = Theme.Colors.foreground.color
         return cell
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "createResume" { return }
         let destiny = segue.destination as! PositionDetailViewController
@@ -66,14 +66,14 @@ class PositionsTableViewController: ThemedTableViewController {
         let position = self.positions[indexPath!.row] as Position
         destiny.position = position
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section != 0 || self.currentUser == nil) { return 0 }
         return 55
     }
-    
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section != 0 ){ return nil }
+        if (section != 0 ) { return nil }
         let viewHeader = UIView(frame: CGRect(x: 0,
                                               y: 0,
                                               width: self.view.frame.width,
@@ -83,7 +83,7 @@ class PositionsTableViewController: ThemedTableViewController {
         guard let user = self.currentUser else { return nil }
         if user.hasCompletedProfile() {
             viewHeader.addSubview(filterControl)
-            filterControl.snp.makeConstraints{ make in
+            filterControl.snp.makeConstraints { make in
                 make.centerY.equalTo(viewHeader.snp.centerY)
                 make.centerX.equalTo(viewHeader.snp.centerX)
                 make.width.equalTo(viewHeader.snp.width).offset(-50)
@@ -93,19 +93,18 @@ class PositionsTableViewController: ThemedTableViewController {
             button.tintColor = Theme.Colors.background.color
             button.setTitle("Agrega tu curriculum aquí", for: .normal)
             button.addTarget(self, action: #selector(tapCompleteProfile), for: .touchUpInside)
-            
+
             viewHeader.addSubview(button)
-            button.snp.makeConstraints{ make in
+            button.snp.makeConstraints { make in
                 make.centerY.equalTo(viewHeader.snp.centerY)
                 make.centerX.equalTo(viewHeader.snp.centerX)
                 make.width.equalTo(viewHeader.snp.width).offset(-30)
             }
         }
-        
+
         return viewHeader
     }
-    
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -150,7 +149,7 @@ class PositionsTableViewController: ThemedTableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
     func setupNavBar() {
         if let user = currentUser, user.employer {
             let createEmployerButton = UIButton(type: .system)
@@ -159,13 +158,13 @@ class PositionsTableViewController: ThemedTableViewController {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
         }
     }
-    
+
     // MARK: - Button Actions
-    
+
     func tapCompleteProfile(sender: UIButton!) {
         performSegue(withIdentifier: "createResume", sender: self)
     }
-    
+
     func onChangeFilter() {
         Position.all(filter: self.selectedFilter()) { result in self.positions = result }
     }
@@ -182,10 +181,9 @@ class PositionsTableViewController: ThemedTableViewController {
     }
 
     // MARK: - Observers
-    
+
     func currentUserLoaded(_ notification: Notification) {
         self.currentUser = notification.userInfo?["user"] as? User ?? User()
         self.tableView.reloadData()
     }
 }
-

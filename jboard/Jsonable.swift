@@ -10,8 +10,8 @@ import Foundation
 protocol JSONAble {}
 
 extension JSONAble {
-    func toDict(exclude:Array<String>) -> [String:Any] {
-        var dict = [String:Any]()
+    func toDict(exclude: Array<String>) -> [String:Any] {
+        var dict = [String: Any]()
         let mirror = Mirror(reflecting: self)
         for child in mirror.children {
             if let key = child.label, !exclude.contains(key) {
