@@ -10,15 +10,15 @@ Jboard for iOS
 
 Install cocoapods
 
-   $ gem install cocoapods
+    $ gem install cocoapods
    
 Install pods
 
-   $ pod install
+    $ pod install
    
 Use the xcocde workspace
 
-   $ open jboard.xcworkspace/
+    $ open jboard.xcworkspace/
 
 ## Contribue to the project
 
