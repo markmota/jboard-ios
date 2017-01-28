@@ -11,10 +11,10 @@ import Alamofire
 
 class Resume: Model {
     public var id: Int = 0
-    public var start_working_at: Date = Date()
+    public var startWorkingAt: Date = Date()
     public var bio: String = ""
     public var user: User?
-    public var skill_list: Array<String> = []
+    public var skillList: Array<String> = []
 
     class func all(completion: (([Resume]) -> Void)?) {
         let request = APIClient.Router.resumes
@@ -39,9 +39,9 @@ class Resume: Model {
 
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
-        self.start_working_at = Model.parseDate(json["start_working_at"])
+        self.startWorkingAt = (json["start_working_at"] as? String ?? "").toDate() ?? Date()
         self.bio = json["bio"] as? String ?? ""
-        self.skill_list = json["skill_list"] as? [String] ?? []
+        self.skillList = json["skill_list"] as? [String] ?? []
         self.user = User(withJSON: json["user"] as? [String : AnyObject] ?? [:])
     }
 
@@ -76,12 +76,12 @@ class Resume: Model {
         }
     }
 
-    func years_of_experience() -> Int {
-        return Date().years(from: self.start_working_at)
+    func yearsOfExperience() -> Int {
+        return Date().years(from: self.startWorkingAt)
     }
 
     func setSkillListFrom(text: String) {
-        self.skill_list = Array(Set(text.components(separatedBy: ","))).filter { $0 != "" }
+        self.skillList = Array(Set(text.components(separatedBy: ","))).filter { $0 != "" }
     }
 
 }

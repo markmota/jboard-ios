@@ -14,7 +14,7 @@ extension JSONAble {
         var dict = [String: Any]()
         let mirror = Mirror(reflecting: self)
         for child in mirror.children {
-            if let key = child.label, !exclude.contains(key) {
+            if let key = child.label?.snakeCase, !exclude.contains(key) {
 //                if (child.value as Any).responds(Selector(("toDic"))) {
 //                    dict[key] = (child.value as AnyObject).toDic(exclude: [])
 //                } else {

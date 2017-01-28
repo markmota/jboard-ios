@@ -13,7 +13,7 @@
 		301303651E1F127400CD382F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303641E1F127400CD382F /* ProfileViewController.swift */; };
 		301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */; };
 		301303691E1F28F300CD382F /* ResumeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303681E1F28F300CD382F /* ResumeCard.swift */; };
-		3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */; };
+		3013036B1E202F9F00CD382F /* Date+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036A1E202F9F00CD382F /* Date+Distance.swift */; };
 		3013036D1E208EBD00CD382F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013036C1E208EBD00CD382F /* Notification.swift */; };
 		301303711E20A5AE00CD382F /* ResumeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303701E20A5AE00CD382F /* ResumeFormViewController.swift */; };
 		301666251E2EEBA500C0D2FA /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301666241E2EEBA500C0D2FA /* Errors.swift */; };
@@ -24,6 +24,7 @@
 		30481B2F1E2F11AE00D6C022 /* credits.md in Resources */ = {isa = PBXBuildFile; fileRef = 3075BEC01DE94E880002E725 /* credits.md */; };
 		305704851DE3750C00EEF57C /* Validable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704831DE3750C00EEF57C /* Validable.swift */; };
 		305704861DE3750C00EEF57C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305704841DE3750C00EEF57C /* Validation.swift */; };
+		306D93B91E3D50240076AF46 /* String+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D93B81E3D50240076AF46 /* String+Support.swift */; };
 		3075BEC11DE94E880002E725 /* credits.md in Sources */ = {isa = PBXBuildFile; fileRef = 3075BEC01DE94E880002E725 /* credits.md */; };
 		309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C9BDC1DE3ED0E00FFF215 /* Model.swift */; };
 		309C9BDF1DE410D400FFF215 /* UIModelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C9BDE1DE410D400FFF215 /* UIModelAlert.swift */; };
@@ -73,7 +74,7 @@
 		301303641E1F127400CD382F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		301303661E1F1F8D00CD382F /* ScrollKerboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollKerboardView.swift; sourceTree = "<group>"; };
 		301303681E1F28F300CD382F /* ResumeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeCard.swift; sourceTree = "<group>"; };
-		3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDistanceExtension.swift; sourceTree = "<group>"; };
+		3013036A1E202F9F00CD382F /* Date+Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Distance.swift"; sourceTree = "<group>"; };
 		3013036C1E208EBD00CD382F /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		301303701E20A5AE00CD382F /* ResumeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeFormViewController.swift; sourceTree = "<group>"; };
 		301666241E2EEBA500C0D2FA /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewCell.swift; sourceTree = "<group>"; };
 		305704831DE3750C00EEF57C /* Validable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validable.swift; sourceTree = "<group>"; };
 		305704841DE3750C00EEF57C /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		306D93B81E3D50240076AF46 /* String+Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Support.swift"; sourceTree = "<group>"; };
 		3075BEC01DE94E880002E725 /* credits.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = credits.md; path = ../credits.md; sourceTree = "<group>"; };
 		309C9BDC1DE3ED0E00FFF215 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		309C9BDE1DE410D400FFF215 /* UIModelAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIModelAlert.swift; sourceTree = "<group>"; };
@@ -151,6 +153,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		306D93B71E3D3A780076AF46 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				30A20D391DCE63CD00A748EA /* Jsonable.swift */,
+				301666241E2EEBA500C0D2FA /* Errors.swift */,
+				3013036A1E202F9F00CD382F /* Date+Distance.swift */,
+				305704831DE3750C00EEF57C /* Validable.swift */,
+				306D93B81E3D50240076AF46 /* String+Support.swift */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
 		30A20D361DCE61A000A748EA /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,13 +174,9 @@
 				30A20D411DCE6C9700A748EA /* Bookmark.swift */,
 				30A20D3F1DCE6C8300A748EA /* Employer.swift */,
 				30A20D451DCE6F1800A748EA /* History.swift */,
-				30A20D391DCE63CD00A748EA /* Jsonable.swift */,
 				30A20D3B1DCE69B700A748EA /* Position.swift */,
 				30A20D471DCE702E00A748EA /* Resume.swift */,
 				30A20D371DCE61B100A748EA /* User.swift */,
-				305704831DE3750C00EEF57C /* Validable.swift */,
-				3013036A1E202F9F00CD382F /* DateDistanceExtension.swift */,
-				301666241E2EEBA500C0D2FA /* Errors.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -229,6 +239,7 @@
 		30F9DB241D96B29000112CD9 /* jboard */ = {
 			isa = PBXGroup;
 			children = (
+				306D93B71E3D3A780076AF46 /* support */,
 				30A20D361DCE61A000A748EA /* models */,
 				30D2CC2F1DB2088B003322CD /* controllers */,
 				30D2CC2E1DB2087F003322CD /* ui */,
@@ -433,6 +444,7 @@
 				30089FDF1E3AF07100156378 /* EditEmployerViewController.swift in Sources */,
 				63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */,
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,
+				306D93B91E3D50240076AF46 /* String+Support.swift in Sources */,
 				301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */,
 				30A20D441DCE6DD100A748EA /* Contact.swift in Sources */,
 				30A20D461DCE6F1800A748EA /* History.swift in Sources */,
@@ -463,7 +475,7 @@
 				305704861DE3750C00EEF57C /* Validation.swift in Sources */,
 				30E4F01F1E332F060018A5AE /* ResumesTableViewController.swift in Sources */,
 				30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */,
-				3013036B1E202F9F00CD382F /* DateDistanceExtension.swift in Sources */,
+				3013036B1E202F9F00CD382F /* Date+Distance.swift in Sources */,
 				30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */,
 				30EB76671E2A9CE30051C511 /* PositionCard.swift in Sources */,
 				309C9BDD1DE3ED0E00FFF215 /* Model.swift in Sources */,

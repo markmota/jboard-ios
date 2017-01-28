@@ -13,12 +13,12 @@ class ResumeCard: ScrollKerboardView {
     var editMode: Bool = false
     var resume = Resume() {
         didSet {
-            yearsLabel.text = "\(resume.years_of_experience()) años de experiencia"
-            startWorkingAtField.text = "tienes \(resume.years_of_experience()) años de experiencia"
-            datePicker.date = resume.start_working_at
+            yearsLabel.text = "\(resume.yearsOfExperience()) años de experiencia"
+            startWorkingAtField.text = "tienes \(resume.yearsOfExperience()) años de experiencia"
+            datePicker.date = resume.startWorkingAt
             bioText.text = resume.bio
             skillsList.reset()
-            for skill in resume.skill_list {
+            for skill in resume.skillList {
                 skillsList.addTag(skill)
                 skillsText.text = "\(skillsText.text!)\(skill), "
             }
@@ -100,7 +100,7 @@ class ResumeCard: ScrollKerboardView {
         if editMode {
             addSubview(startWorkingAtField)
             startWorkingAtField.snp.makeConstraints { make in
-                make.top.equalTo(self.snp.top).offset(5)
+                make.top.equalTo(self.snp.top).offset(10)
                 make.left.equalTo(self.snp.leftMargin).offset(10)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
                 make.width.equalTo(self.snp.width).offset(-30)
@@ -144,7 +144,7 @@ class ResumeCard: ScrollKerboardView {
                 make.top.equalTo(skillsLabel.snp.bottom).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(5)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
-                make.height.equalTo(self.snp.height).dividedBy(2)
+                make.height.equalTo(self.snp.height).dividedBy(3)
             }
             addSubview(datePicker)
         } else {
@@ -178,8 +178,8 @@ class ResumeCard: ScrollKerboardView {
 //        let format = DateFormatter()
 //        format.dateFormat = "yyyy-MM-dd"
 //        let dateString = format.string(from: self.datePicker.date)
-        self.resume.start_working_at = self.datePicker.date
-        self.startWorkingAtField.text = "tienes \(resume.years_of_experience()) años de experiencia"
+        self.resume.startWorkingAt = self.datePicker.date
+        self.startWorkingAtField.text = "tienes \(resume.yearsOfExperience()) años de experiencia"
     }
 }
 
