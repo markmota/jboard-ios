@@ -3,7 +3,7 @@ Jboard for iOS
 
 ## Dependencies
 
-* Ruby for cocopaods
+* Cocopaods 1.1.1
 * Xcode 8.2.1
 
 ## Setup
