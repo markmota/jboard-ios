@@ -13,7 +13,7 @@ class Employer : Model {
     public var id:Int = 0
     public var company_name:String = ""
     public var position:String = ""
-    public var userData:Bool = true
+    public var user_data:Bool = true
     public var email:String = ""
     public var phone:String = ""
     public var user:User?

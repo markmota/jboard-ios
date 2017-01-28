@@ -156,7 +156,7 @@ class PositionsTableViewController: ThemedTableViewController {
             let createEmployerButton = UIButton(type: .system)
             createEmployerButton.setImage(#imageLiteral(resourceName: "briefcase"), for: .normal)
             createEmployerButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: createEmployerButton)
         }
     }
     

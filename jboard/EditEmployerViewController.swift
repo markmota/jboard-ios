@@ -22,7 +22,6 @@ class EditEmployerViewController: UIViewController {
             make.right.equalTo(self.view.snp.right)
             make.bottom.equalTo(self.view.snp.bottom)
         }
-
     }
     
     @IBAction func onTapCancel(_ sender: Any) {
@@ -30,6 +29,7 @@ class EditEmployerViewController: UIViewController {
     }
     
     @IBAction func onTapSave(_ sender: Any) {
+        employerCard.employer.user_data = true
         employerCard.employer.create(onSuccess: { () in
             self.dismiss(animated: true, completion: nil)
         }, onFail: { error in
