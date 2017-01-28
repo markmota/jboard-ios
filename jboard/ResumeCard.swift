@@ -100,7 +100,7 @@ class ResumeCard : ScrollKerboardView {
         if editMode {
             addSubview(startWorkingAtField)
             startWorkingAtField.snp.makeConstraints { make in
-                make.top.equalTo(self.snp.top).offset(15)
+                make.top.equalTo(self.snp.top).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(10)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
                 make.width.equalTo(self.snp.width).offset(-30)
@@ -111,7 +111,7 @@ class ResumeCard : ScrollKerboardView {
             skillsList.backgroundColor = self.backgroundColor
             addSubview(yearsLabel)
             yearsLabel.snp.makeConstraints { make in
-                make.top.equalTo(self.snp.top).offset(15)
+                make.top.equalTo(self.snp.top).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(10)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
                 make.width.equalTo(self.snp.width).offset(-30)
@@ -123,7 +123,7 @@ class ResumeCard : ScrollKerboardView {
         addSubview(bioText)
         addSubview(skillsLabel)
         bioLabel.snp.makeConstraints { make in
-            make.top.equalTo(firstElementBottom).offset(10)
+            make.top.equalTo(firstElementBottom).offset(5)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }
@@ -131,10 +131,10 @@ class ResumeCard : ScrollKerboardView {
             make.top.equalTo(bioLabel.snp.bottom).offset(5)
             make.left.equalTo(self.snp.leftMargin).offset(5)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
-            make.height.equalTo(64)
+            make.height.equalTo(self.snp.height).dividedBy(5)
         }
         skillsLabel.snp.makeConstraints { make in
-            make.top.equalTo(bioText.snp.bottom).offset(15)
+            make.top.equalTo(bioText.snp.bottom).offset(5)
             make.left.equalTo(self.snp.leftMargin).offset(10)
             make.right.equalTo(self.snp.rightMargin).offset(-10)
         }
@@ -144,7 +144,7 @@ class ResumeCard : ScrollKerboardView {
                 make.top.equalTo(skillsLabel.snp.bottom).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(5)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
-                make.height.equalTo(64)
+                make.height.equalTo(self.snp.height).dividedBy(3)
             }
             addSubview(datePicker)
         } else {
@@ -153,7 +153,7 @@ class ResumeCard : ScrollKerboardView {
                 make.top.equalTo(skillsLabel.snp.bottom).offset(5)
                 make.left.equalTo(self.snp.leftMargin).offset(5)
                 make.right.equalTo(self.snp.rightMargin).offset(-10)
-                make.height.equalTo(128)
+                make.height.equalTo(self.snp.height).dividedBy(2)
             }
         }
     }
