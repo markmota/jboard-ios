@@ -18,9 +18,9 @@ class Resume: Model {
 
     class func all(completion: (([Resume]) -> Void)?) {
         let request = APIClient.Router.resumes
-        Alamofire.request(request).responseJSON { response in
+        self.make(request) { data in
             var out: [Resume] = []
-            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject], let array = data["resumes"] as? [[String : AnyObject]] {
+            if let array = data["resumes"] as? [[String : AnyObject]] {
                 for json in array {
                     out.append(Resume(withJSON: json))
                 }
@@ -47,15 +47,14 @@ class Resume: Model {
 
     class func current(completion: @escaping (Resume) -> Void) {
         let request = APIClient.Router.resume
-        Alamofire.request(request).responseJSON { (response) in
-            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject] {
-                guard let json = data["resume"] as? [String : AnyObject] else { return }
+        self.make(request) { data in
+            if let json = data["resume"] as? [String : AnyObject] {
                 completion(Resume(withJSON: json))
             }
         }
     }
 
-    func create(update: Bool, onSuccess success: ((Void) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+    func create(update: Bool, onSuccess success: jsonHandler?, onFail fail: errorHandler?) {
         if Secret.apiToken.value == nil { return }
         if !isValid() {
             fail?(nil)
@@ -67,13 +66,7 @@ class Resume: Model {
         } else {
             request = APIClient.Router.createResume(resume: self)
         }
-        Alamofire.request(request).responseJSON { response in
-            if response.result.isSuccess {
-                success?()
-            } else {
-                fail?(response.result.error)
-            }
-        }
+        self.make(request, onSuccess: success, onFail: fail)
     }
 
     func yearsOfExperience() -> Int {
@@ -83,5 +76,4 @@ class Resume: Model {
     func setSkillListFrom(text: String) {
         self.skillList = Array(Set(text.components(separatedBy: ","))).filter { $0 != "" }
     }
-
 }

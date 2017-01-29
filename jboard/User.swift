@@ -48,15 +48,14 @@ class User: Model {
 
     class func current(completion: @escaping ((User) -> Void)) {
         let request = APIClient.Router.currentUser
-        Alamofire.request(request).responseJSON { response in
-            if response.result.isSuccess, let data = response.result.value as? [String : AnyObject] {
-                guard let json = data["user"] as? [String : AnyObject] else { return }
+        self.make(request) { data in
+            if let json = data["user"] as? [String : AnyObject] {
                 completion(User(withJSON: json))
             }
         }
     }
 
-    func signUp(onSuccess success: ((String) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+    func signUp(onSuccess success: ((String) -> Void)?, onFail fail: errorHandler?) {
         if Secret.apiToken.value != nil { return }
         if !isValid() {
             fail?(nil)

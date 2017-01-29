@@ -98,7 +98,7 @@ class TagListView: UIScrollView {
 
     fileprivate func layoutTagsFromIndex(_ index: Int, animated: Bool = true) {
         if tags.count == 0 { return }
-        let animation:()->Void = {
+        let animation:() -> Void = {
                 var rowNumber = self.getRowNumber(index)
                 for i in index...self.tags.count - 1 {
                     self.tags[i].frame = self.generateFrameAt(index: i, rowNumber: &rowNumber)

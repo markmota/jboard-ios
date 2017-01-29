@@ -30,7 +30,7 @@ class EditEmployerViewController: UIViewController {
 
     @IBAction func onTapSave(_ sender: Any) {
         employerCard.employer.user_data = true
-        employerCard.employer.create(onSuccess: { () in
+        employerCard.employer.create(onSuccess: { _ in
             self.dismiss(animated: true, completion: nil)
         }, onFail: { error in
             self.errorAlert(model: self.employerCard.employer, error: error)

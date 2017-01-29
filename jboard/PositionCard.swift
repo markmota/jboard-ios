@@ -11,7 +11,7 @@ import Foundation
 class PositionCard: UIView {
     var position = Position() {
         didSet {
-            matchLabel.text = "\(position.match)%"
+            matchLabel.text = "\(position.match * 100)%"
             titleLabel.text = position.title
             descriptionText.text = position.description
             skillsView.reset()

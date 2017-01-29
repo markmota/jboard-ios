@@ -36,7 +36,7 @@ class ResumeFormViewController: UIViewController {
     }
 
     @IBAction func onTapSave(_ sender: Any) {
-        resumeCard.resume.create(update: self.updateMode, onSuccess: { () in
+        resumeCard.resume.create(update: self.updateMode, onSuccess: { _ in
             self.dismiss(animated: true, completion: nil)
         }, onFail: { error in
             self.errorAlert(model: self.resumeCard.resume, error: error)

@@ -19,7 +19,7 @@ extension Validable {
             if rules.isEmpty { return [] }
             let mirror = Mirror(reflecting: self)
             for child in mirror.children {
-                if let key = child.label, let attrRules = rules[key], !attrRules.isEmpty {
+                if let key = child.label?.snakeCase, let attrRules = rules[key], !attrRules.isEmpty {
                     for rule in attrRules {
                         if !rule.isValid(child.value) {
                             errors.append("\(key) : \(rule.error)")

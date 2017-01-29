@@ -37,19 +37,13 @@ class Employer: Model {
         }
     }
 
-    func create(onSuccess success: ((Void) -> Void)?, onFail fail: ((Error?) -> Void)?) {
+    func create(onSuccess success: jsonHandler?, onFail fail: errorHandler?) {
         if Secret.apiToken.value == nil { return }
         if !isValid() {
             fail?(nil)
             return
         }
         let request = APIClient.Router.createEmployer(employer: self)
-        Alamofire.request(request).responseJSON { response in
-            if response.result.isSuccess {
-                success?()
-            } else {
-                fail?(response.result.error)
-            }
-        }
+        self.make(request, onSuccess: success, onFail: fail)
     }
 }
