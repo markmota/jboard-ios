@@ -1,0 +1,11 @@
+included:
+  - jboard
+excluded:
+  - Pods
+variable_name:
+  min_length:
+    error: 4
+  excluded:
+    - id
+    - bio
+    - URL
