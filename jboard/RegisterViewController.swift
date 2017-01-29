@@ -18,12 +18,11 @@ class RegisterViewController: UIViewController {
 
     @IBAction func btnRegister(_ sender: AnyObject) {
         let user = User()
-        user.first_name = txtName?.text ?? ""
-        user.last_name = txtLastName?.text ?? ""
+        user.firstName = txtName?.text ?? ""
+        user.lastName = txtLastName?.text ?? ""
         user.email = txtEmail?.text ?? ""
         user.phone = txtPhone?.text ?? ""
-
-        user.facebook_token = FBSDKAccessToken.current().tokenString
+        user.facebookToken = FBSDKAccessToken.current().tokenString
         user.signUp(onSuccess: { (token) in
             SAMKeychain.setPassword(token, forService: Secret.apiService, account: Secret.account)
             self.performSegue(withIdentifier: "completeRegister", sender: self)

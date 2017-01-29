@@ -11,18 +11,18 @@ import Alamofire
 
 class User: Model {
     public var id: Int = 0
-    public var first_name: String = ""
-    public var last_name: String = ""
+    public var firstName: String = ""
+    public var lastName: String = ""
     public var email: String = ""
     public var phone: String = ""
-    public var image_url: String = ""
-    public var gravatar_url: String = ""
+    public var imageUrl: String = ""
+    public var gravatarUrl: String = ""
     public var employer: Bool = false
     public var candidate: Bool = false
-    public var facebook_uuid: String = ""
-    public var facebook_token: String = ""
-    public lazy var full_name: String = {
-        return "\(self.first_name) \(self.last_name)"
+    public var facebookUuid: String = ""
+    public var facebookToken: String = ""
+    public lazy var fullName: String = {
+        return "\(self.firstName) \(self.lastName)"
     }()
 
     override init() {
@@ -37,11 +37,11 @@ class User: Model {
 
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
-        self.first_name = json["first_name"] as? String ?? ""
-        self.last_name  = json["last_name"] as? String ?? ""
+        self.firstName = json["first_name"] as? String ?? ""
+        self.lastName  = json["last_name"] as? String ?? ""
         self.email = json["email"] as? String ?? ""
-        self.image_url = json["image_url"] as? String ?? ""
-        self.gravatar_url = json["gravatar_url"] as? String ?? ""
+        self.imageUrl = json["image_url"] as? String ?? ""
+        self.gravatarUrl = json["gravatar_url"] as? String ?? ""
         self.employer = json["employer"] as? Bool ?? false
         self.candidate = json["candidate"] as? Bool ?? false
     }
@@ -75,7 +75,7 @@ class User: Model {
 
     func image(completion: @escaping (UIImage?) -> Void) {
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: self.image_url.asURL())
+            let data = try? Data(contentsOf: self.imageUrl.asURL())
             DispatchQueue.main.async {
                 completion(UIImage(data: data!))
             }

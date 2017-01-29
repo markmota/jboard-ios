@@ -38,7 +38,7 @@ class ResumesTableViewController: ThemedTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resumeCell", for: indexPath)
         let resume = self.resumes[indexPath.row]
-        cell.textLabel?.text = resume.user?.full_name
+        cell.textLabel?.text = resume.user?.fullName
         cell.textLabel?.textColor = UIColor.white
         cell.detailTextLabel?.text = resume.bio
         cell.detailTextLabel?.textColor = Theme.Colors.foreground.color

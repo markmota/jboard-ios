@@ -49,8 +49,8 @@ class UserCard: UIView {
 
     var user = User() {
         didSet {
-            firstNameLabel.text = user.first_name
-            lastNameLabel.text = user.last_name
+            firstNameLabel.text = user.firstName
+            lastNameLabel.text = user.lastName
             emailLabel.text = user.email
             phoneLabel.text = user.phone
             user.image { img in
