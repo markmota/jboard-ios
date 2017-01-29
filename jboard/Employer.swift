@@ -11,7 +11,7 @@ import Alamofire
 
 class Employer: Model {
     public var id: Int = 0
-    public var company_name: String = ""
+    public var companyName: String = ""
     public var position: String = ""
     public var userData: Bool = true
     public var email: String = ""
@@ -28,7 +28,7 @@ class Employer: Model {
 
     init(withJSON json: [String : AnyObject]) {
         self.id = json["id"] as? Int ?? 0
-        self.company_name = json["company_name"] as? String ?? ""
+        self.companyName = json["company_name"] as? String ?? ""
         self.position  = json["position"] as? String ?? ""
         self.email = json["email"] as? String ?? ""
         self.phone = json["phone"] as? String ?? ""
@@ -37,7 +37,7 @@ class Employer: Model {
         }
     }
 
-    func create(onSuccess success: jsonHandler?, onFail fail: errorHandler?) {
+    func create(onSuccess success: JsonHandler?, onFail fail: ErrorHandler?) {
         if Secret.apiToken.value == nil { return }
         if !isValid() {
             fail?(nil)

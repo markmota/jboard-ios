@@ -11,5 +11,5 @@ import Foundation
 class History: Model {
     public var id: Int = 0
     public var viewableType: String = ""
-    public var viewableIds: Array<Int> = []
+    public var viewableIds: [Int] = []
 }

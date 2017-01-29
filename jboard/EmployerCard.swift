@@ -11,7 +11,7 @@ import UIKit
 class EmployerCard: UIView {
     var employer = Employer() {
         didSet {
-            self.companyField.text = employer.company_name
+            self.companyField.text = employer.companyName
             self.positionField.text = employer.position
         }
     }
@@ -96,7 +96,7 @@ class EmployerCard: UIView {
     }
 
     func onChangeCompany() {
-        self.employer.company_name = self.companyField.text ?? ""
+        self.employer.companyName = self.companyField.text ?? ""
     }
 
 }

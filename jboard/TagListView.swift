@@ -44,7 +44,10 @@ class TagListView: UIScrollView {
         label.setupGestureActions(forTarget: target, tapAction: tapAction, longPressAction: longPressAction)
         self.tags.append(label)
 
-        label.frame = CGRect(x: label.frame.origin.x, y: label.frame.origin.y, width: label.frame.width + tagCombinedMargin, height: rowHeight - tagVerticalPadding)
+        label.frame = CGRect(x: label.frame.origin.x,
+                             y: label.frame.origin.y,
+                             width: label.frame.width + tagCombinedMargin,
+                             height: rowHeight - tagVerticalPadding)
         if self.tags.count == 0 {
             label.frame = CGRect(x: hashtagsOffset.left,
                                  y: hashtagsOffset.top,
@@ -118,7 +121,10 @@ class TagListView: UIScrollView {
             newPoint = CGPoint(x: self.hashtagsOffset.left, y: CGFloat(rowNumber) * rowHeight + self.hashtagsOffset.top)
         }
         self.isOutofBounds(newPoint, labelFrame: self.tags[index].frame)
-        return CGRect(x: newPoint.x, y: newPoint.y, width: self.tags[index].frame.width, height: self.tags[index].frame.height)
+        return CGRect(x: newPoint.x,
+                      y: newPoint.y,
+                      width: self.tags[index].frame.width,
+                      height: self.tags[index].frame.height)
     }
 
     func getPositionForIndex(_ index: Int, rowNumber: Int) -> CGPoint {
@@ -134,7 +140,8 @@ class TagListView: UIScrollView {
     fileprivate func isOutofBounds(_ newPoint: CGPoint, labelFrame: CGRect) {
         let bottomYLimit = newPoint.y + labelFrame.height
         if bottomYLimit > self.contentSize.height {
-            self.contentSize = CGSize(width: self.contentSize.width, height: self.contentSize.height + rowHeight - tagVerticalPadding)
+            self.contentSize = CGSize(width: self.contentSize.width,
+                                      height: self.contentSize.height + rowHeight - tagVerticalPadding)
         }
     }
 

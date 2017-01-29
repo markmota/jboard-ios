@@ -73,7 +73,8 @@ struct APIClient {
             case .position(let id): return "api/v1/positions/\(id)"
             case .companyPositions(let id): return "api/v1/companies/\(id)/positions"
             case .createPosition(let position):  return "api/v1/companies/\(position.companyId)/positions"
-            case .updatePosition(let position), .deletePosition(let position): return "api/v1/companies/\(position.companyId)/positions/\(position.id)"
+            case .updatePosition(let position), .deletePosition(let position):
+                return "api/v1/companies/\(position.companyId)/positions/\(position.id)"
             case .companies: return "api/v1/companies"
             case .company(let id): return "api/v1/companies/\(id)"
             case .employers: return "api/v1/employers"
@@ -84,7 +85,8 @@ struct APIClient {
             case .resumes: return "/api/v1/resumes"
             case .bookmarks: return "api/v1/bookmarks"
             case .bookmark(let id): return "api/v1/bookmarks/\(id)"
-            case .createPositionBookmark(let position, let status), .updatePositionBookmark(let position, let status): return "api/v1/positions/\(position.id)/mark/\(status)"
+            case .createPositionBookmark(let position, let status), .updatePositionBookmark(let position, let status):
+                return "api/v1/positions/\(position.id)/mark/\(status)"
             }
         }
 

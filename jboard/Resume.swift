@@ -14,7 +14,7 @@ class Resume: Model {
     public var startWorkingAt: Date = Date()
     public var bio: String = ""
     public var user: User?
-    public var skillList: Array<String> = []
+    public var skillList: [String] = []
 
     class func all(completion: (([Resume]) -> Void)?) {
         let request = APIClient.Router.resumes
@@ -54,7 +54,7 @@ class Resume: Model {
         }
     }
 
-    func create(update: Bool, onSuccess success: jsonHandler?, onFail fail: errorHandler?) {
+    func create(update: Bool, onSuccess success: JsonHandler?, onFail fail: ErrorHandler?) {
         if Secret.apiToken.value == nil { return }
         if !isValid() {
             fail?(nil)

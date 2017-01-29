@@ -10,7 +10,7 @@ import Foundation
 protocol JSONAble {}
 
 extension JSONAble {
-    func toDict(exclude: Array<String>) -> [String:Any] {
+    func toDict(exclude: [String]) -> [String:Any] {
         var dict = [String: Any]()
         let mirror = Mirror(reflecting: self)
         for child in mirror.children {

@@ -68,12 +68,12 @@ class PositionsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section != 0 || self.currentUser == nil) { return 0 }
+        if section != 0 || self.currentUser == nil { return 0 }
         return 55
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section != 0 ) { return nil }
+        if section != 0 { return nil }
         let viewHeader = UIView(frame: CGRect(x: 0,
                                               y: 0,
                                               width: self.view.frame.width,

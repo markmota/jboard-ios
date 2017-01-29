@@ -55,7 +55,7 @@ class User: Model {
         }
     }
 
-    func signUp(onSuccess success: ((String) -> Void)?, onFail fail: errorHandler?) {
+    func signUp(onSuccess success: ((String) -> Void)?, onFail fail: ErrorHandler?) {
         if Secret.apiToken.value != nil { return }
         if !isValid() {
             fail?(nil)

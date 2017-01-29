@@ -14,7 +14,7 @@ class Position: Model {
     public var match: Float = 0.0
     public var title: String = ""
     public var description: String = ""
-    public var skillList: Array<String> = []
+    public var skillList: [String] = []
     public var company: Company? {
         didSet {
             self.companyId = self.company?.id ?? 0
@@ -23,7 +23,7 @@ class Position: Model {
     }
     public var companyId: Int = 0
     public var companyName: String = ""
-    public var contacts: Array<Contact> = []
+    public var contacts: [Contact] = []
 
     class func all(filter: String?, completion: (([Position]) -> Void)?) {
         let request = APIClient.Router.positions(filter: filter)
@@ -71,15 +71,15 @@ class Position: Model {
         }
     }
 
-    func bookmarkAsLiked(onSuccess success: ((Bookmark) -> Void)?, onFail fail: errorHandler?) {
+    func bookmarkAsLiked(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ErrorHandler?) {
         self.createBookmark(withStatus: "liked", onSuccess: success, onFail: fail)
     }
 
-    func bookmarkAsHidden(onSuccess success: ((Bookmark) -> Void)?, onFail fail: errorHandler?) {
+    func bookmarkAsHidden(onSuccess success: ((Bookmark) -> Void)?, onFail fail: ErrorHandler?) {
         self.createBookmark(withStatus: "hidden", onSuccess: success, onFail: fail)
     }
 
-    func createBookmark(withStatus status: String, onSuccess success: ((Bookmark) -> Void)?, onFail fail: errorHandler? ) {
+    func createBookmark(withStatus status: String, onSuccess success: ((Bookmark) -> Void)?, onFail fail: ErrorHandler? ) {
         let request = APIClient.Router.createPositionBookmark(position: self, status: status)
         self.make(request, onSuccess: { data in
             if let json = data["bookmark"] as? [String : AnyObject] {

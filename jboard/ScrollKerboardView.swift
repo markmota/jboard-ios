@@ -46,7 +46,7 @@ class ScrollKerboardView: UIScrollView {
         let value = info[UIKeyboardFrameEndUserInfoKey] as! NSValue
         let keyboardFrame = value.cgRectValue
         var size = self.contentSize
-        if (increase) {
+        if increase {
             size.height += keyboardFrame.size.height
         } else {
             size.height -= keyboardFrame.size.height
