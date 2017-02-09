@@ -9,6 +9,7 @@
 import UIKit
 
 class PageCollectionView: UIView {
+    var currentPage = 0
     let cellId = "pageCell"
     var buttons: [PageBarButtonItem] = [] {
         didSet{
@@ -100,6 +101,10 @@ class PageCollectionView: UIView {
         scrollTo(page: sender.page)
     }
     
+    func scrollToCurrentPage(){
+        scrollTo(page: currentPage)
+    }
+    
     func scrollTo(page: Int) {
         let indexPath = IndexPath(item: page, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -107,7 +112,8 @@ class PageCollectionView: UIView {
     }
     
     func updateCurrent(page: Int) {
-        pageControl.currentPage = page
+        currentPage = page
+        pageControl.currentPage = currentPage
         for button in buttons {
             button.isEnabled = button.page != page
         }

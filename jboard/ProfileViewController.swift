@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
             PageBarButtonItem(image: #imageLiteral(resourceName: "profile-search"), page: 2)
         ]
         pages.cards = [self.userCard, self.resumeCard, EmptyView()]
+        pages.currentPage = 1
         return pages
     }()
     
@@ -118,7 +119,11 @@ class ProfileViewController: UIViewController {
         if let user = self.currentUser, user.hasCompletedProfile() {
             loadResume()
         }
-        pagesCollection.scrollTo(page: 1)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        pagesCollection.scrollToCurrentPage()
     }
 
     func loadResume() {

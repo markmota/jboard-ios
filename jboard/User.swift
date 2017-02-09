@@ -75,9 +75,9 @@ class User: Model {
 
     func image(completion: @escaping (UIImage?) -> Void) {
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: self.imageUrl.asURL())
+            guard let data = try? Data(contentsOf: self.imageUrl.asURL()) else { return }
             DispatchQueue.main.async {
-                completion(UIImage(data: data!))
+                completion(UIImage(data: data))
             }
         }
     }
