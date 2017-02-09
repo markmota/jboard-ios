@@ -9,53 +9,70 @@
 import UIKit
 import SnapKit
 
-@IBDesignable
 class UserCard: UIView {
-    let profileImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile-image-white")
-        imageView.backgroundColor = Theme.Colors.background.color
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-
+ 
     let firstNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Nombre"
+        label.font = Theme.Fonts.boldTitle.font
+        return label
+    }()
+    
+    let firstName: UILabel = {
         let label = UILabel()
         label.text = "Juan"
         label.font = Theme.Fonts.title.font
         return label
     }()
-
+    
     let lastNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Apellidos"
+        label.font = Theme.Fonts.boldTitle.font
+        return label
+    }()
+    
+    let lastName: UILabel = {
         let label = UILabel()
         label.text = "Perez Perez"
         label.font = Theme.Fonts.title.font
         return label
     }()
-
+    
     let emailLabel: UILabel = {
         let label = UILabel()
+        label.text = "Correo Electronico"
+        label.font = Theme.Fonts.boldTitle.font
+        return label
+    }()
+
+    let email: UILabel = {
+        let label = UILabel()
         label.text = "email@example.com"
-        label.font = Theme.Fonts.text.font
+        label.font = Theme.Fonts.title.font
         return label
     }()
 
     let phoneLabel: UILabel = {
         let label = UILabel()
+        label.text = "Telefono"
+        label.font = Theme.Fonts.boldTitle.font
+        return label
+    }()
+
+    let phone: UILabel = {
+        let label = UILabel()
         label.text = "555-555-555"
-        label.font = Theme.Fonts.lightText.font
+        label.font = Theme.Fonts.title.font
         return label
     }()
 
     var user = User() {
         didSet {
-            firstNameLabel.text = user.firstName
-            lastNameLabel.text = user.lastName
-            emailLabel.text = user.email
-            phoneLabel.text = user.phone
-            user.image { img in
-                self.profileImage.image = img
-            }
+            firstName.text = user.firstName
+            lastName.text = user.lastName
+            email.text = user.email
+            phone.text = user.phone
         }
     }
 
@@ -71,27 +88,53 @@ class UserCard: UIView {
 
     func setupSubviews() {
         self.backgroundColor = Theme.Colors.foreground.color
-        addSubview(profileImage)
-        profileImage.snp.makeConstraints { make in
-            make.width.equalTo(profileImage.snp.height)
-            let insets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-            make.top.equalTo(self.snp.top).inset(insets)
-            make.left.equalTo(self.snp.left).inset(insets)
-            make.bottom.equalTo(self.snp.bottom).inset(insets)
+        addSubview(firstNameLabel)
+        firstNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(10)
+            make.left.equalTo(self.snp.left).offset(10)
+            make.right.equalTo(self.snp.right).inset(-10)
         }
-        profileImage.layoutIfNeeded()
-        profileImage.layer.cornerRadius = profileImage.frame.height / 25.0
-        profileImage.clipsToBounds = true
-
-        let labelStack = UIStackView(arrangedSubviews: [firstNameLabel, lastNameLabel, emailLabel, phoneLabel])
-        labelStack.axis = .vertical
-        labelStack.distribution = .fillProportionally
-        labelStack.alignment = .leading
-
-        addSubview(labelStack)
-        labelStack.snp.makeConstraints { make in
-            make.leading.equalTo(profileImage.snp.trailing).offset(10)
-            make.centerY.equalTo(self.snp.centerY)
+        addSubview(firstName)
+        firstName.snp.makeConstraints { make in
+            make.top.equalTo(firstNameLabel.snp.bottom).offset(5)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        addSubview(lastNameLabel)
+        lastNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(firstName.snp.bottom).offset(10)
+            make.left.equalTo(self.snp.left).offset(10)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        addSubview(lastName)
+        lastName.snp.makeConstraints { make in
+            make.top.equalTo(lastNameLabel.snp.bottom).offset(5)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        addSubview(emailLabel)
+        emailLabel.snp.makeConstraints { make in
+            make.top.equalTo(lastName.snp.bottom).offset(10)
+            make.left.equalTo(self.snp.left).offset(10)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        addSubview(email)
+        email.snp.makeConstraints { make in
+            make.top.equalTo(emailLabel.snp.bottom).offset(5)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        addSubview(phoneLabel)
+        phoneLabel.snp.makeConstraints { make in
+            make.top.equalTo(email.snp.bottom).offset(10)
+            make.left.equalTo(self.snp.left).offset(10)
+            make.right.equalTo(self.snp.right).offset(-10)
+        }
+        addSubview(phone)
+        phone.snp.makeConstraints { make in
+            make.top.equalTo(phoneLabel.snp.bottom).offset(5)
+            make.left.equalTo(self.snp.left).offset(20)
+            make.right.equalTo(self.snp.right).offset(-10)
         }
     }
 

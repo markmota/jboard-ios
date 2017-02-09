@@ -285,25 +285,10 @@
                     <view key="view" contentMode="scaleToFill" id="aOe-ad-3s9" customClass="view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZL6-Rz-rtu" customClass="UserCard" customModule="jboard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="145"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ZL6-Rz-rtu" secondAttribute="height" multiplier="375:157" constant="28.662420382165578" id="1de-ZP-Hu4"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ZL6-Rz-rtu" firstAttribute="top" secondItem="haz-Oc-7dk" secondAttribute="bottom" id="VAg-CM-AS9"/>
-                            <constraint firstItem="ZL6-Rz-rtu" firstAttribute="leading" secondItem="aOe-ad-3s9" secondAttribute="leading" id="bpu-in-u22"/>
-                            <constraint firstAttribute="trailing" secondItem="ZL6-Rz-rtu" secondAttribute="trailing" id="oum-He-CiO"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dzv-ik-e7m"/>
                     <connections>
-                        <outlet property="userCard" destination="ZL6-Rz-rtu" id="ZEA-ZH-3gq"/>
                         <segue destination="YvI-cJ-Hpg" kind="presentation" identifier="showResumeForm" id="EHN-ue-6pV"/>
                         <segue destination="1yZ-PN-862" kind="presentation" identifier="showEditEmployer" id="5WY-kd-Cgh"/>
                     </connections>

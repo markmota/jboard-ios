@@ -45,6 +45,7 @@
 		30AD6F521DEB71C200DF0903 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD6F511DEB71C200DF0903 /* TagListView.swift */; };
 		30AD6F561DEB78B400DF0903 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD6F551DEB78B400DF0903 /* TagLabel.swift */; };
 		30B44F031E2F0799006DC21D /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B44F021E2F0799006DC21D /* CreditsViewController.swift */; };
+		30CFD7BC1E4C4AAA008C82E7 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CFD7BB1E4C4AAA008C82E7 /* EmptyView.swift */; };
 		30D2CC2C1DB1EE5E003322CD /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */; };
 		30E4F01F1E332F060018A5AE /* ResumesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4F01E1E332F060018A5AE /* ResumesTableViewController.swift */; };
 		30EB76671E2A9CE30051C511 /* PositionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EB76661E2A9CE30051C511 /* PositionCard.swift */; };
@@ -107,6 +108,7 @@
 		30AD6F511DEB71C200DF0903 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		30AD6F551DEB78B400DF0903 /* TagLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
 		30B44F021E2F0799006DC21D /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		30CFD7BB1E4C4AAA008C82E7 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		30D2CBA61DB18FE6003322CD /* jboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		30D2CC2B1DB1EE5E003322CD /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
 		30D2CC2D1DB20459003322CD /* jboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jboard.entitlements; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				30089FE01E3AF09400156378 /* EmployerCard.swift */,
 				3028A4571E4A5E61007BE68C /* PageCollectionView.swift */,
 				3028A4591E4A6132007BE68C /* PageCell.swift */,
+				30CFD7BB1E4C4AAA008C82E7 /* EmptyView.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3075BEC11DE94E880002E725 /* credits.md in Sources */,
+				30CFD7BC1E4C4AAA008C82E7 /* EmptyView.swift in Sources */,
 				30089FDF1E3AF07100156378 /* EditEmployerViewController.swift in Sources */,
 				63E6A4CB1DE1461F007112FF /* PositionDetailViewController.swift in Sources */,
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,

@@ -11,7 +11,7 @@ import SnapKit
 import SCLAlertView
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var userCard: UserCard!
+    let userCard = UserCard()
     let resumeCard = ResumeCard(isEditable: false)
     lazy var pagesCollection : PageCollectionView = {
         let pages = PageCollectionView()
@@ -20,29 +20,51 @@ class ProfileViewController: UIViewController {
             PageBarButtonItem(image: #imageLiteral(resourceName: "profile"), page: 1),
             PageBarButtonItem(image: #imageLiteral(resourceName: "profile-search"), page: 2)
         ]
-        pages.cards = [UserCard(), self.resumeCard, UIView()]
+        pages.cards = [self.userCard, self.resumeCard, EmptyView()]
         return pages
     }()
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
+        imageView.layer.borderWidth = 4.0
+        imageView.layer.borderColor = Theme.Colors.background.color.cgColor
 
-    let completeProfileView: UIView = {
-        let button = UIButton(type: .system)
-        button.setTitle("Agrega tu curriculum aquí", for: .normal)
-        button.tintColor = Theme.Colors.background.color
-        button.addTarget(self, action: #selector(tapEditResume), for: .touchUpInside)
+        imageView.backgroundColor = Theme.Colors.background.color
+        imageView.image = #imageLiteral(resourceName: "profile-image-white")
 
+        return imageView
+    }()
+    
+    lazy var topProfileView: UIView = {
         let view = UIView()
-        view.addSubview(button)
-        button.snp.makeConstraints { make in
-            make.centerY.equalTo(view.snp.centerY).offset(-40)
-            make.centerX.equalTo(view.snp.centerX)
-            make.width.equalTo(view.snp.width)
+        view.backgroundColor = Theme.Colors.foreground.color
+        view.addSubview(self.profileImageView)
+        self.profileImageView.snp.makeConstraints { make in
+            make.center.equalTo(view.snp.center)
+            make.width.height.equalTo(96)
         }
+        self.profileImageView.layoutIfNeeded()
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height / 2.0
+        self.profileImageView.clipsToBounds = true
+
+        return view
+    }()
+
+    let completeProfileView: EmptyView = {
+        let view = EmptyView()
+        view.title = "Agrega tu curriculum aquí"
+        view.button.addTarget(self, action: #selector(tapEditResume), for: .touchUpInside)
         return view
     }()
 
     var currentUser: User? {
         didSet {
             self.userCard.user = currentUser!
+            self.userCard.user.image { img in
+                self.profileImageView.image = img
+            }
         }
     }
     var resume: Resume? {
@@ -55,9 +77,17 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Perfil"
         self.currentUser = (UIApplication.shared.delegate as! AppDelegate).currentUser
+        self.view.addSubview(topProfileView)
+        topProfileView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.snp.top)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.height.equalTo(self.view.snp.height).dividedBy(4)
+        }
+        
         self.view.addSubview(pagesCollection)
         pagesCollection.snp.makeConstraints { make in
-            make.top.equalTo(self.userCard.snp.bottom)
+            make.top.equalTo(self.topProfileView.snp.bottom)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
             make.bottom.equalTo(self.view.snp.bottom)
@@ -88,7 +118,7 @@ class ProfileViewController: UIViewController {
         if let user = self.currentUser, user.hasCompletedProfile() {
             loadResume()
         }
-
+        pagesCollection.scrollTo(page: 1)
     }
 
     func loadResume() {
