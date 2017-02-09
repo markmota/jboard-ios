@@ -18,6 +18,8 @@
 		301303711E20A5AE00CD382F /* ResumeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301303701E20A5AE00CD382F /* ResumeFormViewController.swift */; };
 		301666251E2EEBA500C0D2FA /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301666241E2EEBA500C0D2FA /* Errors.swift */; };
 		301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301AADD91DE02A9500D05251 /* RoundButton.swift */; };
+		3028A4581E4A5E61007BE68C /* PageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028A4571E4A5E61007BE68C /* PageCollectionView.swift */; };
+		3028A45A1E4A6132007BE68C /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3028A4591E4A6132007BE68C /* PageCell.swift */; };
 		304648791E1AF27900CCEF1D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304648781E1AF27900CCEF1D /* MainTabBarController.swift */; };
 		3046487B1E1B021C00CCEF1D /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */; };
 		3046487D1E1B03E400CCEF1D /* ThemedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */; };
@@ -79,6 +81,8 @@
 		301303701E20A5AE00CD382F /* ResumeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeFormViewController.swift; sourceTree = "<group>"; };
 		301666241E2EEBA500C0D2FA /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		301AADD91DE02A9500D05251 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		3028A4571E4A5E61007BE68C /* PageCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionView.swift; sourceTree = "<group>"; };
+		3028A4591E4A6132007BE68C /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		304648781E1AF27900CCEF1D /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3046487A1E1B021C00CCEF1D /* ThemedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewController.swift; sourceTree = "<group>"; };
 		3046487C1E1B03E400CCEF1D /* ThemedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTableViewCell.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				301303681E1F28F300CD382F /* ResumeCard.swift */,
 				30EB76661E2A9CE30051C511 /* PositionCard.swift */,
 				30089FE01E3AF09400156378 /* EmployerCard.swift */,
+				3028A4571E4A5E61007BE68C /* PageCollectionView.swift */,
+				3028A4591E4A6132007BE68C /* PageCell.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -446,12 +452,14 @@
 				301AADDA1DE02A9500D05251 /* RoundButton.swift in Sources */,
 				306D93B91E3D50240076AF46 /* String+Support.swift in Sources */,
 				301303671E1F1F8D00CD382F /* ScrollKerboardView.swift in Sources */,
+				3028A45A1E4A6132007BE68C /* PageCell.swift in Sources */,
 				30A20D441DCE6DD100A748EA /* Contact.swift in Sources */,
 				30A20D461DCE6F1800A748EA /* History.swift in Sources */,
 				309C9BDF1DE410D400FFF215 /* UIModelAlert.swift in Sources */,
 				30A20D351DCE400D00A748EA /* APIClient.swift in Sources */,
 				301303631E1DD91300CD382F /* UserCard.swift in Sources */,
 				305704851DE3750C00EEF57C /* Validable.swift in Sources */,
+				3028A4581E4A5E61007BE68C /* PageCollectionView.swift in Sources */,
 				301666251E2EEBA500C0D2FA /* Errors.swift in Sources */,
 				30A20D301DCE3ED000A748EA /* Secret.swift in Sources */,
 				30A20D3E1DCE6C3D00A748EA /* Company.swift in Sources */,

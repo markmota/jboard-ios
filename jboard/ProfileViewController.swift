@@ -13,6 +13,16 @@ import SCLAlertView
 class ProfileViewController: UIViewController {
     @IBOutlet weak var userCard: UserCard!
     let resumeCard = ResumeCard(isEditable: false)
+    lazy var pagesCollection : PageCollectionView = {
+        let pages = PageCollectionView()
+        pages.buttons = [
+            PageBarButtonItem(image: #imageLiteral(resourceName: "edit-profile"), page: 0),
+            PageBarButtonItem(image: #imageLiteral(resourceName: "profile"), page: 1),
+            PageBarButtonItem(image: #imageLiteral(resourceName: "profile-search"), page: 2)
+        ]
+        pages.cards = [UserCard(), self.resumeCard, UIView()]
+        return pages
+    }()
 
     let completeProfileView: UIView = {
         let button = UIButton(type: .system)
@@ -45,24 +55,31 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Perfil"
         self.currentUser = (UIApplication.shared.delegate as! AppDelegate).currentUser
-        if let user = self.currentUser, user.hasCompletedProfile() {
-            self.view.addSubview(resumeCard)
-            resumeCard.snp.makeConstraints { make in
-                make.top.equalTo(self.userCard.snp.bottom)
-                make.left.equalTo(self.view.snp.left)
-                make.right.equalTo(self.view.snp.right)
-                make.bottom.equalTo(self.view.snp.bottom)
-            }
-        } else {
-            self.view.addSubview(completeProfileView)
-            completeProfileView.snp.makeConstraints { make in
-                make.top.equalTo(self.userCard.snp.bottom)
-                make.left.equalTo(self.view.snp.left)
-                make.right.equalTo(self.view.snp.right)
-                make.bottom.equalTo(self.view.snp.bottom)
-            }
+        self.view.addSubview(pagesCollection)
+        pagesCollection.snp.makeConstraints { make in
+            make.top.equalTo(self.userCard.snp.bottom)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.bottom.equalTo(self.view.snp.bottom)
         }
-        resumeCard.isHidden = true
+//        if let user = self.currentUser, user.hasCompletedProfile() {
+//            self.view.addSubview(resumeCard)
+//            resumeCard.snp.makeConstraints { make in
+//                make.top.equalTo(self.userCard.snp.bottom)
+//                make.left.equalTo(self.view.snp.left)
+//                make.right.equalTo(self.view.snp.right)
+//                make.bottom.equalTo(self.view.snp.bottom)
+//            }
+//        } else {
+//            self.view.addSubview(completeProfileView)
+//            completeProfileView.snp.makeConstraints { make in
+//                make.top.equalTo(self.userCard.snp.bottom)
+//                make.left.equalTo(self.view.snp.left)
+//                make.right.equalTo(self.view.snp.right)
+//                make.bottom.equalTo(self.view.snp.bottom)
+//            }
+//        }
+//        resumeCard.isHidden = true
         setupNavBar()
     }
 
